@@ -27,3 +27,12 @@ path = "src/bin/3_common_programming_concepts/3_4_comments.rs"
 [[bin]]
 name = "3_5"
 path = "src/bin/3_common_programming_concepts/3_5_control_flow.rs"
+[[bin]]
+name = "4_1"
+path = "src/bin/4_understanding_ownership/4_1_what_is_ownership.rs"
+[[bin]]
+name = "4_2"
+path = "src/bin/4_understanding_ownership/4_2_references_and_borrowing.rs"
+[[bin]]
+name = "4_3"
+path = "src/bin/4_understanding_ownership/4_3_the_slice_type.rs"

@@ -1,4 +1,5 @@
 /// 3.1 变量和可变性
+/// cargo r --bin 3_1
 fn main() {
     // 变量和可变性
     let mut x = 5;

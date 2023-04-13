@@ -1,4 +1,5 @@
 /// 3.3 函数
+/// cargo r --bin 3_3
 fn main() {
     // 函数  snake_case
     println!("Hello, world!");

@@ -1,4 +1,5 @@
 /// 3.5 控制流
+/// cargo r --bin 3_5
 fn main() {
     // if表达式
     let number = 3;
