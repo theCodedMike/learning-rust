@@ -1,0 +1,29 @@
+[package]
+name = "the-rust-programming-language"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+rand = "0.8.5"
+ansi_term = "0.12.1"
+
+[[bin]]
+name = "2"
+path = "src/bin/2_guessing_game/project_guessing_game.rs"
+[[bin]]
+name = "3_1"
+path = "src/bin/3_common_programming_concepts/3_1_variables_and_mutability.rs"
+[[bin]]
+name = "3_2"
+path = "src/bin/3_common_programming_concepts/3_2_data_types.rs"
+[[bin]]
+name = "3_3"
+path = "src/bin/3_common_programming_concepts/3_3_functions.rs"
+[[bin]]
+name = "3_4"
+path = "src/bin/3_common_programming_concepts/3_4_comments.rs"
+[[bin]]
+name = "3_5"
+path = "src/bin/3_common_programming_concepts/3_5_control_flow.rs"
