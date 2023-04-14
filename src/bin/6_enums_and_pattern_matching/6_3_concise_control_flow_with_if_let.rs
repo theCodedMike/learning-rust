@@ -3,7 +3,7 @@
 /// cargo r --bin 6_3
 fn main() {
     /*
-    ##if let 简单控制流
+    ## if let 简单控制流
 
      */
     let some_u8_value = Some(0u8);

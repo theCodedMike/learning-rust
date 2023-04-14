@@ -2,15 +2,15 @@
 /// cargo r --bin 6_2
 fn main() {
     /*
-    ##match 控制流运算符
-    ###绑定值的模式
+    ## match 控制流运算符
+    ### 绑定值的模式
 
-    ##匹配 Option<T>
-    ###匹配 Some(T)
+    ## 匹配 Option<T>
+    ### 匹配 Some(T)
 
-    ##匹配是穷尽的（exhaustive）
+    ## 匹配是穷尽的（exhaustive）
 
-    ##通配模式和 _ 占位符
+    ## 通配模式和 _ 占位符
      */
     println!("{}", value_in_cents(Coin::Dime)); // 10
 

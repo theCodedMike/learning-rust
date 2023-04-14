@@ -2,8 +2,8 @@
 /// cargo r --bin 6_1
 fn main() {
     /*
-    ##定义枚举
-    ###枚举值
+    ## 定义枚举
+    ### 枚举值
      */
     let four = IpAddrKind::V4;
     let six = IpAddrKind::V6;
