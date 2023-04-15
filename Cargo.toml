@@ -10,6 +10,9 @@ rand = "0.8.5"
 ansi_term = "0.12.1"
 
 [[bin]]
+name = "root"
+path = "src/main.rs"
+[[bin]]
 name = "2"
 path = "src/bin/2_guessing_game/project_guessing_game.rs"
 [[bin]]
@@ -63,3 +66,12 @@ path = "src/bin/8_common_collections/8_2_storing_utf8_encoded_text_with_strings.
 [[bin]]
 name = "8_3"
 path = "src/bin/8_common_collections/8_3_storing_keys_with_associated_values_in_hash_maps.rs"
+[[bin]]
+name = "9_1"
+path = "src/bin/9_error_handling/9_1_unrecoverable_errors_with_panic.rs"
+[[bin]]
+name = "9_2"
+path = "src/bin/9_error_handling/9_2_recoverable_errors_with_result.rs"
+[[bin]]
+name = "9_3"
+path = "src/bin/9_error_handling/9_3_to_panic_or_not_to_panic.rs"
