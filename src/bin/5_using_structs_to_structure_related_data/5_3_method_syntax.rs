@@ -2,8 +2,8 @@
 /// cargo r --bin 5_3
 fn main() {
     /*
-    ##方法语法
-    ###定义方法
+    ## 方法语法
+    ### 定义方法
      */
     //定义方法
     let rect1 = Rectangle {

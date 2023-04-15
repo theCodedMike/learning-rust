@@ -54,3 +54,12 @@ path = "src/bin/6_enums_and_pattern_matching/6_2_the_match_control_flow_construc
 [[bin]]
 name = "6_3"
 path = "src/bin/6_enums_and_pattern_matching/6_3_concise_control_flow_with_if_let.rs"
+[[bin]]
+name = "8_1"
+path = "src/bin/8_common_collections/8_1_storing_lists_of_values_with_vectors.rs"
+[[bin]]
+name = "8_2"
+path = "src/bin/8_common_collections/8_2_storing_utf8_encoded_text_with_strings.rs"
+[[bin]]
+name = "8_3"
+path = "src/bin/8_common_collections/8_3_storing_keys_with_associated_values_in_hash_maps.rs"

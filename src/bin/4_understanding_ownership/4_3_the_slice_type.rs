@@ -5,13 +5,13 @@ use std::ops::Index;
 fn main() {
     /*
     // 切片 Slice 类型
-    ##字符串 slice
+    ## 字符串 slice
     引用集合中一段连续的元素序列，而不用引用整个集合
     slice 的数据结构存储了 slice 的开始位置和长度
-    ###字符串字面量就是 slice
-    ###字符串 slice 作为参数
+    ### 字符串字面量就是 slice
+    ### 字符串 slice 作为参数
 
-    ##其他类型的 slice
+    ## 其他类型的 slice
 
      */
     let mut s = String::from("hello world");
