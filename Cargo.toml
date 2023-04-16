@@ -75,3 +75,12 @@ path = "src/bin/9_error_handling/9_2_recoverable_errors_with_result.rs"
 [[bin]]
 name = "9_3"
 path = "src/bin/9_error_handling/9_3_to_panic_or_not_to_panic.rs"
+[[bin]]
+name = "10_1"
+path = "src/bin/10_generic_types_traits_and_lifetimes/10_1_generic_data_types.rs"
+[[bin]]
+name = "10_2"
+path = "src/bin/10_generic_types_traits_and_lifetimes/10_2_traits_defining_shared_behavior.rs"
+[[bin]]
+name = "10_3"
+path = "src/bin/10_generic_types_traits_and_lifetimes/10_3_validating_references_with_lifetimes.rs"
