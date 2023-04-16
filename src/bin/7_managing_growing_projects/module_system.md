@@ -6,7 +6,36 @@
 
 ### 7.1 包和Crate
 1、包（package）是提供一系列功能的一个或者多个 crate。
+```
+标准的Package目录结构:
 
+    ├── Cargo.lock                 //Cargo.toml和Cargo.lock保存在package根目录下
+    ├── Cargo.toml
+    ├── src/                       //源代码放在src目录下
+    │   ├── lib.rs                 //默认的lib包根是src/lib.rs
+    │   ├── main.rs                //默认的二进制包根是src/main.rs
+    │   └── bin/                   //其它二进制包根放在src/bin/目录下
+    │       ├── named-executable.rs
+    │       ├── another-executable.rs
+    │       └── multi-file-executable/
+    │           ├── main.rs
+    │           └── some_module.rs
+    ├── benches/                    //基准测试 benchmark 放在 benches 目录下
+    │   ├── large-input.rs
+    │   └── multi-file-bench/
+    │       ├── main.rs
+    │       └── bench_module.rs
+    ├── examples/                   //示例代码放在 examples 目录下
+    │   ├── simple.rs
+    │   └── multi-file-example/
+    │       ├── main.rs
+    │       └── ex_module.rs
+    └── tests/                      //集成测试代码放在 tests 目录下
+        ├── some-integration-tests.rs
+        └── multi-file-test/
+            ├── main.rs
+            └── test_module.rs
+```
 2、一个包会包含有一个 Cargo.toml 文件，阐述如何去构建这些 crate
 
 3、一个包中至多只能包含一个库 crate（library crate）,可以包含任意多个二进制 crate（binary crate）
