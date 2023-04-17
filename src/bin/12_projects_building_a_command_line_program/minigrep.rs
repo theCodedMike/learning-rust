@@ -59,10 +59,8 @@ use std::{env, process};
 /// 可以将println!打印的内容输出到output.txt文件中
 /// ```
 fn main() {
-    let args = env::args().collect::<Vec<String>>();
-    println!("args: {:?}", args);
     // 这里用到了一个闭包（closure）
-    let config = lib_crate::Config::new(&args).unwrap_or_else(|err| {
+    let config = lib_crate::Config::new(env::args()).unwrap_or_else(|err| {
         println!("Problem parsing arguments: {}", err);
         // 非零的退出状态是一个惯例，用来告诉调用程序的进程：该程序以错误状态退出
         process::exit(1)

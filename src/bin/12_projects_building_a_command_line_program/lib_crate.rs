@@ -1,4 +1,5 @@
 use std::{env, fs};
+use std::env::Args;
 use std::error::Error;
 use std::path::Path;
 
@@ -11,15 +12,21 @@ pub struct Config {
 }
 
 impl Config {
-    pub(crate) fn new(args: &[String]) -> Result<Self, &'static str> {
-        if args.len() < 3 {
-            return Err("not enough arguments");
-        }
-        let query = args[1].clone();
-        let filename = args[2].clone();
-        if !Path::new(&filename).is_file() {
-            return Err("not available file path");
-        }
+    pub(crate) fn new(mut args: Args) -> Result<Self, &'static str> {
+        args.next(); // 略过第1个参数，因为第1个参数是二进制可执行文件的路径
+        let query = match args.next() {
+            None => return Err("Didn't get a query string"),
+            Some(query) => query
+        };
+        let filename = match args.next() {
+            None => return Err("Didn't get a file name"),
+            Some(file_name) => {
+                if !Path::new(&file_name).try_exists().unwrap_or_default() {
+                    return Err("not available file path");
+                }
+                file_name
+            }
+        };
         // 默认是大小写敏感的
         let case_sensitive = env::var(ENV_VAR_CASE).is_err();
         Ok(
@@ -35,15 +42,20 @@ pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
     } else {
         search_case_insensitive(&config.query, &contents)
     };
-
+    /*
     for line in results {
         println!("{}", line);
     }
+    */
+    results.iter()
+        .for_each(|line| println!("{}", line));
 
     Ok(())
 }
 
 fn search<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
+    // for循环版本
+    /*
     let mut results = Vec::new();
     // 使用 lines 方法遍历每一行
     for line in contents.lines() {
@@ -54,11 +66,18 @@ fn search<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
         }
     }
     results
+    */
+    // 迭代器版本
+    contents.lines()
+        .filter(|line| line.contains(query))
+        .collect()
 }
 
 fn search_case_insensitive<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
-    let mut results = Vec::new();
     let query = &query.to_lowercase();
+    // for循环版本
+    /*
+    let mut results = Vec::new();
     // 使用 lines 方法遍历每一行
     for line in contents.lines() {
         // 用查询字符串搜索每一行
@@ -68,6 +87,11 @@ fn search_case_insensitive<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
         }
     }
     results
+    */
+    // 迭代器版本
+    contents.lines()
+        .filter(|line| line.to_lowercase().contains(query))
+        .collect()
 }
 
 #[cfg(test)]
