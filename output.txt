@@ -1,0 +1,3 @@
+args: ["target\\debug\\12.exe", "body", "poem.txt"]
+Are you nobody, too?
+How dreary to be somebody!
