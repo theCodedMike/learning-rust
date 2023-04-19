@@ -8,6 +8,8 @@ edition = "2021"
 [dependencies]
 rand = "0.8.5"
 ansi_term = "0.12.1"
+serde = { version = "1.0.157", features = ["derive"] }
+serde_json = "1.0.94"
 
 [[bin]]
 name = "root"
@@ -99,6 +101,24 @@ path = "src/bin/13_functional_lang_features_iterators_and_closures/13_3_improvin
 [[bin]]
 name = "13_4"
 path = "src/bin/13_functional_lang_features_iterators_and_closures/13_4_comparing_performance_loops_vs_iterators.rs"
+[[bin]]
+name = "15_1"
+path = "src/bin/15_smart_pointers/15_1_box.rs"
+[[bin]]
+name = "15_2"
+path = "src/bin/15_smart_pointers/15_2_deref_trait.rs"
+[[bin]]
+name = "15_3"
+path = "src/bin/15_smart_pointers/15_3_drop_trait.rs"
+[[bin]]
+name = "15_4"
+path = "src/bin/15_smart_pointers/15_4_rc.rs"
+[[bin]]
+name = "15_5"
+path = "src/bin/15_smart_pointers/15_5_refcell.rs"
+[[bin]]
+name = "15_6"
+path = "src/bin/15_smart_pointers/15_6_reference_cycles.rs"
 
 
 
