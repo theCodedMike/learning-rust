@@ -119,6 +119,17 @@ path = "src/bin/15_smart_pointers/15_5_refcell.rs"
 [[bin]]
 name = "15_6"
 path = "src/bin/15_smart_pointers/15_6_reference_cycles.rs"
-
+[[bin]]
+name = "16_1"
+path = "src/bin/16_fearless_concurrency/16_1_using_threads.rs"
+[[bin]]
+name = "16_2"
+path = "src/bin/16_fearless_concurrency/16_2_message_between_threads.rs"
+[[bin]]
+name = "16_3"
+path = "src/bin/16_fearless_concurrency/16_3_shared_state_concurrency.rs"
+[[bin]]
+name = "16_4"
+path = "src/bin/16_fearless_concurrency/16_4_sync_and_send_traits.rs"
 
 

@@ -59,7 +59,6 @@ fn main() {
 
     let cell = Cell::new(4);
     let cell_str = Cell::new(String::from("hello"));
-    cell.get_mut()
     // cell没有提供borrow相关的方法
     println!("{:?}", cell); // Cell { value: 4 }
     cell_str.set("world".to_string());
