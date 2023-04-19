@@ -131,5 +131,14 @@ path = "src/bin/16_fearless_concurrency/16_3_shared_state_concurrency.rs"
 [[bin]]
 name = "16_4"
 path = "src/bin/16_fearless_concurrency/16_4_sync_and_send_traits.rs"
+[[bin]]
+name = "17_1"
+path = "src/bin/17_oop_features_of_rust/17_1_characteristics_of_Ool.rs"
+[[bin]]
+name = "17_2"
+path = "src/bin/17_oop_features_of_rust/17_2_trait_object.rs"
+[[bin]]
+name = "17_3"
+path = "src/bin/17_oop_features_of_rust/17_3_impl_an_oo_design_pattern.rs"
 
 
