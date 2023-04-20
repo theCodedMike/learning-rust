@@ -149,5 +149,20 @@ path = "src/bin/18_patterns_and_matching/18_2_refutability_whether_a_pattern_mig
 [[bin]]
 name = "18_3"
 path = "src/bin/18_patterns_and_matching/18_3_pattern_syntax.rs"
+[[bin]]
+name = "19_1"
+path = "src/bin/19_advanced_features/19_1_unsafe_rust.rs"
+[[bin]]
+name = "19_2"
+path = "src/bin/19_advanced_features/19_2_advanced_traits.rs"
+[[bin]]
+name = "19_3"
+path = "src/bin/19_advanced_features/19_3_advanced_types.rs"
+[[bin]]
+name = "19_4"
+path = "src/bin/19_advanced_features/19_4_advanced_functions_and_closures.rs"
+[[bin]]
+name = "19_5"
+path = "src/bin/19_advanced_features/19_5_macros.rs"
 
 
