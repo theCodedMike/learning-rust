@@ -140,5 +140,14 @@ path = "src/bin/17_oop_features_of_rust/17_2_trait_object.rs"
 [[bin]]
 name = "17_3"
 path = "src/bin/17_oop_features_of_rust/17_3_impl_an_oo_design_pattern.rs"
+[[bin]]
+name = "18_1"
+path = "src/bin/18_patterns_and_matching/18_1_all_the_places_patterns_can_be_used.rs"
+[[bin]]
+name = "18_2"
+path = "src/bin/18_patterns_and_matching/18_2_refutability_whether_a_pattern_might_fail_to_match.rs"
+[[bin]]
+name = "18_3"
+path = "src/bin/18_patterns_and_matching/18_3_pattern_syntax.rs"
 
 
