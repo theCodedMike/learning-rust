@@ -1,8 +1,9 @@
 use std::collections::HashMap;
 
 fn main() {
-    test_vec_cap_allocate();
-    //test_hashmap_cap_allocate();
+    println!("hello world");
+    //test_vec_cap_allocate();
+    test_hashmap_cap_allocate();
 }
 /// Vec的动态内存扩展规律
 ///
@@ -16,10 +17,10 @@ fn test_vec_cap_allocate() {
 }
 /// Hashmap的动态内存扩展规律
 ///
-/// 3 -> 7 -> 14 -> 28 -> 56 ...
+/// 3 -> 7 -> 14 -> 28 -> 56 -> 112 ...
 fn test_hashmap_cap_allocate() {
     let mut map = HashMap::new();
-    for i in 1..=50 {
+    for i in 1..=200 {
         map.insert(i, i.to_string());
         println!("{} inserted, and map size: {}, cap: {}", i, map.len(), map.capacity());
     }

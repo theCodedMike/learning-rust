@@ -2,6 +2,7 @@
 name = "the-rust-programming-language"
 version = "0.1.0"
 edition = "2021"
+default-run = "root"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
@@ -164,5 +165,10 @@ path = "src/bin/19_advanced_features/19_4_advanced_functions_and_closures.rs"
 [[bin]]
 name = "19_5"
 path = "src/bin/19_advanced_features/19_5_macros.rs"
-
+[[bin]]
+name = "20_1"
+path = "src/bin/20_projects_building_a_multithread_web_server/20_1_single_thread_web_server.rs"
+[[bin]]
+name = "20_2"
+path = "src/bin/20_projects_building_a_multithread_web_server/20_2_multi_threads_web_server.rs"
 
