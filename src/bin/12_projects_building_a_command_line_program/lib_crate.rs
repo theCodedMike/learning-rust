@@ -1,7 +1,7 @@
-use std::{env, fs};
 use std::env::Args;
 use std::error::Error;
 use std::path::Path;
+use std::{env, fs};
 
 const ENV_VAR_CASE: &str = "CASE_INSENSITIVE";
 
@@ -16,7 +16,7 @@ impl Config {
         args.next(); // 略过第1个参数，因为第1个参数是二进制可执行文件的路径
         let query = match args.next() {
             None => return Err("Didn't get a query string"),
-            Some(query) => query
+            Some(query) => query,
         };
         let filename = match args.next() {
             None => return Err("Didn't get a file name"),
@@ -29,9 +29,11 @@ impl Config {
         };
         // 默认是大小写敏感的
         let case_sensitive = env::var(ENV_VAR_CASE).is_err();
-        Ok(
-            Config { query, filename, case_sensitive }
-        )
+        Ok(Config {
+            query,
+            filename,
+            case_sensitive,
+        })
     }
 }
 pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
@@ -47,8 +49,7 @@ pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
         println!("{}", line);
     }
     */
-    results.iter()
-        .for_each(|line| println!("{}", line));
+    results.iter().for_each(|line| println!("{}", line));
 
     Ok(())
 }
@@ -68,7 +69,8 @@ fn search<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
     results
     */
     // 迭代器版本
-    contents.lines()
+    contents
+        .lines()
         .filter(|line| line.contains(query))
         .collect()
 }
@@ -89,7 +91,8 @@ fn search_case_insensitive<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
     results
     */
     // 迭代器版本
-    contents.lines()
+    contents
+        .lines()
         .filter(|line| line.to_lowercase().contains(query))
         .collect()
 }
@@ -106,10 +109,7 @@ mod tests {
             safe, fast, productive.\n\
             Pick three.\
         ";
-        assert_eq!(
-            vec!["safe, fast, productive."],
-            search(query, contents)
-        );
+        assert_eq!(vec!["safe, fast, productive."], search(query, contents));
     }
 
     #[test]

@@ -31,9 +31,7 @@ impl Guess {
         if value < 1 || value > 100 {
             panic!("Guess value must be between 1 and 100, got {}.", value);
         }
-        Guess {
-            value
-        }
+        Guess { value }
     }
 }
 
@@ -56,17 +54,29 @@ mod tests {
 
     #[test]
     fn larger_can_hold_smaller() {
-        let larger = Rectangle { width: 8, height: 7 };
-        let smaller = Rectangle { width: 5, height: 1 };
+        let larger = Rectangle {
+            width: 8,
+            height: 7,
+        };
+        let smaller = Rectangle {
+            width: 5,
+            height: 1,
+        };
 
         assert!(larger.can_hold(&smaller));
     }
 
     #[test]
-    #[ignore]// 忽视该测试函数，cargo test 执行后该函数不会被执行
+    #[ignore] // 忽视该测试函数，cargo test 执行后该函数不会被执行
     fn smaller_cannot_hold_larger() {
-        let larger = Rectangle { width: 8, height: 7 };
-        let smaller = Rectangle { width: 5, height: 1 };
+        let larger = Rectangle {
+            width: 8,
+            height: 7,
+        };
+        let smaller = Rectangle {
+            width: 5,
+            height: 1,
+        };
 
         assert!(!smaller.can_hold(&larger));
     }
@@ -81,7 +91,8 @@ mod tests {
         let result = greeting("Carol");
         assert!(
             result.contains("Car"),
-            "Greeting did not contain name, value was `{}`", result
+            "Greeting did not contain name, value was `{}`",
+            result
         );
     }
 

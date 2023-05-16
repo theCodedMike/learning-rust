@@ -25,7 +25,7 @@ fn main() {
         options: vec![
             String::from("Yes"),
             String::from("Maybe"),
-            String::from("No")
+            String::from("No"),
         ],
     };
     screen.push(select_box);
@@ -40,8 +40,6 @@ fn main() {
 
     // trait 对象执行动态分发
     // Trait 对象要求对象安全
-
-
 }
 pub trait Draw {
     fn draw(&self);
@@ -75,9 +73,7 @@ pub struct Screen {
 }
 impl Screen {
     pub fn new() -> Self {
-        Screen {
-            components: vec![]
-        }
+        Screen { components: vec![] }
     }
     pub fn push(&mut self, component: impl Draw + 'static) {
         self.components.push(Box::new(component));

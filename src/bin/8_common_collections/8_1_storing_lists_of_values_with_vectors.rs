@@ -1,4 +1,3 @@
-
 /// 8.1 使用vector存储一系列值
 /// cargo r --bin 8_1
 fn main() {
@@ -27,14 +26,14 @@ fn main() {
         let v = vec![1, 2, 3, 4];
 
         // 处理变量 v
-
     } // <- 这里 v 离开作用域并被丢弃
 
     // 读取 vector 的元素
     let v = vec![1, 2, 3, 4, 5];
     let third: &i32 = &v[2]; // 索引
     println!("The third element is {}", third);
-    match v.get(2) { // get方法
+    match v.get(2) {
+        // get方法
         Some(third) => println!("The third element is {}", third),
         None => println!("There is no third element."),
     }
@@ -57,7 +56,6 @@ fn main() {
         SpreadsheetCell::Text(String::from("blue")),
         SpreadsheetCell::Float(10.12),
     ];
-
 }
 enum SpreadsheetCell {
     Int(i32),

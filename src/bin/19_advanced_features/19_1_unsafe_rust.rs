@@ -54,7 +54,7 @@ fn main() {
     // 创建不安全代码的安全抽象
     let mut v = vec![1, 2, 3, 4, 5, 6];
     let r = &mut v[..];
-    let (a, b) = split_at_mut(r,3);
+    let (a, b) = split_at_mut(r, 3);
     println!("first segment: {:?}", Vec::from(a)); //[1, 2, 3]
     println!("first segment: {:?}", Vec::from(b)); //[4, 5, 6]
 
@@ -78,7 +78,6 @@ fn main() {
     let mut u = IntOrFloat { f: 1.0 };
     println!("now i is {}", unsafe { u.i }); // 1065353216
     println!("now f is {}", unsafe { u.f }); // 1
-
 }
 unsafe fn dangerous() {
     println!("this is a unsafe function");
@@ -97,8 +96,10 @@ fn split_at_mut(slice: &mut [i32], mid: usize) -> (&mut [i32], &mut [i32]) {
     assert!(mid <= len);
     let ptr = slice.as_mut_ptr();
     unsafe {
-        (slice::from_raw_parts_mut(ptr, mid),
-         slice::from_raw_parts_mut(ptr.add(mid), len - mid))
+        (
+            slice::from_raw_parts_mut(ptr, mid),
+            slice::from_raw_parts_mut(ptr.add(mid), len - mid),
+        )
     }
 }
 extern "C" {
@@ -118,9 +119,9 @@ unsafe trait Foo {
     // methods go here
     fn print(&self);
 }
-struct MyStruct{
+struct MyStruct {
     count: usize,
-    name: String
+    name: String,
 }
 unsafe impl Foo for MyStruct {
     // method implementations go here
@@ -132,7 +133,7 @@ impl MyStruct {
     fn new(count: usize, name: &str) -> Self {
         MyStruct {
             count,
-            name: String::from(name)
+            name: String::from(name),
         }
     }
 }

@@ -30,10 +30,10 @@ fn main() {
     // cons list 的更多内容
     // 计算非递归类型的大小
     // 使用 Box<T> 给递归类型一个已知的大小
-    let list = List::Cons(1,
-                          Box::new(List::Cons(2,
-                                              Box::new(List::Cons(3,
-                                                                  Box::new(List::Nil))))));
+    let list = List::Cons(
+        1,
+        Box::new(List::Cons(2, Box::new(List::Cons(3, Box::new(List::Nil))))),
+    );
     let string = serde_json::to_string_pretty(&list).unwrap();
     println!("{}", string);
 }

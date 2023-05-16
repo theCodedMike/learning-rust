@@ -30,7 +30,7 @@ fn main() {
         ("Earth", 1.0),
         ("Mars", 1.5),
     ]);
-    let teams  = vec![String::from("Blue"), String::from("Yellow")];
+    let teams = vec![String::from("Blue"), String::from("Yellow")];
     let initial_scores = vec![10, 50];
     let scores: HashMap<_, _> = teams.iter().zip(initial_scores.iter()).collect();
     println!("map is {:?}", scores); // {"Blue": 10, "Yellow": 50}
@@ -39,10 +39,10 @@ fn main() {
     let field_name = String::from("Favorite color");
     let field_value = String::from("Blue");
     let mut map = HashMap::new();
-    map.insert(field_name, field_value);  // 这里发生了所有权转移
-    // 这里 field_name 和 field_value 不再有效，
-    // 尝试使用它们看看会出现什么编译错误！
-    //println!("key is {}", field_name); // borrow of moved value: `field_name`
+    map.insert(field_name, field_value); // 这里发生了所有权转移
+                                         // 这里 field_name 和 field_value 不再有效，
+                                         // 尝试使用它们看看会出现什么编译错误！
+                                         //println!("key is {}", field_name); // borrow of moved value: `field_name`
 
     // 访问哈希 map 中的值
     let team_name = String::from("Blue");
@@ -73,5 +73,4 @@ fn main() {
         *count += 1;
     }
     println!("{:?}", map); // {"wonderful": 1, "hello": 1, "world": 2}
-
 }

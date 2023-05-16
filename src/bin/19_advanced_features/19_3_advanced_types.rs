@@ -31,18 +31,15 @@ fn main() {
     takes_long_type(f);
 
     // 从不返回的 never type
-    fn bar() -> ! { // 发散函数
+    fn bar() -> ! {
+        // 发散函数
         // 以下这3种方式的返回值都是!
         //todo!();
         //panic!("panic");
-        loop {
-
-        }
+        loop {}
     }
 
     // 动态大小类型和 Sized trait
-
-
 }
 fn takes_long_type(f: Thunk) {
     // --snip--

@@ -43,10 +43,9 @@ fn main() {
     // 函数和方法的隐式解引用强制转换
     let m = MyBox::new(String::from("Rust"));
     //hello(&(*m)[..]); // 很啰嗦
-    hello(&m);        // &MyBox -> &String -> &str
+    hello(&m); // &MyBox -> &String -> &str
 
     // 解引用强制转换如何与可变性交互
-
 }
 struct MyBox<T>(T);
 impl<T> MyBox<T> {

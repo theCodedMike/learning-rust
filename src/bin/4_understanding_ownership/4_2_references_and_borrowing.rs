@@ -30,8 +30,8 @@ fn main() {
 
     let mut s = String::from("hello");
     let r1 = &mut s; // cannot borrow `s` as mutable more than once at a time
-    //let r2 = &mut s; // second mutable borrow occurs here
-    //println!("{}, {}", r1, r2);
+                     //let r2 = &mut s; // second mutable borrow occurs here
+                     //println!("{}, {}", r1, r2);
 
     let mut s = String::from("hello");
     let r1 = &s; // 没问题
@@ -45,8 +45,6 @@ fn main() {
 
     // cannot return reference to local variable `s`
     //let reference_to_nothing = dangle();
-
-
 }
 fn calculate_length(s: &String) -> usize {
     s.len()

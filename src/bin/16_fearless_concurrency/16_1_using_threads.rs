@@ -42,5 +42,4 @@ fn main() {
         println!("Here's a vector: {:?}", v);
     });
     handle.join().unwrap();
-
 }

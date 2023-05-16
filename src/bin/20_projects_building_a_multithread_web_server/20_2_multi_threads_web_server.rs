@@ -1,10 +1,10 @@
 mod thread_pool;
 
-use std::{fs, thread};
+use crate::thread_pool::ThreadPool;
 use std::io::{BufRead, BufReader, Read, Write};
 use std::net::{TcpListener, TcpStream};
 use std::time::Duration;
-use crate::thread_pool::ThreadPool;
+use std::{fs, thread};
 
 /// cargo r --bin 20_2
 ///
@@ -33,23 +33,26 @@ fn handle_connection(mut stream: TcpStream) {
         "GET / HTTP/1.1" => {
             thread::sleep(Duration::from_secs(1));
             ("HTTP/1.1 200 OK", "hello.html")
-        },
+        }
         "GET /sleep HTTP/1.1" => {
             thread::sleep(Duration::from_secs(5));
             ("HTTP/1.1 200 OK", "hello.html")
-        },
+        }
         _ => {
             thread::sleep(Duration::from_secs(7));
             ("HTTP/1.1 404 NOT FOUND", "404.html")
         }
     };
 
-    let contents= match fs::read_to_string(content_file) {
+    let contents = match fs::read_to_string(content_file) {
         Ok(contents) => contents,
         Err(_) => format!("Can't read file: {content_file}"),
     };
     let response = format!(
-        "{}\r\nContent-Length: {}\r\n\r\n{}", response_line, contents.len(), contents
+        "{}\r\nContent-Length: {}\r\n\r\n{}",
+        response_line,
+        contents.len(),
+        contents
     );
 
     if let Err(_) = stream.write_all(response.as_bytes()) {

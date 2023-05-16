@@ -17,13 +17,13 @@ fn main() {
     let mut s = String::from("hello world");
     let word = first_word(&s); // word 的值为 5
     s.clear(); // 这清空了字符串，使其等于 ""
-    // word 在此处的值仍然是 5，
-    // 但是没有更多的字符串让我们可以有效地应用数值 5。word 的值现在完全无效！
-    //println!("now first word is {}", s.index(..word)); // 编译时不报错，运行时panic
+               // word 在此处的值仍然是 5，
+               // 但是没有更多的字符串让我们可以有效地应用数值 5。word 的值现在完全无效！
+               //println!("now first word is {}", s.index(..word)); // 编译时不报错，运行时panic
 
     let mut s = String::from("hello world");
     let tmp_str = "tmp_str";
-    let hello = &s[0..5];  // &s[..5]
+    let hello = &s[0..5]; // &s[..5]
     let world = &s[6..11]; // &s[6..]
     let immut_ref = s.as_str(); // &s[..]
     let mut_ref = s.as_mut();
@@ -46,7 +46,6 @@ fn main() {
     // 这样写也可以，即不使用 slice 语法！
     let word = first_word_use_ref(my_string_literal);
 
-
     let mut a = [1, 2, 3, 4, 5];
     let x = a.as_mut();
     x.fill(6);
@@ -55,7 +54,6 @@ fn main() {
     let dyn_arr = vec![1, 2, 3, 4, 5];
     let a_slice = &dyn_arr[1..3];
     println!("slice is {:?}", a_slice); // [2, 3]
-
 }
 fn first_word(s: &String) -> usize {
     let bytes = s.as_bytes();

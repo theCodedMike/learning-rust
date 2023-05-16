@@ -46,7 +46,6 @@ fn main() {
 
     let s = String::from("djidjkdd");
     println!("{}", s);
-
 }
 // 结构体  这种最常见
 #[derive(Clone)]

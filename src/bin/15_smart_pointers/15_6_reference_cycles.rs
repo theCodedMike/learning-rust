@@ -24,7 +24,7 @@ fn main() {
     //          <---------------<
     // 制造引用循环
     let a = Rc::new(List::Cons(5, RefCell::new(Rc::new(List::Nil))));
-    println!("a initial rc count = {}", Rc::strong_count(&a));  // 1
+    println!("a initial rc count = {}", Rc::strong_count(&a)); // 1
     println!("a next item = {:?}", a.tail()); // Nil
 
     let b = Rc::new(List::Cons(10, RefCell::new(Rc::clone(&a))));
@@ -43,7 +43,6 @@ fn main() {
     // it will overflow the stack
     // println!("a next item = {:?}", a.tail());
 
-
     // 避免引用循环：将 Rc<T> 变为 Weak<T>
 
     // 创建树形数据结构：带有子节点的 Node
@@ -54,9 +53,11 @@ fn main() {
         parent: RefCell::new(Weak::new()),
         children: RefCell::new(vec![]),
     });
-    println!("leaf strong = {}, weak = {}",
-             Rc::strong_count(&leaf),
-             Rc::weak_count(&leaf));
+    println!(
+        "leaf strong = {}, weak = {}",
+        Rc::strong_count(&leaf),
+        Rc::weak_count(&leaf)
+    );
 
     {
         let branch = Rc::new(Node {
@@ -66,9 +67,10 @@ fn main() {
         });
 
         *leaf.parent.borrow_mut() = Rc::downgrade(&branch);
-        println!("branch strong = {}, weak = {}",
-                 Rc::strong_count(&branch),
-                 Rc::weak_count(&branch),
+        println!(
+            "branch strong = {}, weak = {}",
+            Rc::strong_count(&branch),
+            Rc::weak_count(&branch),
         );
 
         println!(
@@ -84,7 +86,6 @@ fn main() {
         Rc::strong_count(&leaf),
         Rc::weak_count(&leaf),
     );
-
 }
 
 #[derive(Debug)]

@@ -26,8 +26,6 @@ fn main() {
 
     // 通过克隆发送者来创建多个生产者
     //use_clone_to_create_multi_sender();
-
-
 }
 fn message_channel() {
     let (tx, rx) = mpsc::channel();

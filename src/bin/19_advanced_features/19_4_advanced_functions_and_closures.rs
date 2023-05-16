@@ -23,14 +23,11 @@ fn main() {
         .collect::<Vec<String>>();
     let str_vec_use_fn = list_of_numbers
         .iter()
-        .map(ToString::to_string)  // 使用函数指针
+        .map(ToString::to_string) // 使用函数指针
         .collect::<Vec<String>>();
     assert_eq!(str_vec_use_closure, str_vec_use_fn);
 
-    let list_of_statuses =
-        (0_u32..20)
-            .map(Status::Value)
-            .collect::<Vec<Status>>();
+    let list_of_statuses = (0_u32..20).map(Status::Value).collect::<Vec<Status>>();
     assert_eq!(list_of_statuses.len(), 20);
 
     // 返回闭包
@@ -38,7 +35,6 @@ fn main() {
     println!("{}", (*closure.as_ref())(5)); // 6
     let closure2 = returns_closure2();
     println!("{}", closure2(5)); // 6 / 10
-
 }
 fn add_one(x: i32) -> i32 {
     x + 1

@@ -1,6 +1,6 @@
-use std::task::ready;
-use ansi_term::{Colour};
+use ansi_term::Colour;
 use serde::de::Unexpected::Str;
+use std::task::ready;
 
 /// 17.3 实现面向对象设计模式
 ///
@@ -49,25 +49,24 @@ fn main() {
     let post = post.request_review();
     let post = post.approve();
     assert_eq!("I ate a salad for lunch today", post.content());
-
 }
 /******************************普通模式****************************/
 pub struct Post {
     text: String,
-    state: State
+    state: State,
 }
 #[derive(Debug, PartialEq, PartialOrd)]
 pub enum State {
     Empty,
     Processing,
     Finish,
-    Publish
+    Publish,
 }
 impl Post {
     pub fn new() -> Self {
         Post {
             text: String::new(),
-            state: State::Empty
+            state: State::Empty,
         }
     }
     /// 添加草案，如果是第1次添加，则状态将转换为 处理中
@@ -76,15 +75,25 @@ impl Post {
             State::Empty => {
                 self.text.push_str(text);
                 self.state = State::Processing;
-            },
+            }
             State::Processing => {
                 self.text.push_str(text);
-            },
+            }
             State::Finish => {
-                println!("{}", Colour::Red.bold().paint("Post had been finished, can't add text"));
-            },
+                println!(
+                    "{}",
+                    Colour::Red
+                        .bold()
+                        .paint("Post had been finished, can't add text")
+                );
+            }
             State::Publish => {
-                println!("{}", Colour::Red.bold().paint("Post had been published, can't add text"));
+                println!(
+                    "{}",
+                    Colour::Red
+                        .bold()
+                        .paint("Post had been published, can't add text")
+                );
             }
         }
     }
@@ -92,16 +101,31 @@ impl Post {
     pub fn request_review(&mut self) {
         match self.state {
             State::Empty => {
-                println!("{}", Colour::Red.bold().paint("Post is empty, can't request review"));
-            },
+                println!(
+                    "{}",
+                    Colour::Red
+                        .bold()
+                        .paint("Post is empty, can't request review")
+                );
+            }
             State::Processing => {
                 self.state = State::Finish;
-            },
+            }
             State::Finish => {
-                println!("{}", Colour::Green.bold().paint("Post is reviewing, don't request again"));
-            },
+                println!(
+                    "{}",
+                    Colour::Green
+                        .bold()
+                        .paint("Post is reviewing, don't request again")
+                );
+            }
             State::Publish => {
-                println!("{}", Colour::Red.bold().paint("Post had been published, can't request review"));
+                println!(
+                    "{}",
+                    Colour::Red
+                        .bold()
+                        .paint("Post had been published, can't request review")
+                );
             }
         }
     }
@@ -109,31 +133,39 @@ impl Post {
     pub fn approve(&mut self) {
         match self.state {
             State::Empty => {
-                println!("{}", Colour::Red.bold().paint("Post is empty, can't approve"));
-            },
+                println!(
+                    "{}",
+                    Colour::Red.bold().paint("Post is empty, can't approve")
+                );
+            }
             State::Processing => {
-                println!("{}", Colour::Red.bold().paint("Post is processing, can't approve"));
-            },
+                println!(
+                    "{}",
+                    Colour::Red
+                        .bold()
+                        .paint("Post is processing, can't approve")
+                );
+            }
             State::Finish => {
-               self.state = State::Publish;
-            },
+                self.state = State::Publish;
+            }
             State::Publish => {
-                println!("{}", Colour::Red.bold().paint("Post had been published, can't approve"));
+                println!(
+                    "{}",
+                    Colour::Red
+                        .bold()
+                        .paint("Post had been published, can't approve")
+                );
             }
         }
     }
     pub fn content(&self) -> &str {
         match self.state {
-            State::Publish => {
-                &self.text
-            },
-            _ => {
-                ""
-            }
+            State::Publish => &self.text,
+            _ => "",
         }
     }
 }
-
 
 /******************************状态模式****************************/
 pub struct PostUseTrait {
@@ -189,7 +221,7 @@ impl PostUseTrait {
     pub fn new() -> Self {
         PostUseTrait {
             state: Some(Box::new(Draft {})),
-            content: String::new()
+            content: String::new(),
         }
     }
     /// 存放博文内容的文本
@@ -213,7 +245,6 @@ impl PostUseTrait {
         }
     }
 }
-
 
 /******************************循环模式****************************/
 pub struct PostUseStruct {

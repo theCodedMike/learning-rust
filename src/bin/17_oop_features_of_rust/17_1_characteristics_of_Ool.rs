@@ -1,4 +1,3 @@
-
 /// 17.1 面向对象语言地特点
 ///
 /// cargo r --bin 17_1
@@ -33,7 +32,7 @@ impl AveragedCollection {
             Some(value) => {
                 self.update_average();
                 Some(value)
-            },
+            }
             None => None,
         }
     }

@@ -38,16 +38,12 @@ fn main() {
     // RefCell<T> 在运行时记录借用
     let ref_cell = RefCell::new(4);
     let ref_cell_str = RefCell::new(String::from("hello"));
-    println!("{:?}", ref_cell);     // RefCell { value: 4 }
+    println!("{:?}", ref_cell); // RefCell { value: 4 }
     println!("{:?}", ref_cell_str); // RefCell { value: "hello" }
-
 
     // 结合 Rc<T> 和 RefCell<T> 来拥有多个可变数据所有者
     let value = Rc::new(RefCell::new(5));
-    let a = Rc::new(
-        List3::Cons(Rc::clone(&value),
-                    Rc::new(List3::Nil))
-    );
+    let a = Rc::new(List3::Cons(Rc::clone(&value), Rc::new(List3::Nil)));
     let b = List3::Cons(Rc::new(RefCell::new(6)), Rc::clone(&a));
     let c = List3::Cons(Rc::new(RefCell::new(10)), Rc::clone(&a));
 
@@ -63,7 +59,7 @@ fn main() {
     println!("{:?}", cell); // Cell { value: 4 }
     cell_str.set("world".to_string());
     println!("{:?}", cell_str.take()); // "world"
-    //println!("now cell: {:?}", cell_str); //无法打印
+                                       //println!("now cell: {:?}", cell_str); //无法打印
 }
 
 pub trait Messenger {
@@ -75,7 +71,8 @@ pub struct LimitTracker<'a, T: Messenger> {
     max: usize,
 }
 impl<'a, T> LimitTracker<'a, T>
-    where T: Messenger
+where
+    T: Messenger,
 {
     pub fn new(messenger: &'a T, max: usize) -> Self {
         LimitTracker {
@@ -90,9 +87,11 @@ impl<'a, T> LimitTracker<'a, T>
         if percentage_of_max >= 1.0 {
             self.messenger.send("Error: You are over your quota!");
         } else if percentage_of_max >= 0.9 {
-            self.messenger.send("Urgent warning: You've used up over 90% of your quota!");
+            self.messenger
+                .send("Urgent warning: You've used up over 90% of your quota!");
         } else if percentage_of_max >= 0.75 {
-            self.messenger.send("Warning: You've used up over 75% of your quota!");
+            self.messenger
+                .send("Warning: You've used up over 75% of your quota!");
         }
     }
 }
@@ -102,12 +101,10 @@ enum List3 {
     Nil,
 }
 
-
-
 #[cfg(test)]
 mod tests {
-    use std::cell::RefCell;
     use super::*;
+    use std::cell::RefCell;
     /// 测试替身（test double）是一个通用编程概念，它代表一个在测试中替代某个类型的类型
     /// mock 对象 是特定类型的测试替身，它们记录测试过程中发生了什么以便可以断言操作是正确的
     struct MockMessenger {
@@ -116,7 +113,7 @@ mod tests {
     impl MockMessenger {
         fn new() -> MockMessenger {
             MockMessenger {
-                sent_messages: RefCell::new(vec![])
+                sent_messages: RefCell::new(vec![]),
             }
         }
     }

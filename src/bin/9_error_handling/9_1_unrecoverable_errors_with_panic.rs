@@ -38,5 +38,4 @@ fn main() {
     //              at /rustc/2c8cc343237b8f7d5a3c3703e3a87f2eb2c54a74\library\core\src\ops/function.rs:250:5
     // note: Some details are omitted, run with `RUST_BACKTRACE=full` for a verbose backtrace.
     // error: process didn't exit successfully: `target\debug\9_1.exe` (exit code: 101)
-
 }

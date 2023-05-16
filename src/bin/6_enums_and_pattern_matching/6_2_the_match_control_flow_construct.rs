@@ -27,8 +27,6 @@ fn main() {
         7 => remove_fancy_hat(),
         _ => roll(),
     }
-
-
 }
 #[derive(Debug)] // 这样可以立刻看到州的名称
 enum UsState {
@@ -47,7 +45,7 @@ fn value_in_cents(coin: Coin) -> u8 {
         Coin::Penny => {
             println!("Lucky penny!");
             1
-        },
+        }
         Coin::Nickel => 5,
         Coin::Dime => 10,
         Coin::Quarter(state) => {

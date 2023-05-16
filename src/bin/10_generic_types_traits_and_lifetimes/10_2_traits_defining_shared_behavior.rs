@@ -1,5 +1,5 @@
-use std::fmt::{Debug, Display};
 use rand::Rng;
+use std::fmt::{Debug, Display};
 
 /// 10.2 trait: 定义共享的行为
 ///
@@ -23,7 +23,7 @@ fn main() {
         headline: "I have a dream".to_string(),
         location: "10086, 1st Ave, WDC, USA".to_string(),
         author: String::from("Mardin"),
-        content: String::from("i have a day dream")
+        content: String::from("i have a day dream"),
     };
     println!("article is '{}'", article.summarize());
 
@@ -36,7 +36,11 @@ fn main() {
     notify(article);
 
     // Trait Bound 语法
-    let article = NewsArticle::new("A Murder happened", "James", "a 68-year-old man was killed last night");
+    let article = NewsArticle::new(
+        "A Murder happened",
+        "James",
+        "a 68-year-old man was killed last night",
+    );
     let tweet = Tweet::build("Marco", "a visit to Rome");
     notify_use_trait_bound(tweet.clone());
     notify_use_trait_bound(article.clone());
@@ -63,12 +67,11 @@ fn main() {
     println!("The largest number is {}", result); // 100
     let char_list = vec!['y', 'm', 'a', 'q'];
     let result = largest(&char_list);
-    println!("The largest char is {}", result);   // y
+    println!("The largest char is {}", result); // y
 
     // 使用 trait bound 有条件地实现方法
     let space = Space::new("CSS", "ISS");
     space.cmp_display(); // ISS
-
 }
 pub trait Summary {
     fn summarize(&self) -> String;
@@ -91,7 +94,7 @@ impl NewsArticle {
             headline: String::from(headline),
             location: String::from("Sky Hotel"),
             author: author.to_string(),
-            content: format!("{}", content)
+            content: format!("{}", content),
         }
     }
 }
@@ -115,7 +118,7 @@ impl Tweet {
             username: String::from(username),
             content: content.to_string(),
             reply: false,
-            retweet: true
+            retweet: true,
         }
     }
 }
@@ -151,13 +154,13 @@ pub fn notify_diff_struct(item1: impl Summary, item2: impl Summary) {
     println!("notify_diff_struct: {}", item2.default_method());
 }
 pub fn notify_diff_struct2<T1, T2>(item1: T1, item2: T2)
-    where T1: Summary,
-          T2: Summary
+where
+    T1: Summary,
+    T2: Summary,
 {
     println!("notify_diff_struct: {}", item1.default_method());
     println!("notify_diff_struct: {}", item2.default_method());
 }
-
 
 pub fn notify_same_struct<T: Summary>(item1: T, item2: T) {
     println!("notify_same_struct: {}", item1.default_method());
@@ -167,8 +170,9 @@ fn some_function<T: Display + Clone, U: Clone + Debug>(t: T, u: U) -> i32 {
     5
 }
 fn some_function_use_where<T, U>(t: T, u: U) -> i32
-    where T: Display + Clone,
-          U: Clone + Debug
+where
+    T: Display + Clone,
+    U: Clone + Debug,
 {
     5
 }
@@ -177,24 +181,22 @@ fn some_function_use_where<T, U>(t: T, u: U) -> i32
 // 如果只返回1种类型，则可以使用 impl Summary
 fn returns_summarize(switch: bool) -> Box<dyn Summary> {
     if switch {
-        Box::new(
-            NewsArticle {
-                headline: String::from("Penguins win the Stanley Cup Championship!"),
-                location: String::from("Pittsburgh, PA, USA"),
-                author: String::from("Iceburgh"),
-                content: String::from("The Pittsburgh Penguins once again are the best
-            hockey team in the NHL."),
-            }
-        )
+        Box::new(NewsArticle {
+            headline: String::from("Penguins win the Stanley Cup Championship!"),
+            location: String::from("Pittsburgh, PA, USA"),
+            author: String::from("Iceburgh"),
+            content: String::from(
+                "The Pittsburgh Penguins once again are the best
+            hockey team in the NHL.",
+            ),
+        })
     } else {
-        Box::new(
-            Tweet {
-                username: String::from("horse_ebooks"),
-                content: String::from("of course, as you probably already know, people"),
-                reply: false,
-                retweet: false,
-            }
-        )
+        Box::new(Tweet {
+            username: String::from("horse_ebooks"),
+            content: String::from("of course, as you probably already know, people"),
+            reply: false,
+            retweet: false,
+        })
     }
 }
 fn largest<T: PartialOrd + Copy>(list: &[T]) -> T {
@@ -213,10 +215,7 @@ struct Space<T> {
 
 impl<T> Space<T> {
     fn new(x: T, y: T) -> Self {
-        Self {
-            x,
-            y,
-        }
+        Self { x, y }
     }
 }
 // 只有实现了Display和PartialOrd特征的类型的实例，才能调用cmp_display方法

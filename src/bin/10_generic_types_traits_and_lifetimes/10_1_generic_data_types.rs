@@ -21,7 +21,10 @@ fn main() {
     let char_list = vec!['y', 'm', 'a', 'q'];
     let result = largest_char(&char_list);
     println!("The largest char is {}", result); // y
-    println!("UseGeneric: The largest number is {}", largest(&number_list)); // 100
+    println!(
+        "UseGeneric: The largest number is {}",
+        largest(&number_list)
+    ); // 100
     println!("UseGeneric: The largest char is {}", largest(&char_list)); // y
 
     // 结构体定义中的泛型
@@ -40,7 +43,7 @@ fn main() {
     // 方法定义中的泛型
     let point = Point::new(10, 20);
     let x = point.x();
-    println!("x is {}", x);    // 10
+    println!("x is {}", x); // 10
     point.print_z("hello"); // Point: x = 10, y = 20, z = hello
     let mix_up = line.mix_up(Line::new(3.2, true));
     mix_up.print(); // Line: x = hello, y = true
@@ -66,7 +69,10 @@ fn largest_char(list: &[char]) -> char {
 }
 // 这2种写法都可以
 // fn largest<T: PartialOrd>(list: &[T]) -> &T {
-fn largest<T>(list: &[T]) -> &T where T: PartialOrd {
+fn largest<T>(list: &[T]) -> &T
+where
+    T: PartialOrd,
+{
     if list.is_empty() {
         panic!("list can't be empty");
     }
@@ -108,9 +114,13 @@ impl Point<f32> {
 
 struct Line<T, U> {
     x: T,
-    y: U
+    y: U,
 }
-impl<T, U> Line<T, U> where T: Display, U: Display {
+impl<T, U> Line<T, U>
+where
+    T: Display,
+    U: Display,
+{
     fn new(x: T, y: U) -> Self {
         Line { x, y }
     }
@@ -120,7 +130,7 @@ impl<T, U> Line<T, U> where T: Display, U: Display {
     fn mix_up<V, W>(self, other: Line<V, W>) -> Line<T, W> {
         Line {
             x: self.x,
-            y: other.y
+            y: other.y,
         }
     }
 }

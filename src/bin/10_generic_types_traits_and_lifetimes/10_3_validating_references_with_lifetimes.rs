@@ -58,24 +58,27 @@ fn main() {
     }
 
     // 借用检查器（borrow checker）
-    { // r的生命周期 > x的生命周期，即引用的生命周期 > 数据的生命周期
-        let r;                // ---------+-- 'a
-                                    //          |
-        {                           //          |
-            let x = 5;         // -+-- 'b  |
-            r = &x;                 //  |       |
-        }                           // -+       |
-                                    //          |
-        //println!("r: {}", r);     //          |
-    }                               // ---------+
-    { // r的生命周期 < x的生命周期，即引用的生命周期 < 数据的生命周期
-        let x = 5;            // ----------+-- 'b
-                                   //           |
-        let r = &x;          // --+-- 'a  |
-                                   //   |       |
-        println!("r: {}", r);      //   |       |
-                                   // --+       |
-    }                              // ----------+
+    {
+        // r的生命周期 > x的生命周期，即引用的生命周期 > 数据的生命周期
+        let r; // ---------+-- 'a
+               //          |
+        {
+            //          |
+            let x = 5; // -+-- 'b  |
+            r = &x; //  |       |
+        } // -+       |
+          //          |
+          //println!("r: {}", r);     //          |
+    } // ---------+
+    {
+        // r的生命周期 < x的生命周期，即引用的生命周期 < 数据的生命周期
+        let x = 5; // ----------+-- 'b
+                   //           |
+        let r = &x; // --+-- 'a  |
+                    //   |       |
+        println!("r: {}", r); //   |       |
+                              // --+       |
+    } // ----------+
 
     // 函数中的泛型生命周期
     let string1 = String::from("abcd");
@@ -111,8 +114,8 @@ fn main() {
         let string2 = String::from("xyz");
         // result的生命周期还是 <= string2的
         result = longest(string1.as_str(), string2.as_str());
-    }// 在这里string2数据被释放，result成悬垂引用
-    //println!("The longest string is {}", result); //编译报错，`string2` does not live long enough
+    } // 在这里string2数据被释放，result成悬垂引用
+      //println!("The longest string is {}", result); //编译报错，`string2` does not live long enough
 
     // 深入理解生命周期
     let first_longest = first_longest("first", "second is longest");
@@ -120,9 +123,7 @@ fn main() {
 
     // 结构体定义中的生命周期标注
     let novel = String::from("Call me Ishmael. Some years ago...");
-    let first_sentence = novel.split('.')
-        .next()
-        .expect("Could not find a '.'");
+    let first_sentence = novel.split('.').next().expect("Could not find a '.'");
     let excerpt = ImportantExcerpt::new(first_sentence);
     excerpt.print(); // part: 'Call me Ishmael', 15 bytes.
 
@@ -140,11 +141,11 @@ fn main() {
     let announcement = longest_with_an_announcement("first", "second", 45);
     println!("{}", announcement); // second
 
-    println!("{}", true > false);   // true
-    println!("{}", true > true);    // false
-    println!("{}", false > true);   // false
-    println!("{}", false > false);  // false
-    println!("{}", true == true);   // true
+    println!("{}", true > false); // true
+    println!("{}", true > true); // false
+    println!("{}", false > true); // false
+    println!("{}", false > false); // false
+    println!("{}", true == true); // true
     println!("{}", false == false); // true
 }
 // longest 函数返回的引用的生命周期应该与传入参数的生命周期中较短那个保持一致
@@ -190,7 +191,8 @@ impl<'a> ImportantExcerpt<'a> {
 }
 
 fn longest_with_an_announcement<'a, T>(x: &'a str, y: &'a str, ann: T) -> &'a str
-    where T: Display
+where
+    T: Display,
 {
     println!("Announcement! {}", ann);
     if x.len() > y.len() {

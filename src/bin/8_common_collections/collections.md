@@ -7,7 +7,7 @@
 ## When Should You Use Which Collection?
 #### Use a Vec when:
 - You want to collect items up to be processed or sent elsewhere later, and don't care about any properties of the actual values being stored.
-- You want a sequence of elements in a particular order, and will only be appending to (or near) the end.
+- You want a sequence of elements in a particular order, and will only be appended to (or near) the end.
 - You want a stack.
 - You want a resizable array.
 - You want a heap-allocated array.
@@ -33,7 +33,7 @@
 - You're interested in what the smallest or largest key-value pair is.
 - You want to find the largest or smallest key that is smaller or larger than something.
 
-#### Use the Set variant of any of these Maps when:
+#### Use the Set variant of these Maps when:
 - You just want to remember which keys you've seen.
 - There is no meaningful value to associate with your keys.
 - You just want a set.

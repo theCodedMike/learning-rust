@@ -24,7 +24,7 @@ fn main() -> Result<(), Box<dyn Error>> {
         Ok(file) => file,
         Err(error) => {
             panic!("Problem opening the file: {:?}", error)
-        },
+        }
     };
 
     // 匹配不同的错误

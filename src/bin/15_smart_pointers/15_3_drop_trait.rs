@@ -15,9 +15,11 @@ fn main() {
     //println!("CustomSmartPointers created."); // 1
 
     // 通过 std::mem::drop 提早丢弃值
-    let c = CustomSmartPointer { data: String::from("some data") }; // 2
+    let c = CustomSmartPointer {
+        data: String::from("some data"),
+    }; // 2
     println!("CustomSmartPointer created."); // 1
-    //c.drop(); // explicit destructor calls not allowed
+                                             //c.drop(); // explicit destructor calls not allowed
     drop(c);
     println!("CustomSmartPointer dropped before the end of main."); // 3
 }

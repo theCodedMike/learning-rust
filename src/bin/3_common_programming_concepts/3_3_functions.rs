@@ -33,7 +33,6 @@ fn main() {
     println!("The value of x is: {}", x);
     let z = plus_one(5);
     println!("The value of z is: {}", z);
-
 }
 fn another_function() {
     println!("Another function.");

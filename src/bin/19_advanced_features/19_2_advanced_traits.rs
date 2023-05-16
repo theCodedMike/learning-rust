@@ -26,13 +26,16 @@ fn main() {
     }
 
     // 默认泛型类型参数和运算符重载
-    trait Add<RHS=Self> { // “right hand side”
+    trait Add<RHS = Self> {
+        // “right hand side”
         type Output;
 
         fn add(self, rhs: RHS) -> Self::Output;
     }
-    assert_eq!(Point { x: 1, y: 0 } + Point { x: 2, y: 3 },
-               Point { x: 3, y: 3 });
+    assert_eq!(
+        Point { x: 1, y: 0 } + Point { x: 2, y: 3 },
+        Point { x: 3, y: 3 }
+    );
     let millimeters = Millimeters(5) + Meters(23);
     println!("{:?}", millimeters); // Millimeters(23005)
 
@@ -52,7 +55,6 @@ fn main() {
     // newtype 模式用于在外部类型上实现外部 trait
     let w = Wrapper(vec![String::from("hello"), String::from("world")]);
     println!("w = {}", w); // w = [hello, world]
-
 }
 #[derive(Debug, PartialEq)]
 struct Point {
@@ -80,7 +82,6 @@ impl Add<Meters> for Millimeters {
         Millimeters(self.0 + (rhs.0 * 1000))
     }
 }
-
 
 trait Pilot {
     fn fly(&self);
@@ -137,7 +138,6 @@ impl Display for Point {
     }
 }
 impl OutlinePrint for Point {}
-
 
 struct Wrapper(Vec<String>);
 impl Display for Wrapper {

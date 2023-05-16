@@ -28,31 +28,31 @@ fn main() {
     println!("here s is '{}', s2 is '{}'", s, s2);
     s.push_str(", rust");
     s2.insert_str(0, "e890w ");
-    println!(" s is '{}'", s);   // initial contents, rust
+    println!(" s is '{}'", s); // initial contents, rust
     println!("s2 is '{}'", s2); // e890w initial contents
 
     // 更新字符串 push_str/push/+/format!宏
     let mut s = String::from("foo");
     s.push_str("bar");
-    println!("s is {}", s);  // foobar
+    println!("s is {}", s); // foobar
 
     let mut s = String::from("lo");
     s.push('l');
-    println!("s is {}", s);  // lol
+    println!("s is {}", s); // lol
 
     let s1 = String::from("Hello, ");
     let s2 = String::from("world!");
-    let s3 = s1 + &s2;   // 注意 s1 被移动了，不能继续使用
-    //println!("s1 is {}", s1); // 本质上相当于调用了add方法
-    /*impl Add<&str> for String {
-        fn add(mut self, other: &str) -> String {
-            self.push_str(other);
-            self
-        }
-    }*/
+    let s3 = s1 + &s2; // 注意 s1 被移动了，不能继续使用
+                       //println!("s1 is {}", s1); // 本质上相当于调用了add方法
+                       /*impl Add<&str> for String {
+                           fn add(mut self, other: &str) -> String {
+                               self.push_str(other);
+                               self
+                           }
+                       }*/
     println!("s2 is {}", s2); // world!
     println!("s3 is {}", s3); // Hello, world!
-    // 对于多个字符串，+ 就显得笨重了，建议使用format!宏
+                              // 对于多个字符串，+ 就显得笨重了，建议使用format!宏
     let s1 = String::from("tic");
     let s2 = String::from("tac");
     let s3 = String::from("toe");
@@ -68,16 +68,18 @@ fn main() {
     let s1 = String::from("hello");
     //let h = s1[0];  //这种索引方式是错误的
     //let h = &s1[0]; //这种索引方式也是错误的
-    let char_arr: Vec<u8> = vec![224, 164, 168, 224, 164, 174, 224, 164, 184, 224, 165, 141, 224, 164, 164, 224, 165, 135];
+    let char_arr: Vec<u8> = vec![
+        224, 164, 168, 224, 164, 174, 224, 164, 184, 224, 165, 141, 224, 164, 164, 224, 165, 135,
+    ];
     let str = String::from_utf8(char_arr).expect("wrong u8 chars");
     println!("str is {}, len is {}", str, str.len()); // str is नमस्ते, len is 18
-    // 由上可见，不能使用索引来使用字符串
+                                                      // 由上可见，不能使用索引来使用字符串
 
     // 字符串 slice
     let hello = "Здравствуйте".to_string();
     let s = &hello[0..4];
     println!("string is {}", s); // string is Зд
-    //let s2 = &hello[0..1]; // panic, 因为第1个字节不表示1个字符
+                                 //let s2 = &hello[0..1]; // panic, 因为第1个字节不表示1个字符
     let s2 = &hello[0..2];
     println!("here char is {}", s2); // char is 3
 
@@ -99,6 +101,4 @@ fn main() {
     char is т
     char is е
     */
-
-
 }

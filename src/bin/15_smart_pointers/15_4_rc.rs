@@ -22,16 +22,15 @@ fn main() {
     // 4|c ------>
 
     // 使用 Rc<T> 共享数据
-    let a = List::Cons(5,
-                 Box::new(List::Cons(10,
-                               Box::new(List::Nil))));
+    let a = List::Cons(5, Box::new(List::Cons(10, Box::new(List::Nil))));
     let b = List::Cons(3, Box::new(a));
     //let c = List::Cons(4, Box::new(a));
     //编译报错，a的所有权已被转移到b中。所以Box无法解决共享数据问题
 
-    let a = Rc::new(List2::Cons(5,
-                                Rc::new(List2::Cons(10,
-                                                    Rc::new(List2::Nil)))));
+    let a = Rc::new(List2::Cons(
+        5,
+        Rc::new(List2::Cons(10, Rc::new(List2::Nil))),
+    ));
     println!("count after creating a = {}", Rc::strong_count(&a)); // 1
     let b = List2::Cons(3, Rc::clone(&a));
     println!("count after creating a = {}", Rc::strong_count(&a)); // 2
@@ -39,17 +38,21 @@ fn main() {
     println!("count after creating a = {}\n", Rc::strong_count(&a)); // 3
 
     // 克隆 Rc<T> 会增加引用计数
-    let a = Rc::new(List2::Cons(5,
-                                Rc::new(List2::Cons(10,
-                                                    Rc::new(List2::Nil)))));
+    let a = Rc::new(List2::Cons(
+        5,
+        Rc::new(List2::Cons(10, Rc::new(List2::Nil))),
+    ));
     println!("count after creating a = {}", Rc::strong_count(&a)); // 1
     let b = List2::Cons(3, Rc::clone(&a));
     println!("count after creating b = {}", Rc::strong_count(&a)); // 2
     {
         let c = List2::Cons(4, Rc::clone(&a));
-        println!("count after creating c = {}", Rc::strong_count(&a));        // 3
+        println!("count after creating c = {}", Rc::strong_count(&a)); // 3
     }
-    println!("count after c goes out of scope = {}\n", Rc::strong_count(&a)); // 2
+    println!(
+        "count after c goes out of scope = {}\n",
+        Rc::strong_count(&a)
+    ); // 2
 }
 enum List {
     Cons(i32, Box<List>),

@@ -1,0 +1,5 @@
+['🙈', '🙊', '🙉']
+    .iter()
+    .cycle()
+    .take(6)
+    .collect::<String>()

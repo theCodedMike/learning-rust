@@ -27,7 +27,7 @@ fn main() {
     let v1 = vec![1, 2, 3];
     // let mut v1_iter = v1.into_iter();  // 这里会转移v1的所有权
     let mut v1_iter = v1.iter(); // 这里获取到v1的不可变引用
-    // let mut v1_iter = v1.iter_mut();   // 这里获取到v1的可变引用
+                                 // let mut v1_iter = v1.iter_mut();   // 这里获取到v1的可变引用
     assert_eq!(v1_iter.next(), Some(&1));
     assert_eq!(v1_iter.next(), Some(&2));
     assert_eq!(v1_iter.next(), Some(&3));
@@ -44,16 +44,31 @@ fn main() {
 
     // 使用闭包获取环境
     let shoes = vec![
-        Shoe { size: 10, style: String::from("sneaker") },
-        Shoe { size: 13, style: String::from("sandal") },
-        Shoe { size: 10, style: String::from("boot") },
+        Shoe {
+            size: 10,
+            style: String::from("sneaker"),
+        },
+        Shoe {
+            size: 13,
+            style: String::from("sandal"),
+        },
+        Shoe {
+            size: 10,
+            style: String::from("boot"),
+        },
     ];
     let in_my_size = shoes_in_my_size(shoes, 10);
     assert_eq!(
         in_my_size,
         vec![
-            Shoe { size: 10, style: String::from("sneaker") },
-            Shoe { size: 10, style: String::from("boot") },
+            Shoe {
+                size: 10,
+                style: String::from("sneaker")
+            },
+            Shoe {
+                size: 10,
+                style: String::from("boot")
+            },
         ]
     );
 
@@ -65,13 +80,12 @@ fn main() {
     assert_eq!(counter.next(), Some(4));
     assert_eq!(counter.next(), Some(5));
     assert_eq!(counter.next(), None);
-    let sum: u32 = Counter::new()                                  // 1、2、3、4、5
-        .zip(Counter::new().skip(1))  // (1, 2)、(2, 3)、(3, 4)、(4, 5)
-        .map(|(a, b)| a * b)       // 2、6、12、20
-        .filter(|x| x % 3 == 0)         // 6、12
-        .sum();                                                    // 18
+    let sum: u32 = Counter::new() // 1、2、3、4、5
+        .zip(Counter::new().skip(1)) // (1, 2)、(2, 3)、(3, 4)、(4, 5)
+        .map(|(a, b)| a * b) // 2、6、12、20
+        .filter(|x| x % 3 == 0) // 6、12
+        .sum(); // 18
     assert_eq!(18, sum);
-
 }
 #[derive(PartialEq, Debug)]
 struct Shoe {
@@ -79,9 +93,7 @@ struct Shoe {
     style: String,
 }
 fn shoes_in_my_size(shoes: Vec<Shoe>, shoe_size: u32) -> Vec<Shoe> {
-    shoes.into_iter()
-        .filter(|s| s.size == shoe_size)
-        .collect()
+    shoes.into_iter().filter(|s| s.size == shoe_size).collect()
 }
 
 struct Counter {

@@ -12,7 +12,12 @@ fn test_vec_cap_allocate() {
     let mut vec = Vec::new();
     for i in 1..=50 {
         vec.push(i);
-        println!("{} inserted, and vec size: {}, cap: {}", i, vec.len(), vec.capacity());
+        println!(
+            "{} inserted, and vec size: {}, cap: {}",
+            i,
+            vec.len(),
+            vec.capacity()
+        );
     }
 }
 /// Hashmap的动态内存扩展规律
@@ -22,6 +27,11 @@ fn test_hashmap_cap_allocate() {
     let mut map = HashMap::new();
     for i in 1..=200 {
         map.insert(i, i.to_string());
-        println!("{} inserted, and map size: {}, cap: {}", i, map.len(), map.capacity());
+        println!(
+            "{} inserted, and map size: {}, cap: {}",
+            i,
+            map.len(),
+            map.capacity()
+        );
     }
 }

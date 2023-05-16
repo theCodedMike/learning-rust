@@ -37,7 +37,7 @@ fn main() {
     let y = 10;
     match x {
         Some(50) => println!("Got 50"),
-        Some(y) => println!("Matched, y = {:?}", y),  // 5
+        Some(y) => println!("Matched, y = {:?}", y), // 5
         _ => println!("Default case, x = {:?}", x),
     }
     println!("at the end: x = {:?}, y = {:?}", x, y);
@@ -45,7 +45,7 @@ fn main() {
     // 多个模式
     let x = 1;
     match x {
-        1 | 2 => println!("one or two"),  // one or two
+        1 | 2 => println!("one or two"), // one or two
         3 => println!("three"),
         _ => println!("anything"),
     }
@@ -53,7 +53,7 @@ fn main() {
     // 通过 ..= 匹配值的范围
     let x = 5;
     match x {
-        1..=5 => println!("one through five"),  // one through five
+        1..=5 => println!("one through five"), // one through five
         _ => println!("something else"),
     }
     let x = 'c';
@@ -77,7 +77,7 @@ fn main() {
 
     let p = Point { x: 0, y: 10 };
     match p {
-        Point { x, y: 10  } => println!("On the x axis at {}", x), // 0
+        Point { x, y: 10 } => println!("On the x axis at {}", x), // 0
         Point { x: 0, y } => println!("On the y axis at {}", y),
         Point { x, y } => println!("On neither axis: ({}, {})", x, y),
     }
@@ -94,7 +94,8 @@ fn main() {
         }
         Message::Write(text) => println!("Text message: {}", text),
         Message::ChangeColor(r, g, b) => {
-            println!("Change the color to red {}, green {}, and blue {}", r, g, b); // red 0, green 160, and blue 255
+            println!("Change the color to red {}, green {}, and blue {}", r, g, b);
+            // red 0, green 160, and blue 255
         }
     }
 
@@ -105,15 +106,17 @@ fn main() {
             println!("Change the color to red {}, green {}, and blue {}", r, g, b);
         }
         Message2::ChangeColor(Color::Hsv(h, s, v)) => {
-            println!("Change the color to hue {}, saturation {}, and value {}", h, s, v); // hue 0, saturation 160, and value 255
+            println!(
+                "Change the color to hue {}, saturation {}, and value {}",
+                h, s, v
+            ); // hue 0, saturation 160, and value 255
         }
-        _ => ()
+        _ => (),
     }
 
     // 解构结构体和元组
-    let ((feet, inches), Point {x, y}) = ((3, 10), Point { x: 3, y: -10 });
+    let ((feet, inches), Point { x, y }) = ((3, 10), Point { x: 3, y: -10 });
     println!("feet: {}, inches: {}, x: {}, y: {}", feet, inches, x, y); // feet: 3, inches: 10, x: 3, y: -10
-
 
     // 忽略模式中的值
     // 使用 _ 忽略整个值
@@ -124,7 +127,7 @@ fn main() {
     let new_setting_value = Some(10);
     match (setting_value, new_setting_value) {
         (Some(_), Some(_)) => {
-            println!("Can't overwrite an existing customized value");  // √
+            println!("Can't overwrite an existing customized value"); // √
         }
         _ => {
             setting_value = new_setting_value;
@@ -136,7 +139,7 @@ fn main() {
     match numbers {
         (first, _, third, _, fifth) => {
             println!("Some numbers: {}, {}, {}", first, third, fifth); // 2 8 32
-        },
+        }
     }
 
     // 通过在名字前以一个下划线开头来忽略未使用的变量
@@ -152,7 +155,7 @@ fn main() {
     match numbers {
         (first, .., last) => {
             println!("Some numbers: {}, {}", first, last); // 2 32
-        },
+        }
     }
     /* // 编译报错
     let numbers = (2, 4, 8, 16, 32);
@@ -189,17 +192,18 @@ fn main() {
     // @ 绑定
     let msg = Message3::Hello { id: 5 };
     match msg {
-        Message3::Hello { id: id_variable @ 3..=7 } => {
+        Message3::Hello {
+            id: id_variable @ 3..=7,
+        } => {
             println!("Found an id in range: {}", id_variable); // 5
-        },
+        }
         Message3::Hello { id: 10..=12 } => {
             println!("Found an id in another range");
-        },
+        }
         Message3::Hello { id } => {
             println!("Found some other id: {}", id);
-        },
+        }
     }
-
 }
 #[derive(Debug)]
 struct Point {

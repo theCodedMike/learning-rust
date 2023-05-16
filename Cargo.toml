@@ -171,4 +171,6 @@ path = "src/bin/20_projects_building_a_multithread_web_server/20_1_single_thread
 [[bin]]
 name = "20_2"
 path = "src/bin/20_projects_building_a_multithread_web_server/20_2_multi_threads_web_server.rs"
-
+[[bin]]
+name = "x_macros"
+path = "src/bin/x_macros/macros.rs"

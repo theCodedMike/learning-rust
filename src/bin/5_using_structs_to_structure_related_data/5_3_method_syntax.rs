@@ -10,7 +10,10 @@ fn main() {
         width: 30,
         height: 50,
     };
-    println!("The area of the rectangle is {} square pixels.", rect1.area()); // 1500
+    println!(
+        "The area of the rectangle is {} square pixels.",
+        rect1.area()
+    ); // 1500
 
     //带有更多参数的方法
     let rect2 = Rectangle {
@@ -34,10 +37,13 @@ struct Rectangle {
 }
 impl Rectangle {
     fn new(width: u32, height: u32) -> Self {
-        Rectangle {width, height}
+        Rectangle { width, height }
     }
     fn square(size: u32) -> Self {
-        Rectangle {width: size, height: size}
+        Rectangle {
+            width: size,
+            height: size,
+        }
     }
     //      self 即 self: Self
     //     &self 即 self: &Self

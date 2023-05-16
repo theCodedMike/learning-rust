@@ -39,12 +39,14 @@ fn main() {
     );*/
 
     // 闭包类型推断和标注
-    fn  add_one_v1                (x: u32) -> u32 { x + 1 };
+    fn add_one_v1(x: u32) -> u32 {
+        x + 1
+    };
     let add_one_v2 = |x: u32| -> u32 { x + 1 };
-    let add_one_v3 = |x: u32|        { x + 1 };
-    let add_one_v4 = |x: u32|          x + 1  ;
+    let add_one_v3 = |x: u32| x + 1;
+    let add_one_v4 = |x: u32| x + 1;
 
-    let example_closure = |x: String| x ;
+    let example_closure = |x: String| x;
     let s = example_closure(String::from("hello"));
     //let n = example_closure(5); //编译报错 expected struct `String`, found integer
 
@@ -67,22 +69,24 @@ fn main() {
     //println!("can't use x here: {:?}", x); // value borrowed here after move
     let y = vec![1, 2, 3];
     assert!(equal_to_x(y));
-
 }
 fn generate_workout_1(intensity: u32, random_number: u32) {
     if intensity < 25 {
         println!(
-            "Today, do {} pushups!", simulated_expensive_calculation(intensity)
+            "Today, do {} pushups!",
+            simulated_expensive_calculation(intensity)
         );
         println!(
-            "Next, do {} situps!", simulated_expensive_calculation(intensity)
+            "Next, do {} situps!",
+            simulated_expensive_calculation(intensity)
         );
     } else {
         if random_number == 3 {
             println!("Take a break today! Remember to stay hydrated!");
         } else {
             println!(
-                "Today, run for {} minutes!", simulated_expensive_calculation(intensity)
+                "Today, run for {} minutes!",
+                simulated_expensive_calculation(intensity)
             );
         }
     }
@@ -97,22 +101,13 @@ fn generate_workout_2(intensity: u32, random_number: u32) {
     let expensive_result = simulated_expensive_calculation(intensity);
 
     if intensity < 25 {
-        println!(
-            "Today, do {} pushups!",
-            expensive_result
-        );
-        println!(
-            "Next, do {} situps!",
-            expensive_result
-        );
+        println!("Today, do {} pushups!", expensive_result);
+        println!("Next, do {} situps!", expensive_result);
     } else {
         if random_number == 3 {
             println!("Take a break today! Remember to stay hydrated!");
         } else {
-            println!(
-                "Today, run for {} minutes!",
-                expensive_result
-            );
+            println!("Today, run for {} minutes!", expensive_result);
         }
     }
 }
@@ -125,19 +120,13 @@ fn generate_workout_3(intensity: u32, random_number: u32) {
     };
     // 这里还是有点问题，因为会调用闭包多次，和用函数的效果类似，需要改进
     if intensity < 25 {
-        println!(
-            "Today, do {} pushups!", expensive_closure(intensity)
-        );
-        println!(
-            "Next, do {} situps!", expensive_closure(intensity)
-        );
+        println!("Today, do {} pushups!", expensive_closure(intensity));
+        println!("Next, do {} situps!", expensive_closure(intensity));
     } else {
         if random_number == 3 {
             println!("Take a break today! Remember to stay hydrated!");
         } else {
-            println!(
-                "Today, run for {} minutes!", expensive_closure(intensity)
-            );
+            println!("Today, run for {} minutes!", expensive_closure(intensity));
         }
     }
 }
@@ -149,18 +138,20 @@ fn generate_workout_3(intensity: u32, random_number: u32) {
 ///
 /// 这样余下的代码就不必再负责保存结果并可以复用该值
 struct Cache<T>
-    where T: Fn(u32) -> u32
+where
+    T: Fn(u32) -> u32,
 {
     operation: T,
-    result: Option<u32> //这里的局限性在于只能存1个值，可以考虑优化为map，这样就能存多个值了
+    result: Option<u32>, //这里的局限性在于只能存1个值，可以考虑优化为map，这样就能存多个值了
 }
 impl<T> Cache<T>
-    where T: Fn(u32) -> u32
+where
+    T: Fn(u32) -> u32,
 {
     fn new(operation: T) -> Self {
         Cache {
             operation,
-            result: None
+            result: None,
         }
     }
 
@@ -170,8 +161,8 @@ impl<T> Cache<T>
                 let value = (self.operation)(arg);
                 self.result = Some(value);
                 value
-            },
-            Some(old) => old
+            }
+            Some(old) => old,
         }
     }
 }
@@ -183,18 +174,15 @@ fn generate_workout(intensity: u32, random_number: u32) {
     });
 
     if intensity < 25 {
-        println!(
-            "Today, do {} pushups!", expensive_result.value(intensity)
-        );
-        println!(
-            "Next, do {} situps!", expensive_result.value(intensity)
-        );
+        println!("Today, do {} pushups!", expensive_result.value(intensity));
+        println!("Next, do {} situps!", expensive_result.value(intensity));
     } else {
         if random_number == 3 {
             println!("Take a break today! Remember to stay hydrated!");
         } else {
             println!(
-                "Today, run for {} minutes!", expensive_result.value(intensity)
+                "Today, run for {} minutes!",
+                expensive_result.value(intensity)
             );
         }
     }
