@@ -31,7 +31,7 @@ fn main() {
     //    4: core::slice::index::<impl core::ops::index::Index<I> for [T]>::index
     //              at /rustc/2c8cc343237b8f7d5a3c3703e3a87f2eb2c54a74\library\core\src\slice/index.rs:18:9
     //    5: <alloc::vec::Vec<T,A> as core::ops::index::Index<I>>::index
-    //              at /rustc/2c8cc343237b8f7d5a3c3703e3a87f2eb2c54a74\library\alloc\src\vec/mod.rs:2732:9
+    //              at /rustc/2c8cc343237b8f7d5a3c3703e3a87f2eb2c54a74\library\alloc\src\vec/2_1_use_borrowed_types_for_arguments:2732:9
     //    6: _9_1::main
     //              at .\src/bin/9_error_handling\9_1_unrecoverable_errors_with_panic.rs:19:5
     //    7: core::ops::function::FnOnce::call_once

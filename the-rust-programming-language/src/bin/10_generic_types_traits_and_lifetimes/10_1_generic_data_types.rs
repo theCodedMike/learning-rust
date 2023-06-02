@@ -1,3 +1,6 @@
+#![allow(dead_code)]
+#![allow(unused_variables)]
+
 use std::fmt::Display;
 
 /// 10.1 泛型数据类型

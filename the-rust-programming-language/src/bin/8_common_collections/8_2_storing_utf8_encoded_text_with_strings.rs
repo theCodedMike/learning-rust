@@ -1,3 +1,6 @@
+#![allow(dead_code)]
+#![allow(unused_variables)]
+
 /// 8.2 使用String存储UTF-8编码的文本
 /// cargo r --bin 8_2
 fn main() {
@@ -18,7 +21,7 @@ fn main() {
 
      */
     // 新建字符串
-    let mut s = String::new();
+    let s = String::new();
     let data = "initial contents";
     let s = data.to_string();
 

@@ -1,3 +1,6 @@
+#![allow(dead_code)]
+#![allow(unused_variables)]
+
 use serde::Serialize;
 
 /// 15.1 使用Box<T>指向堆上的数据

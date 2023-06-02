@@ -1,3 +1,6 @@
+#![allow(dead_code)]
+#![allow(unused_variables)]
+
 /// 5.1 定义并举例说明结构体
 /// cargo r --bin 5_1
 fn main() {

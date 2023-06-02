@@ -1,3 +1,6 @@
+#![allow(dead_code)]
+#![allow(unused_variables)]
+
 use std::rc::Rc;
 
 /// 15.4 Rc<T> 引用计数智能指针

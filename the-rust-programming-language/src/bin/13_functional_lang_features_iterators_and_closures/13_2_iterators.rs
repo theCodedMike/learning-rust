@@ -1,3 +1,6 @@
+#![allow(dead_code)]
+#![allow(unused_variables)]
+
 /// 13.2 使用迭代器处理元素系列
 ///
 /// cargo r --bin 13_2

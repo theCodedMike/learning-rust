@@ -1,3 +1,6 @@
+#![allow(dead_code)]
+#![allow(unused_variables)]
+
 type Thunk = Box<dyn Fn() + Send + 'static>;
 
 /// 19.3 高级类型

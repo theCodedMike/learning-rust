@@ -1,4 +1,7 @@
-use std::fmt::Arguments;
+#![allow(dead_code)]
+#![allow(unused_variables)]
+#![allow(deprecated)]
+
 use std::fs::File;
 use std::io;
 use std::io::{Error, Write};
@@ -123,7 +126,7 @@ fn matches() {
 }
 
 enum MyError {
-    FileWriteError
+    FileWriteError,
 }
 impl From<io::Error> for MyError {
     fn from(_e: io::Error) -> MyError {
@@ -147,7 +150,7 @@ fn write_to_file_using_try() -> Result<(), MyError> {
 ///
 /// try 是保留的关键字，所以只能写成r#try这种形式了
 fn r#try() {
-   println!("r#try");
+    println!("r#try");
 }
 
 /// Writes formatted data into a buffer.
@@ -173,9 +176,9 @@ fn writeln() {
 fn foo(x: Option<i32>) {
     match x {
         Some(n) if n >= 0 => println!("Some(Non-negative)"),
-        Some(n) if n <  0 => println!("Some(Negative)"),
-        Some(_)           => unreachable!(), // compile error if commented out
-        None              => println!("None")
+        Some(n) if n < 0 => println!("Some(Negative)"),
+        Some(_) => unreachable!(), // compile error if commented out
+        None => println!("None"),
     }
 }
 /// Indicates unreachable code.
@@ -197,10 +200,11 @@ impl Validate for Order {
 
 /// Indicates unimplemented code by panicking with a message of "not implemented".
 fn unimplemented() {
-    let order = Order{};
-    let _ = order.validate_order_by_id(12_u64).expect("Failed to validate");
+    let order = Order {};
+    let _ = order
+        .validate_order_by_id(12_u64)
+        .expect("Failed to validate");
 }
-
 
 /// Indicates unfinished code.
 fn todo() {
@@ -307,10 +311,10 @@ fn stringify() {
     println!("stringify: {}", one_plus_one); // 1 + 1
 
     let other1 = stringify!(1 + 1 4 + 6);
-    println!("stringify: {}", other1);       // 1 + 1 4 + 6
+    println!("stringify: {}", other1); // 1 + 1 4 + 6
 
     let other2 = stringify!(1 + 1, 4 + 6);
-    println!("stringify: {}", other2);       // 1 + 1, 4 + 6
+    println!("stringify: {}", other2); // 1 + 1, 4 + 6
 }
 
 /// Includes a UTF-8 encoded file as a string at compile-time,
@@ -335,7 +339,6 @@ fn include() {
     let my_string = include!("monkeys.in");
     assert_eq!("🙈🙊🙉🙈🙊🙉", my_string);
     println!("{my_string}");
-
 }
 
 /// Expands to a string that represents the current module path.

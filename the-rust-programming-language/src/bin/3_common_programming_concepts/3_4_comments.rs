@@ -1,3 +1,6 @@
+#![allow(dead_code)]
+#![allow(unused_variables)]
+
 /// 3.4 注释
 /// cargo r --bin 3_3
 fn main() {

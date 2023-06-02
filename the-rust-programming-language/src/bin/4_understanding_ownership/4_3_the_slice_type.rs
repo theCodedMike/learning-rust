@@ -1,6 +1,8 @@
+#![allow(dead_code)]
+#![allow(unused_variables)]
+
 /// 4.3 切片slice
 /// cargo r --bin 4_3
-use std::ops::Index;
 
 fn main() {
     /*

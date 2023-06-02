@@ -1,3 +1,6 @@
+#![allow(dead_code)]
+#![allow(unused_variables)]
+
 use std::sync::mpsc;
 use std::thread;
 use std::time::Duration;

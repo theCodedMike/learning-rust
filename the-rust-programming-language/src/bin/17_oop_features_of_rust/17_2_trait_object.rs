@@ -1,3 +1,6 @@
+#![allow(dead_code)]
+#![allow(unused_variables)]
+
 /// 17.2 为使用不同类型地值而设计的特征对象
 ///
 /// cargo r --bin 17_2

@@ -1,3 +1,6 @@
+#![allow(dead_code)]
+#![allow(unused_variables)]
+
 use std::error::Error;
 use std::fs;
 use std::fs::File;

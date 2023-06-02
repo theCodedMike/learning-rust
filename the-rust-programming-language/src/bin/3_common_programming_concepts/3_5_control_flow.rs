@@ -1,3 +1,6 @@
+#![allow(dead_code)]
+#![allow(unused_variables)]
+
 /// 3.5 控制流
 ///
 /// cargo r --bin 3_5

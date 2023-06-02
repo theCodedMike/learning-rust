@@ -1,3 +1,6 @@
+#![allow(dead_code)]
+#![allow(unused_variables)]
+
 /// 18.3 模式语法
 ///
 /// cargo r --bin 18_3

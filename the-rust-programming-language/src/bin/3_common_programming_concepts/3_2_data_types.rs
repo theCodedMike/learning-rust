@@ -1,3 +1,6 @@
+#![allow(dead_code)]
+#![allow(unused_variables)]
+
 /// 3.2 数据类型
 ///
 /// cargo r --bin 3_2

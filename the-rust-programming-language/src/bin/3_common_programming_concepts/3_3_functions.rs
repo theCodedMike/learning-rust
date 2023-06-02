@@ -1,3 +1,6 @@
+#![allow(dead_code)]
+#![allow(unused_variables)]
+
 /// 3.3 函数
 ///
 /// cargo r --bin 3_3

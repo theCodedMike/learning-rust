@@ -1,3 +1,6 @@
+#![allow(dead_code)]
+#![allow(unused_variables)]
+
 use std::thread;
 use std::time::Duration;
 
@@ -41,7 +44,7 @@ fn main() {
     // 闭包类型推断和标注
     fn add_one_v1(x: u32) -> u32 {
         x + 1
-    };
+    }
     let add_one_v2 = |x: u32| -> u32 { x + 1 };
     let add_one_v3 = |x: u32| x + 1;
     let add_one_v4 = |x: u32| x + 1;

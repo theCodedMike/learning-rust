@@ -1,7 +1,7 @@
 mod thread_pool;
 
 use crate::thread_pool::ThreadPool;
-use std::io::{BufRead, BufReader, Read, Write};
+use std::io::{BufRead, BufReader, Write};
 use std::net::{TcpListener, TcpStream};
 use std::time::Duration;
 use std::{fs, thread};

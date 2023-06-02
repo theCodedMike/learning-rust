@@ -54,10 +54,10 @@ impl ThreadPool {
 impl Drop for ThreadPool {
     fn drop(&mut self) {
         // 关闭sender后，将关闭对应的channel
-        if let Some(Sender) = self.sender.take() {
+        if let Some(sender) = self.sender.take() {
             println!("Sending terminate message to all workers.");
             for _ in &mut self.workers {
-                Sender.send(Message::Terminate).unwrap();
+                sender.send(Message::Terminate).unwrap();
             }
         }
         for worker in &mut self.workers {

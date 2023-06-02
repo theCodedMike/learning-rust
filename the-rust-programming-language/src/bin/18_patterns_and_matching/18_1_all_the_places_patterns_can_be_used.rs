@@ -1,3 +1,6 @@
+#![allow(dead_code)]
+#![allow(unused_variables)]
+
 /// 18.1 所有可能会用到模式的位置
 ///
 /// cargo r --bin 18_1

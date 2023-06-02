@@ -1,3 +1,6 @@
+#![allow(dead_code)]
+#![allow(unused_variables)]
+
 /// 5.2 使用结构体的代码示例
 /// cargo r --bin 5_2
 fn main() {

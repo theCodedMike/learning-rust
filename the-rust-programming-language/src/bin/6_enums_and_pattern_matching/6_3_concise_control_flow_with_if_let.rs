@@ -1,3 +1,6 @@
+#![allow(dead_code)]
+#![allow(unused_variables)]
+
 /// 6.3 if let 简单控制流
 /// cargo r --bin 6_3
 fn main() {

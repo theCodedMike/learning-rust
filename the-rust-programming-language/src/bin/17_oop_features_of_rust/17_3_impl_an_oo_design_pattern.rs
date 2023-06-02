@@ -1,6 +1,7 @@
+#![allow(dead_code)]
+#![allow(unused_variables)]
+
 use ansi_term::Colour;
-use serde::de::Unexpected::Str;
-use std::task::ready;
 
 /// 17.3 实现面向对象设计模式
 ///

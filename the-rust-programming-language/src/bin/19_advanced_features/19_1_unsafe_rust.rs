@@ -75,7 +75,7 @@ fn main() {
     my_struct.print();
 
     // 访问联合体中的字段
-    let mut u = IntOrFloat { f: 1.0 };
+    let u = IntOrFloat { f: 1.0 };
     println!("now i is {}", unsafe { u.i }); // 1065353216
     println!("now f is {}", unsafe { u.f }); // 1
 }

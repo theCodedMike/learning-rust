@@ -1,3 +1,6 @@
+#![allow(dead_code)]
+#![allow(unused_variables)]
+
 /// 6.1 定义枚举
 /// cargo r --bin 6_1
 fn main() {

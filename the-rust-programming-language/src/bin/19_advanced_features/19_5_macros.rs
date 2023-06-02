@@ -1,3 +1,6 @@
+#![allow(dead_code)]
+#![allow(unused_variables)]
+
 /// 19.5 宏
 ///
 /// cargo r --bin 19_5

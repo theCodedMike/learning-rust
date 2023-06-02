@@ -1,3 +1,6 @@
+#![allow(dead_code)]
+#![allow(unused_variables)]
+
 /// 4.1 什么是所有权？
 ///
 /// cargo r --bin 4_3

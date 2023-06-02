@@ -1,3 +1,6 @@
+#![allow(dead_code)]
+#![allow(unused_variables)]
+
 use rand::Rng;
 use std::fmt::{Debug, Display};
 

@@ -1,3 +1,6 @@
+#![allow(dead_code)]
+#![allow(unused_variables)]
+
 /// 8.1 使用vector存储一系列值
 /// cargo r --bin 8_1
 fn main() {

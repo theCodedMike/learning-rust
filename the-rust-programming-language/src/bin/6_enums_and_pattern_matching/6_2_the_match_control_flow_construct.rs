@@ -1,3 +1,6 @@
+#![allow(dead_code)]
+#![allow(unused_variables)]
+
 /// 6.2 match控制流运算符
 /// cargo r --bin 6_2
 fn main() {

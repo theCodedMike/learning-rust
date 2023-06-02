@@ -1,3 +1,6 @@
+#![allow(dead_code)]
+#![allow(unused_variables)]
+
 use rand::Rng;
 
 /// 19.4 高级函数和闭包

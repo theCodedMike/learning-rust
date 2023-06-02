@@ -1,3 +1,6 @@
+#![allow(dead_code)]
+#![allow(unused_variables)]
+
 /// 4.2 引用和借用
 /// cargo r --bin 4_2
 fn main() {

@@ -1,3 +1,6 @@
+#![allow(dead_code)]
+#![allow(unused_variables)]
+
 /// 3.1 变量和可变性
 ///
 /// cargo r --bin 3_1

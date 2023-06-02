@@ -1,3 +1,7 @@
+#![allow(dead_code)]
+#![allow(unused_variables)]
+#![allow(unused_assignments)]
+
 use std::fmt::Display;
 
 /// 10.3 生命周期与引用有效性
