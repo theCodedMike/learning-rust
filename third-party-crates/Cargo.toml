@@ -1,0 +1,72 @@
+[package]
+name = "third-party-crates"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+gnuplot = "0.0.37"
+chrono = "0.4.24"
+validator = "0.16.0"
+serde = { version = "1.0.160", features = ["derive"] }
+serde_json = "1.0.96"
+reqwest = "0.11.16"
+secrecy = { version = "0.8", features = ["serde"] }
+fake = "2.5.0"
+wiremock = "0.5.18"
+getset = "0.1.2"
+derive_builder = "0.12.0"
+grpc-rust = "0.1.0"
+sha3 = "0.10"
+argon2 = { version = "0.5", features = ["std"] }
+rand = "0.8.5"
+askama = "0.12" # template
+uuid = { version = "1", features = ["v4", "serde"] }
+
+
+[[bin]]
+name = "main"
+path = "src/main.rs"
+[[bin]]
+name = "ch"
+path = "src/bin/chrono.rs"
+[[bin]]
+name = "va"
+path = "src/bin/validator.rs"
+[[bin]]
+name = "sd"
+path = "src/bin/serde.rs"
+[[bin]]
+name = "rq"
+path = "src/bin/reqwest.rs"
+[[bin]]
+name = "se"
+path = "src/bin/secrecy.rs"
+[[bin]]
+name = "fk"
+path = "src/bin/fake.rs"
+[[bin]]
+name = "gs"
+path = "src/bin/getset.rs"
+[[bin]]
+name = "db"
+path = "src/bin/derive_builder.rs"
+[[bin]]
+name = "sha"
+path = "src/bin/sha3.rs"
+[[bin]]
+name = "ar"
+path = "src/bin/argon2.rs"
+[[bin]]
+name = "rd"
+path = "src/bin/rand.rs"
+[[bin]]
+name = "ama"
+path = "src/bin/askama.rs"
+[[bin]]
+name = "uu"
+path = "src/bin/uuid.rs"
+[[bin]]
+name = "gp"
+path = "src/bin/gnuplot.rs"
