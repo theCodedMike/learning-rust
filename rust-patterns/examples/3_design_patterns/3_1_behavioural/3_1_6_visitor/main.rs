@@ -16,6 +16,19 @@
 
 mod model;
 
+use crate::model::{walk_expr, Interpreter};
+use model::ast::Expr;
+
 fn main() {
-    println!("visitor");
+    let mut interpreter = Interpreter;
+
+    let left = Box::new(Expr::IntLit(10));
+    let right = Box::new(Expr::IntLit(20));
+    let res = walk_expr(&mut interpreter, &Expr::Add(left, right));
+    println!("{}", res); // 30
+
+    let left = Box::new(Expr::IntLit(5));
+    let right = Box::new(Expr::IntLit(20));
+    let res = walk_expr(&mut interpreter, &Expr::Sub(left, right));
+    println!("{}", res); // -15
 }

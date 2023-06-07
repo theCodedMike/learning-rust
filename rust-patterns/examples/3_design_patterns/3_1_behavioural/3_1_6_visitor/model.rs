@@ -4,7 +4,7 @@ use crate::model::ast::{Expr, Name, Stmt};
 use crate::model::visit::Visitor;
 
 // The data we will visit
-mod ast {
+pub mod ast {
     pub enum Stmt {
         Expr(Expr),
         Let(Name, Expr),
@@ -22,7 +22,7 @@ mod ast {
 }
 
 // The abstract visitor
-mod visit {
+pub mod visit {
     use crate::model::ast::{Expr, Name, Stmt};
 
     pub trait Visitor<T> {
@@ -33,7 +33,8 @@ mod visit {
 }
 
 // An example concrete implementation - walks the AST interpreting it as code.
-struct Interpreter;
+pub struct Interpreter;
+
 impl Visitor<i64> for Interpreter {
     fn visit_name(&mut self, _n: &Name) -> i64 {
         panic!()
@@ -55,16 +56,13 @@ impl Visitor<i64> for Interpreter {
     }
 }
 
-pub fn walk_expr<T>(visitor: &mut dyn Visitor<T>, e: &Expr) {
+pub fn walk_expr<T: std::ops::Add<Output = i64> + std::ops::Sub<Output = i64>>(
+    visitor: &mut dyn Visitor<T>,
+    e: &Expr,
+) -> i64 {
     match *e {
-        Expr::IntLit(_) => {}
-        Expr::Add(ref lhs, ref rhs) => {
-            visitor.visit_expr(lhs);
-            visitor.visit_expr(rhs);
-        }
-        Expr::Sub(ref lhs, ref rhs) => {
-            visitor.visit_expr(lhs);
-            visitor.visit_expr(rhs);
-        }
+        Expr::IntLit(v) => v,
+        Expr::Add(ref lhs, ref rhs) => visitor.visit_expr(lhs) + visitor.visit_expr(rhs),
+        Expr::Sub(ref lhs, ref rhs) => visitor.visit_expr(lhs) - visitor.visit_expr(rhs),
     }
 }

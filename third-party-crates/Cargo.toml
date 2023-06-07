@@ -23,6 +23,8 @@ argon2 = { version = "0.5", features = ["std"] }
 rand = "0.8.5"
 askama = "0.12" # template
 uuid = { version = "1", features = ["v4", "serde"] }
+utf8_slice = "1.0.0"
+unicode-segmentation = "1.10"
 
 
 [[bin]]
@@ -70,3 +72,9 @@ path = "src/bin/uuid.rs"
 [[bin]]
 name = "gp"
 path = "src/bin/gnuplot.rs"
+[[bin]]
+name = "us"
+path = "src/bin/utf8_slice.rs"
+[[bin]]
+name = "usg"
+path = "src/bin/unicode_segmentation.rs"
