@@ -4,9 +4,8 @@
 use std::collections::HashMap;
 
 fn main() {
-    println!("hello world");
     //test_vec_cap_allocate();
-    test_hashmap_cap_allocate();
+    //test_hashmap_cap_allocate();
 }
 /// Vec的动态内存扩展规律
 ///
