@@ -49,5 +49,5 @@ mod model;
 /// ```
 fn main() {
     let b = Bar { f: Foo {} };
-    b.m();
+    b.m(); // foo
 }
