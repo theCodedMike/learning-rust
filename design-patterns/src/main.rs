@@ -1,4 +1,4 @@
-/// cargo r --bin rust-patterns
+/// cargo r --bin design-patterns
 ///
 fn main() {
     println!("Hello, world!");
