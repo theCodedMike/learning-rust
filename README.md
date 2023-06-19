@@ -10,7 +10,7 @@
 
 原书链接为: https://rust-unofficial.github.io/patterns/   
 中文翻译版: http://chuxiuhong.com/chuxiuhong-rust-patterns-zh/intro.html
-
+中文翻译版2: https://fomalhauthmj.github.io/patterns
 
 ## third-party-crates
 主要记录一些三方包的用法
