@@ -1,4 +1,4 @@
-## Basics of OOP 面向对象编程简介
+## Basics of OOP 基础之面向对象编程
 
 **O**bject-**o**riented **p**rogramming is a paradigm based on the concept of wrapping pieces of data, and behavior 
 related to that data, into special bundles called **objects**, which are constructed from a set of "blueprints", 
@@ -54,16 +54,16 @@ define the base Animal class that would list the common attributes and behaviors
 A parent class, like the one we’ve just defined, is called a **superclass**. Its children are **subclasses**. Subclasses 
 inherit state and behavior from their parent, defining only attributes or behaviors that differ. Thus, the Cat class 
 would have the meow method, and the Dog class the bark method.   
-译: 我们刚刚定义的父类被称为**超类**。继承它的类被称为**子类**。子类会继承其父类的状态和行为，且只需定义不同于父类的属性或行为。因此，猫类将包含
-喵喵叫meow方法，而狗Dog类则将包含汪汪叫bark方法。
+译: 我们刚刚定义的父类被称为**超类**。继承它的类被称为**子类**。子类会继承其父类的状态和行为，且只需定义不同于父类的属性或行为。因此，猫Cat类将
+包含喵喵叫meow方法，而狗Dog类则将包含汪汪叫bark方法。
 
 ![class hierarchy](../../../../assets/class_hierarchy.png)
 
 Assuming that we have a related business requirement, we can go even further and extract a more general class for all 
 living Organisms which will become a superclass for Animals and Plants. Such a pyramid of classes is a **hierarchy**. 
 In such a hierarchy, the Cat class inherits everything from both the Animal and Organism classes.   
-译: 假如我们接到一个相关的业务需求，那就可以继续为所有活的生物体Organisms抽取出一个更通用的类，并将其作为动物和植物Plants类的超类。
-这种由各种类组成的金字塔就是**层次结构**。在这个层次结构中，猫类将继承动物和生物体类的全部内容。
+译: 假如我们接到一个相关的业务需求，那就可以继续为所有活的生物体Organisms抽取出一个更通用的类，并将其作为动物Animals和植物Plants类的超类。
+这种由各种类组成的金字塔就是**层次结构**。在这个层次结构中，猫类将继承动物类和生物体类的全部内容。
 
 ![class relations](../../../../assets/classes_relations.png)
 
