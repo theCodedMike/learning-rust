@@ -22,7 +22,7 @@ care only about the seat map and which seats are available.
 ![different models of the same read-world object](../../../../assets/real_world_object.png)
 
 *Abstraction* is a model of a real-world object or phenomenon, limited to a specific context, which represents all 
-details relevant to this context with high accuracy and omits all the rest.
+details relevant to this context with high accuracy and omits all the rest.   
 译: *抽象*是一种反映真实世界对象或现象中特定内容的模型，它能准确地反映出所有与特定内容相关的详细信息，同时忽略其他内容。
 
 
@@ -116,8 +116,8 @@ bag = [new Cat(), new Dog()];
 foreach (Animal a : bag)
     a.makeSound()
 
-// Meow! 喵
-// Woof! 汪
+// Meow! 喵喵
+// Woof! 汪汪
 ```
 
 The program doesn't know the concrete type of the object contained inside the 'a' variable; but, thanks to the special 
