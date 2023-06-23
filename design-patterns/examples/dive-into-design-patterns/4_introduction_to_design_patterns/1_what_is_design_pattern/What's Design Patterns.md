@@ -71,15 +71,15 @@ basically how a pattern gets discovered.
 译: 这是一个好问题，但有点不太准确。设计模式并不是晦涩的、复杂的概念——事实恰恰相反。模式是面向对象设计中常见问题的典型解决方案。同样的解决
 方案在各种项目中得到了反复使用，所以最终有人给它们起了名字，并对其进行了详细描述。这基本上就是模式被发现的历程了。
 
-The concept of patterns was first described by Christopher Alexander in [A Pattern Language: Towns, Buildings,
-Construction](https://refactoring.guru/pattern-language-book). The book describes a "language" for designing the urban 
+The concept of patterns was first described by Christopher Alexander in [*A Pattern Language: Towns, Buildings,
+Construction*](https://refactoring.guru/pattern-language-book). The book describes a "language" for designing the urban 
 environment. The units of this language are patterns. They may describe how high windows should be, how many levels a 
 building should have, how large green areas in a neighborhood are supposed to be, and so on.   
 译: 模式的概念是由克里斯托佛·亚历山大在其著作[《建筑模式语言》](https://refactoringguru.cn/pattern-language-book)中首次提出的。本书介绍
 了城市设计的"语言"，而该语言的基本单元就是模式。 它们可以描述窗户应该在多高、一座建筑应该有多少层以及一片街区应该有多大面积的植被等等。
 
 The idea was picked up by four authors: Erich Gamma, John Vlissides, Ralph Johnson, and Richard Helm. In 1994, they 
-published [Design Patterns: Elements of Reusable Object-Oriented Software](https://refactoring.guru/gof-book), in which 
+published [*Design Patterns: Elements of Reusable Object-Oriented Software*](https://refactoring.guru/gof-book), in which 
 they applied the concept of design patterns to programming. The book featured 23 patterns solving various problems of 
 object-oriented design and became a bestseller very quickly. Due to its lengthy name, people started to call it 
 "the book by the gang of four" which was soon shortened to simply "the GOF book".   
@@ -92,4 +92,30 @@ Since then, dozens of other object-oriented patterns have been discovered. The "
 in other programming fields, so lots of other patterns now exist outside object-oriented design as well.   
 译: 此后，人们又发现了其他几十种面向对象的模式。 "模式方法" 开始在其他编程领域中流行起来，因此也存在许多非面向对象设计的模式。
 
+### :warning: Criticism of patterns 对设计模式的批评
+It seems like only lazy people haven't criticized design patterns yet. Let's take a look at the most typical arguments 
+against using patterns.   
+译: 目前似乎只有懒人还没有批评设计模式。让我们看一下典型的批评使用设计模式的观点。
 
+#### Kludges for a weak programming language 弱编程语言的不成熟方案
+Usually the need for patterns arises when people choose a programming language or a technology that lacks the necessary 
+level of abstraction. In this case, patterns become a kludge that gives the language much-needed super-abilities.   
+译: 通常，当人们选择某种缺乏必要的抽象级别的编程语言或技术时，就会产生对设计模式的需要。在这种情况下，设计模式就变成了一种不成熟方案，可以给编程
+语言提供急需的超能力。
+
+For example, the Strategy pattern can be implemented with a simple anonymous (lambda) function in most modern 
+programming languages.   
+译: 比如，策略模式在现代大多数编程语言中可以被实现成简单的匿名函数(lambda)。
+
+#### Inefficient solutions 低效的解决方案
+Patterns try to systematize approaches that are already widely used. This unification is viewed by many as a dogma, 
+and they implement patterns "to the letter", without adapting them to the context of their project.   
+译: 设计模式试图将已经广泛使用的方法系统化。这种统一方式被许多人视为是一种教条，因为他们 "教条地" 应用模式，而不考虑他们的项目背景。
+
+#### Unjustified use 不当使用
+> If all you have is a hammer, everything looks like a nail.
+> 如果你只有一把锤子，那么所有东西看起来都像是钉子
+
+This is the problem that haunts many novices who have just familiarized themselves with patterns. Having learned about 
+patterns, they try to apply them everywhere, even in situations where simpler code would do just fine.   
+译: 这个问题是许多新手刚刚熟悉设计模式时会遇到的。在学习了设计模式之后，他们试图把设计模式应用到所有地方，即使在更简单的代码能执行得很好的情况下。
