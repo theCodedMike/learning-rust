@@ -44,7 +44,6 @@ class Professor is
     method teach(Course c) is
         // ...
         this.student.remember(c.getKnowledge())
-
 ```
 
 补充: 让我们来看看teach(教授知识)方法，它将接收一个课程(Course)类的参数。如果有人修改了课程类的getKnowledge(获取知识)方法(修改方法名或添加
