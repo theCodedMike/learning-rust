@@ -12,7 +12,7 @@
 
 ## Introduction to Design Patterns 设计模式简介
 ### What's a Design Patterns? 什么是设计模式?
-### Why Should I Learn Patterns? 为什么要学设计模式?
+### Why Should I Learn Patterns? 为什么要学习设计模式?
 
 ## Software Design Principles 软件设计原则
 ### Features of Good Design 优秀设计的特点

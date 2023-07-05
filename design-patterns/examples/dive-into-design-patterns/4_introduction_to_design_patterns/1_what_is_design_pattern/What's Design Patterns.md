@@ -61,7 +61,7 @@ flexible and efficient.
 译: 此外，所有模式可以根据其意图或目的来分类。本书覆盖了三种主要的模式类别:
 - **创建型模式**提供了创建对象的机制，其增加了已有代码的灵活性和可复用性。
 - **结构型模式**介绍了如何将对象和类组装成较大的结构，同时保持结构的灵活性和高效性。
-- **行为模式**负责对象间的高效沟通和职责委派。
+- **行为型模式**负责对象间的高效沟通和职责委派。
 
 ### :green_book: Who invented patterns? 谁发明了设计模式?
 That's a good, but not a very accurate, question. Design patterns aren't obscure, sophisticated concepts—quite the 
