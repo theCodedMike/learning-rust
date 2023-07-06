@@ -1,4 +1,4 @@
-## What's Design Patterns? 什么是设计模式？
+## What's Design Patterns? 什么是设计模式?
 **Design patterns** are typical solutions to commonly occurring problems in software design. They are like pre-made 
 blueprints that you can customize to solve a recurring design problem in your code.   
 译: **设计模式**是软件设计中常见问题的典型解决方案。它们就像能根据需求进行调整的预制蓝图，可用于解决代码中反复出现的设计问题。
@@ -45,20 +45,20 @@ lights or building an entire multi-level interchange with underground passages f
 译: 不同设计模式在复杂度、细节层次以及在整个系统中的应用范围等方面各不相同。我喜欢将其比作道路的修建: 如果你希望让十字路口更加安全，那么可以
 安装一些交通信号灯，或者修建有行人地下通道的多层互通式立交桥。
 
-The most basic and low-level patterns are often called idioms. They usually apply only to a single programming language.   
-译: 最基础最底层的模式通常被称为惯用技巧。这类模式一般只能在一种编程语言中使用。
+The most basic and low-level patterns are often called *idioms*. They usually apply only to a single programming language.   
+译: 最基础最底层的模式通常被称为*惯用技巧*。这类模式一般只能在一种编程语言中使用。
 
-The most universal and high-level patterns are architectural patterns. Developers can implement these patterns in 
+The most universal and high-level patterns are *architectural patterns*. Developers can implement these patterns in 
 virtually any language. Unlike other patterns, they can be used to design the architecture of an entire application.   
-译: 最通用最高层的模式是架构模式。开发者可以在任何编程语言中使用这类模式。与其他模式不同，它们可用于设计整个应用程序的架构。
+译: 最通用最高层的模式是*架构模式*。开发者可以在任何编程语言中使用这类模式。与其他模式不同，它们可用于设计整个应用程序的架构。
 
-In addition, all patterns can be categorized by their intent, or purpose. This book covers three main groups of patterns:
+In addition, all patterns can be categorized by their *intent*, or purpose. This book covers three main groups of patterns:
 - **Creational patterns** provide object creation mechanisms that increase flexibility and reuse of existing code.
 - **Structural patterns** explain how to assemble objects and classes into larger structures, while keeping the structures 
 flexible and efficient.
 - **Behavioral patterns** take care of effective communication and the assignment of responsibilities between objects.   
 
-译: 此外，所有模式可以根据其意图或目的来分类。本书覆盖了三种主要的模式类别:
+译: 此外，所有模式可以根据其*意图*或目的来分类。本书覆盖了三种主要的模式类别:
 - **创建型模式**提供了创建对象的机制，其增加了已有代码的灵活性和可复用性。
 - **结构型模式**介绍了如何将对象和类组装成较大的结构，同时保持结构的灵活性和高效性。
 - **行为型模式**负责对象间的高效沟通和职责委派。
@@ -72,19 +72,19 @@ basically how a pattern gets discovered.
 方案在各种项目中得到了反复使用，所以最终有人给它们起了名字，并对其进行了详细描述。这基本上就是模式被发现的历程了。
 
 The concept of patterns was first described by Christopher Alexander in [*A Pattern Language: Towns, Buildings,
-Construction*](https://refactoring.guru/pattern-language-book). The book describes a "language" for designing the urban 
+Construction*][A Pattern Language]. The book describes a "language" for designing the urban 
 environment. The units of this language are patterns. They may describe how high windows should be, how many levels a 
 building should have, how large green areas in a neighborhood are supposed to be, and so on.   
-译: 模式的概念是由克里斯托佛·亚历山大在其著作[《建筑模式语言》](https://refactoringguru.cn/pattern-language-book)中首次提出的。本书介绍
+译: 模式的概念是由克里斯托佛·亚历山大在其著作[《建筑模式语言》][建筑模式语言]中首次提出的。本书介绍
 了城市设计的"语言"，而该语言的基本单元就是模式。 它们可以描述窗户应该在多高、一座建筑应该有多少层以及一片街区应该有多大面积的植被等等。
 
 The idea was picked up by four authors: Erich Gamma, John Vlissides, Ralph Johnson, and Richard Helm. In 1994, they 
-published [*Design Patterns: Elements of Reusable Object-Oriented Software*](https://refactoring.guru/gof-book), in which 
+published [*Design Patterns: Elements of Reusable Object-Oriented Software*][Design Patterns], in which 
 they applied the concept of design patterns to programming. The book featured 23 patterns solving various problems of 
 object-oriented design and became a bestseller very quickly. Due to its lengthy name, people started to call it 
 "the book by the gang of four" which was soon shortened to simply "the GOF book".   
 译: 埃里希·伽玛、约翰·弗利赛德斯、拉尔夫·约翰逊和理查德·赫尔姆这四位作者接受了模式的概念。1994年，他们出版了
-[《设计模式: 可复用面向对象软件的基础》](https://refactoringguru.cn/gof-book)一书，将设计模式的概念应用到程序开发领域中。该书提供了23个
+[《设计模式: 可复用面向对象软件的基础》][设计模式]一书，将设计模式的概念应用到程序开发领域中。该书提供了23个
 模式来解决面向对象设计中的各种问题，很快便成为了畅销书。由于书名太长，人们将其简称为"四人帮(Gang of Four, GoF)的书"，并且很快进一步简化
 为"GoF的书"。
 
@@ -103,8 +103,8 @@ level of abstraction. In this case, patterns become a kludge that gives the lang
 译: 通常，当人们选择某种缺乏必要的抽象级别的编程语言或技术时，就会产生对设计模式的需要。在这种情况下，设计模式就变成了一种不成熟方案，可以给编程
 语言提供急需的超能力。
 
-For example, the Strategy pattern can be implemented with a simple anonymous (lambda) function in most modern 
-programming languages.   
+For example, the [**Strategy**][Strategy] pattern can be implemented with a simple anonymous (lambda) function in most 
+modern programming languages.   
 译: 比如，策略模式在现代大多数编程语言中可以被实现成简单的匿名函数(lambda)。
 
 #### Inefficient solutions 低效的解决方案
@@ -114,8 +114,15 @@ and they implement patterns "to the letter", without adapting them to the contex
 
 #### Unjustified use 不当使用
 > If all you have is a hammer, everything looks like a nail.
-> 如果你只有一把锤子，那么所有东西看起来都像是钉子
+> 
+> 译: 如果你只有一把锤子，那么所有东西看起来都像是钉子
 
 This is the problem that haunts many novices who have just familiarized themselves with patterns. Having learned about 
 patterns, they try to apply them everywhere, even in situations where simpler code would do just fine.   
 译: 这个问题是许多新手刚刚熟悉设计模式时会遇到的。在学习了设计模式之后，他们试图把设计模式应用到所有地方，即使在更简单的代码能执行得很好的情况下。
+
+[A Pattern Language]:https://refactoring.guru/pattern-language-book
+[Design Patterns]:https://refactoring.guru/gof-book
+[建筑模式语言]:https://refactoringguru.cn/pattern-language-book
+[设计模式]:https://refactoringguru.cn/gof-book
+[Strategy]:../../6_catalog_of_design_patterns/3_behavioral_design_patterns/8_strategy/

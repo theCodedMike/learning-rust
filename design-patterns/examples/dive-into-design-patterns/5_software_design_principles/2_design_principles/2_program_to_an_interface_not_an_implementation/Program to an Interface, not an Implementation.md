@@ -25,7 +25,7 @@ with objects of the original class, but the connection is now much more flexible
 3. 让被依赖的类实现该接口。
 4. 现在让有需求的类依赖于这个接口，而不依赖于具体的类。你依旧可以与原始类的对象进行互动，但现在二者的连接变得灵活得多。
 
-![cat and sausage](../../../../../assets/uml_cat_and_sausage.png)
+![cat and sausage](../../../../../assets/uml_Cat_Sausage.png)
 
 After making this change, you won't probably feel any immediate benefit. On the contrary, the code has become more 
 complicated than it was before. However, if you feel that this might be a good extension point for some extra 
@@ -41,7 +41,7 @@ have different classes that represent various employee types.
 译: 让我们来看看另外一个例子，它说明了通过接口与对象进行交互要比通过具体的类好处更多。想象一下你正在开发一款软件开发公司模拟器。你使用了不同的类
 来代表各种类型的雇员。
 
-![all classes are coupled](../../../../../assets/all_classes_are_coupled.png)
+![all classes are coupled](../../../../../assets/uml_Company_before.png)
 
 In the beginning, the `Company` class is tightly coupled to concrete classes of employees. However, despite the 
 difference in their implementations, we can generalize various work-related methods and then extract a common interface 
@@ -53,7 +53,7 @@ After doing that, we can apply polymorphism inside the `Company` class, treating
 `Employee` interface.   
 译: 此后， 我们可在公司`Company`类内应用多态机制，通过雇员`Employee`接口来处理各种雇员对象。
 
-![simplify code by using polymorphism](../../../../../assets/uml_company_employee_designer.png)
+![simplify code by using polymorphism](../../../../../assets/uml_Company_better.png)
 
 The `Company` class remains coupled to the employee classes. This is bad because if we introduce new types of companies
 that work with other types of employees, we'll need to override most of the `Company` class instead of reusing that code.   
@@ -64,7 +64,7 @@ To solve this problem, we could declare the method for getting employees as *abs
 implement this method differently, creating only those employees that it needs.   
 译: 为了解决这个问题，我们可以声明一个*抽象*方法来获取雇员。每个具体公司都将以不同的方式实现该方法，从而创建自己所需的雇员。
 
-![simplify code by using polymorphism2](../../../../../assets/uml_company_employee_designer2.png)
+![simplify code by using polymorphism2](../../../../../assets/uml_Company_after.png)
 
 After this change, the `Company` class has become independent of various employee classes. Now you can extend this class
 and introduce new types of companies and employees while still reusing a portion of the base company class. Extending
@@ -72,6 +72,6 @@ the base company class doesn't break any existing code that already relies on it
 译: 修改后，公司`Company`类将独立于各种雇员类。现在你可以对该类进行扩展，并在复用部分公司基类的情况下引入新的公司和雇员类型。对公司基类进行
 扩展时无需修改任何依赖于基类的已有代码。
 
-By the way, you've just seen applying a design pattern in action! That was an example of the `Factory Method` pattern.
+By the way, you've just seen applying a design pattern in action! That was an example of the *Factory Method* pattern.
 Don't worry: we'll discuss it later in detail.   
-译: 顺便提一句，你刚刚目睹的就是设计模式的应用! 这就是工厂方法`Factory Method`模式的一个示例。不要担心，稍后我们会对其进行详细讨论。
+译: 顺便提一句，你刚刚目睹的就是设计模式的应用! 这就是*工厂方法*模式的一个示例。不要担心，稍后我们会对其进行详细讨论。

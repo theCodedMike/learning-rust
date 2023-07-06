@@ -1,4 +1,4 @@
-## `L`iskov Substitution Principle 里氏替换原则
+## `L`iskov Substitution Principle [里氏替换原则][里氏替换原则]
 
 > When extending a class, remember that you should be able to pass objects of the subclass in place of objects of the 
 > parent class without breaking the client code.
@@ -112,7 +112,7 @@ languages (Python, JavaScript) don't have any protection for the private members
 Let's look at an example of a hierarchy of document classes that violates the substitution principle.   
 译: 让我们来看一个违反替换原则的文档类层次结构的例子。
 
-![uml Document and Project](../../../../../assets/uml_Document_Project.png)
+![uml Document and Project](../../../../../assets/uml_Document_before.png)
 
 The `save` method in the `ReadOnlyDocuments` subclass throws an exception if someone tries to call it. The base method
 doesn't have this restriction. This means that the client code will break if we don't check the document type before 
@@ -124,10 +124,12 @@ The resulting code also violates the open/closed principle, since the client cod
 of documents. If you introduce a new document subclass, you'll need to change the client code to support it.   
 译: 此时代码也将违反开闭原则，因为客户端代码将依赖于具体的文档类。如果你引入了新的文档子类，则需要修改客户端代码才能对其进行支持。
 
-![uml WritableDocument](../../../../../assets/uml_WritableDocument.png)
+![uml WritableDocument](../../../../../assets/uml_Document_after.png)
 
 You can solve the problem by redesigning the class hierarchy: a subclass should extend the behavior of a superclass,
 therefore, the read-only document becomes the base class of the hierarchy. The writable document is now a subclass which
 extends the base class and adds the saving behavior.   
 译: 你可以通过重新设计类层次结构来解决这个问题: 一个子类应该扩展其超类的行为，因此只读文档变成了类层次结构中的基类。可写文档现在变成了子类，其对
 基类进行了扩展并添加了保存行为。
+
+[里氏替换原则]:https://refactoring.guru/liskov/dah

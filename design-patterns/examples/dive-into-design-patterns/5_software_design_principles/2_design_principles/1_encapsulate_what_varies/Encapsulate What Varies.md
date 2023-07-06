@@ -22,14 +22,14 @@ and testing the changes. The less time you spend making changes, the more time y
 实现并测试修改的内容。你在修改程序上所花的时间越少，就会有更多的时间来实现功能。
 
 ### Encapsulation on a method level 在方法层面封装
-Say you're making an e-commerce website. Somewhere in your code, there's a getOrderTotal method that calculates a grand
+Say you're making an e-commerce website. Somewhere in your code, there's a `getOrderTotal` method that calculates a grand
 total for the order, including taxes.   
-译: 假如你正在开发一个电子商务网站。代码中某处有一个getOrderTotal方法，该方法用于计算订单的总金额(含税)。
+译: 假如你正在开发一个电子商务网站。代码中某处有一个`getOrderTotal`方法，该方法用于计算订单的总金额(含税)。
 
 We can anticipate that tax-related code might need to change in the future. The tax rate depends on the country, state 
 or even city where the customer resides, and the actual formula may change over time due to new laws or regulations. As 
-a result, you'll need to change the getOrderTotal method quite often. But even the method's name suggests that it 
-doesn't care about how the tax is calculated.   
+a result, you'll need to change the `getOrderTotal` method quite often. But even the method's name suggests that it 
+doesn't care about *how* the tax is calculated.   
 译: 我们预计在未来可能会修改与税金相关的代码。税率会根据客户居住的国家/地区、州/省甚至城市而有所不同: 而且一段时间后，实际的计算公式可能会由于
 新的法律或政策而修改。因此，你将需要经常地修改getOrderTotal方法。不过仔细观察方法名称，连它都在暗示其并不关心税金是如何计算出来的。
 
@@ -88,10 +88,10 @@ containing class. Extracting everything to a new class might make things much mo
 译: 一段时间后，你可能会在一个以前完成简单工作的方法中添加越来越多的功能。新增行为通常还会带来助手成员变量和方法，最终使得包含接纳它们的类的主要
 职责变得模糊不清。将所有这些内容抽取到一个新类中会让程序变得更加清晰和简洁。
 
-![order](../../../../../assets/uml_order.png)
+![order](../../../../../assets/uml_Order_before.png)
 
-Objects of the Order class delegate all tax-related work to a special object that does just that.   
-译: 订单类的对象将所有与税金相关的工作委派给一个专门负责的特殊对象。
+Objects of the `Order` class delegate all tax-related work to a special object that does just that.   
+译: 订单`Order`类的对象将所有与税金相关的工作委派给一个专门负责的特殊对象。
 
-![order and tax calculator](../../../../../assets/uml_order_and_tax_calculator.png)
+![order and tax calculator](../../../../../assets/uml_Order_after.png)
 

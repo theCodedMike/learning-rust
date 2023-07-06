@@ -18,8 +18,8 @@ Design patterns are universal. Therefore, all code samples in this book are writ
 constrain the material to a particular programming language.   
 译: 设计模式是通用的。因此本书中的所有示例代码都以伪代码的形式呈现，而不会出现特定编程语言的内容。
 
-Prior to studying patterns, you can refresh your memory by going over the key terms of object-oriented programming.
+Prior to studying patterns, you can refresh your memory by going over the [**key terms of object-oriented programming**](../3_introduction_to_oop/).
 That chapter also explains the basics of UML diagrams, which is useful because the book has tons of them. Of course, 
-if you already know all of that, you can proceed to learning patterns right away.   
+if you already know all of that, you can proceed to [**learning patterns**](../4_introduction_to_design_patterns/) right away.   
 译: 在学习设计模式之前，你可以复习面向对象编程的关键术语来回忆相关知识。这一章还会介绍UML图的基础知识，这些知识非常实用，因为书中会有许多UML图。
 当然，如果你已经掌握了所有这些内容的话，也可以直接开始学习设计模式。

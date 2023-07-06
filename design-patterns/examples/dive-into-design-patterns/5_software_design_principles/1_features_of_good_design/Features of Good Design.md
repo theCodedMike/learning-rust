@@ -1,7 +1,7 @@
 ## Features of Good Design 优秀设计的特征
 Before we proceed to the actual patterns, let's discuss the process of designing software architecture: things to aim 
 for and things you'd better avoid.   
-译: 在开始学习设计模式之前，我们先来看看软件架构的设计过程，了解一下需要达成的目标以及需要尽量避免的陷阱。
+译: 在开始学习设计模式之前，让我们先来看看软件架构的设计过程，了解一下需要达成的目标以及需要尽量避免的陷阱。
 
 
 ### :recycle: Code reuse 代码复用
@@ -25,7 +25,7 @@ Using design patterns is one way to increase the flexibility of software compone
 However, this sometimes comes at the price of making the components more complicated.   
 译: 使用设计模式是增加软件组件灵活性并使其易于复用的方式之一。但是有时，这也会让组件变得更加复杂。
 
-Here's a price of wisdom from [Erich Gamma](https://refactoring.guru/gamma-interview), one of the founding fathers of 
+Here's a price of wisdom from [Erich Gamma][Erich Gamma on Flexibility and Reuse], one of the founding fathers of 
 design patterns, about the role of design patterns in code reuse: 
 > I see three levels of reuse.
 > 
@@ -109,3 +109,5 @@ sessions. These aren't frivolous changes: your excellent first version has shown
 That's why
 all seasoned developers try to provide for possible future changes when designing an application's architecture.   
 译: 因此在设计应用的架构时，所有有经验的开发者会尽量选择支持未来任何可能变更的方式。
+
+[Erich Gamma on Flexibility and Reuse]:https://refactoring.guru/gamma-interview

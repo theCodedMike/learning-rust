@@ -1,7 +1,7 @@
 ## Relations Between Objects 对象之间的关系
-In addition to inheritance and implementation that we've already seen, there are other types of relations between
-objects that we haven’t talked about yet.   
-译: 除了之前我们已经见到的继承和实现外，对象之间还有其他的关系我们尚未提及。
+In addition to *inheritance* and *implementation* that we've already seen, there are other types of relations between
+objects that we haven't talked about yet.   
+译: 除了之前我们已经见到的*继承*和*实现*外，对象之间还有其他的关系我们尚未提及。
 
 
 ### Dependency 依赖
@@ -9,7 +9,7 @@ objects that we haven’t talked about yet.
 
 *Dependency* is a weaker variant of association that usually implies that there's no permanent link between objects.
 Dependency typically (but not always) implies that an object accepts another object as a method parameter, instantiates, 
-or uses another object. Here’s how you can spot a dependency between classes: a dependency exists between two classes 
+or uses another object. Here's how you can spot a dependency between classes: a dependency exists between two classes 
 if changes to the definition of one class result in modifications in another class.   
 补充: *依赖*是类之间最基础的、也是最微弱的关系类型。如果修改一个类的定义可能会造成另一个类的变化，那么这两个类之间就存在依赖关系。当你在代码中
 使用具体类的名称时，通常意味着存在依赖关系。例如在指定方法签名类型时，或是通过调用构造函数对对象进行初始化时等。通过让代码依赖接口或抽象类(而不
@@ -46,11 +46,12 @@ class Professor is
         this.student.remember(c.getKnowledge())
 ```
 
-补充: 让我们来看看teach(教授知识)方法，它将接收一个课程(Course)类的参数。如果有人修改了课程类的getKnowledge(获取知识)方法(修改方法名或添加
+补充: 让我们来看看教授知识`teach`方法，它将接收一个来自课程`Course`类的参数。如果有人修改了课程`Course`类的`getKnowledge`方法(修改方法名或添加
 一些必须的参数等)，那代码将会崩溃。这就是依赖关系。
 
-补充: 现在，让我们来看看名为student(学生)的成员变量，以及如何在teach方法中使用该变量。我们可以肯定学生(Student)类是教授类的依赖: 如果
-remember(记住)方法被修改，教授的代码也将崩溃。但由于教授的所有方法总能访问student成员变量，所以学生类就不仅是依赖，而也是关联了。
+补充: 现在，让我们来看看名为学生`student`的成员变量，以及如何在`teach`方法中使用该变量。我们可以肯定学生`Student`类是教授`Professor`类的依赖: 
+如果`remember`方法被修改，教授`Professor`类的代码也将崩溃。但由于教授`Professor`类的所有方法总能访问学生`student`类的成员变量，所以学生`student`类
+就不仅是依赖，而也是关联了。
 
 ### Composition 组合
 ![composition](../../../../assets/uml_composition.png)
@@ -62,12 +63,12 @@ arrow at the end pointing toward the component.
 译: *组合*是一种特殊类型的聚合，其中一个对象由一个或多个其他对象实例构成。组合与其他关系的区别在于组件仅能作为容器的一部分存在。在UML图中，组合
 与聚合关系的符号相同，但箭头起始处的菱形是实心的。
 
-While we talk about relations between objects, keep in mind that UML represents relations between classes. It means 
-that a university object might consist of multiple departments even though you see just one "block" for each entity 
-in the diagram. UML notation can represent quantities on both sides of relationships, but it's okay to omit them if 
-the quantities are clear from the context.   
-译: 尽管我们在此讨论的是对象之间的关系，但请记住UML图表示的是类之间的关系。这意味着大学对象可能是由多个院系构成的，即便图中的每个实体只用一个
-"方框"来表示。你可以使用UML符号在关系两端标明数量，但如果可以从上下文中明确数量的话，则可以省略此类标注。
+> While we talk about relations between objects, keep in mind that UML represents relations between classes. It means 
+> that a university object might consist of multiple departments even though you see just one "block" for each entity 
+> in the diagram. UML notation can represent quantities on both sides of relationships, but it's okay to omit them if 
+> the quantities are clear from the context.   
+> 译: 尽管我们在此讨论的是对象之间的关系，但请记住UML图表示的是类之间的关系。这意味着大学对象可能是由多个院系构成的，即便图中的每个实体只用一个
+> "方框" 来表示。你可以使用UML符号在关系两端标明数量，但如果可以从上下文中明确数量的话，则可以省略此类标注。
 
 ### Aggregation 聚合
 ![aggregation](../../../../assets/uml_aggregation.png)
@@ -75,9 +76,9 @@ the quantities are clear from the context.
 *Aggregation* is a less strict variant of composition, where one object merely contains a reference to another. The 
 container doesn't control the life cycle of the component. The component can exist without the container and can be 
 linked to several containers at the same time. In UML the aggregation relationship is drawn the same as for composition, 
-but with an empty diamond at the arrow’s base.   
+but with an empty diamond at the arrow's base.   
 译: *聚合*是一种特殊类型的关联，用于表示多个对象之间的"一对多"、"多对多"或"整体对部分"的关系。普通关联仅用于描述两个对象之间的关系。通常在聚合
-关系中，一个对象"拥有"一组其他对象，并扮演着容器或集合的角色。组件可以独立于容器存在，也可以同时连接多个容器。在UML图中，聚合关系使用一端是空心
+关系中，一个对象 "拥有" 一组其他对象，并扮演着容器或集合的角色。组件可以独立于容器存在，也可以同时连接多个容器。在UML图中，聚合关系使用一端是空心
 菱形，另一端指向组件的箭头来表示。
 
 补充: 注意，在现实中许多人常常想说聚合和组合时使用"组合"这个术语。其中最恶名昭彰的例子是著名的"组合优于继承"原则。这并不是因为人们不清楚它们
@@ -88,9 +89,9 @@ but with an empty diamond at the arrow’s base.
 等问题。   
 ![relation between object and class](../../../../assets/relation_between_object_and_class.png)
 
-- 依赖: 对类B进行修改会影响到类A
-- 关联: 对象A知道对象B。类A依赖于类B
-- 聚合: 对象A知道对象B且由B构成。类A依赖于类B
-- 组合: 对象A知道对象B、由B构成而且管理着B的生命周期。类A依赖于类B
-- 实现: 类A定义的方法由接口B声明。对象A可被视为对象B。类A依赖于类B
-- 继承: 类A继承类B的接口和实现，但是可以对其进行扩展。对象A可被视为对象B。类A依赖于类B
+- **依赖**: 对类B进行修改会影响到类A
+- **关联**: 对象A知道对象B。类A依赖于类B
+- **聚合**: 对象A知道对象B且由B构成。类A依赖于类B
+- **组合**: 对象A知道对象B、由B构成而且管理着B的生命周期。类A依赖于类B
+- **实现**: 类A定义的方法由接口B声明。对象A可被视为对象B。类A依赖于类B
+- **继承**: 类A继承类B的接口和实现，但是可以对其进行扩展。对象A可被视为对象B。类A依赖于类B

@@ -37,11 +37,11 @@ requiring you to change the code within the class.
 译: 我们有几个理由来对雇员`Employee`类进行修改。第一个理由与该类的主要工作(管理雇员数据)有关。但还有另外一个理由: 时间表报告的格式可能会随着
 时间而改变，从而使你需要对类中的代码进行修改。
 
-![employee](../../../../../assets/uml_employee.png)
+![employee](../../../../../assets/uml_Employee_before.png)
 
 Solve the problem by moving the behavior related to printing timesheet reports into a separate class. This change lets 
 you move other report-related stuff to the new class.   
 译: 解决该问题的方法是将与打印时间表报告相关的行为移动到一个单独的类中。这个改变让你能将其他与报告相关的内容移动到一个新的类中。
 
-![TimeSheetReport and Employee](../../../../../assets/uml_Employee_TimeSheetReport.png)
+![TimeSheetReport and Employee](../../../../../assets/uml_Employee_after.png)
 

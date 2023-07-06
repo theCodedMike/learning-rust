@@ -2,7 +2,7 @@
 Inheritance is probably the most obvious and easy way of reusing code between classes. You have two classes with the
 same code. Create a common base class for these two and move the similar code into it. Piece of cake!   
 译: 继承可能是类之间最明显、最简单的代码复用方式。现在你有两个代码大致相同的类。你可以为它们创建一个通用的基类，然后将相似的代码移动到其中。
-很简单吧！
+很简单吧!
 
 Unfortunately, inheritance comes with caveats that often become apparent only after your program already has tons of
 classes and changing anything is pretty hard. Here's a list of those problems.
@@ -32,12 +32,12 @@ combinations, bloating the class hierarchy to a ridiculous size.
 
 There's an alternative to inheritance called *composition*. Whereas inheritance represents the "is a" relationship 
 between classes (a car *is a* transport), composition represents the "has a" relationship (a car *has an* engine).   
-译: *组合*可以代替继承。继承代表的是类之间的"是" 关系(汽车*是*交通工具)，而组合则代表的是"有"关系(汽车*有*一个引擎)
+译: *组合*可以代替继承。继承代表的是类之间的 "是" 关系(汽车*是*交通工具)，而组合则代表的是 "有" 关系(汽车*有*一个引擎)
 
 I should mention that this principle also applies to aggregation—a more relaxed variant of composition where one object
 may have a reference to the other one but doesn't manage its lifecycle. Here's an example: a car *has a* driver, but he 
 or she may use another car or just walk *without the car*.   
-译: 值得一提的是，这个原则也同样适用于聚合(一种更松弛的组合变体，一个对象可引用另一个对象，但并不管理其生命周期)。例如: 一辆汽车有一个司机，但是
+译: 值得一提的是，这个原则也同样适用于聚合(一种更松弛的组合变体，一个对象可引用另一个对象，但并不管理其生命周期)。例如: 一辆汽车*有*一个司机，但是
 司机可能会使用另一辆汽车，或者选择步行而不使用汽车。
 
 
@@ -46,7 +46,7 @@ Imagine that you need to create a catalog app for a car manufacturer. The compan
 either electric or gas; all models have either manual controls or an autopilot.   
 译: 假设你需要为汽车制造商开发一个目录程序。该公司同时生产汽车和卡车；这些车辆要么是电动的要么是烧油的；所有车型都配备了手动控制或自动驾驶功能。
 
-![inheritance](../../../../../assets/uml_inheritance.png)
+![inheritance](../../../../../assets/uml_Transport_inheritance.png)
 
 As you see, each additional parameter results in multiplying the number of subclasses. There's a lot of duplicate code
 between subclasses because a subclass can't extend two classes at the same time.   
@@ -60,7 +60,7 @@ The added benefit is that you can replace the behavior at runtime. For instance,
 to a car object just by assigning a different engine object to the car.   
 译: 还有一个好处就是你可以在运行时对行为进行替换。例如，你可以通过重新为汽车对象分配一个不同的引擎对象来替换汽车已有的引擎。
 
-![composition](../../../../../assets/uml_composition.png)
+![composition](../../../../../assets/uml_Transport_composition.png)
 
-This structure of classes resembles the Strategy pattern, which we'll go over later in this book.   
-译: 上述类的结构类似于我们稍后将在本书中讨论的策略模式。
+This structure of classes resembles the *Strategy* pattern, which we'll go over later in this book.   
+译: 上述类的结构类似于我们稍后将在本书中讨论的*策略*模式。
