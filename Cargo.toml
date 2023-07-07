@@ -1,7 +1,8 @@
 [workspace]
 members = [
     "the-rust-programming-language",
-    "design-patterns",
+    "design-patterns/dive-into-design-patterns",
+    "design-patterns/rust-design-patterns",
     "third-party-crates"
 ]
 resolver = "2"

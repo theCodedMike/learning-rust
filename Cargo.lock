@@ -408,6 +408,10 @@ dependencies = [
 ]
 
 [[package]]
+name = "dive-into-design-patterns"
+version = "0.1.0"
+
+[[package]]
 name = "encoding_rs"
 version = "0.8.32"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1480,7 +1484,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "4389f1d5789befaf6029ebd9f7dac4af7f7e3d61b69d4f30e2ac02b57e7712b0"
 
 [[package]]
-name = "rust-patterns"
+name = "rust-design-patterns"
 version = "0.1.0"
 dependencies = [
  "getset",

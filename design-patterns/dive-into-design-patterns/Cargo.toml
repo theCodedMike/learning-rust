@@ -1,0 +1,15 @@
+[package]
+name = "dive-into-design-patterns"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+
+[[example]]
+name = "6_1_1_gui"
+path = "examples/6_catalog_of_design_patterns/1_creational_design_patterns/1_factory_method/code/dialog_rendering/main.rs"
+[[example]]
+name = "6_1_1_game"
+path = "examples/6_catalog_of_design_patterns/1_creational_design_patterns/1_factory_method/code/maze_game/main.rs"
