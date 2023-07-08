@@ -110,7 +110,7 @@ enough, the animal will emit a specific sound of joy, depending on its concrete 
 译: 假如你将几只猫和狗放入一个大袋子中。然后，我们闭上眼睛，将动物们一个一个地从袋中取出来。取出后，我们并不知道自己取出的是何种动物。但如果我们
 好好地摸摸它们的话，它就会根据自己的具体类发出特定的欢快叫声。
 
-```text
+```c++
 bag = [new Cat(), new Dog()];
 
 foreach (Animal a : bag)

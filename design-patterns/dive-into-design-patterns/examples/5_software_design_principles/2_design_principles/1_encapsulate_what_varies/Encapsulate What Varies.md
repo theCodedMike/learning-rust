@@ -33,7 +33,7 @@ doesn't care about *how* the tax is calculated.
 译: 我们预计在未来可能会修改与税金相关的代码。税率会根据客户居住的国家/地区、州/省甚至城市而有所不同: 而且一段时间后，实际的计算公式可能会由于
 新的法律或政策而修改。因此，你将需要经常地修改getOrderTotal方法。不过仔细观察方法名称，连它都在暗示其并不关心税金是如何计算出来的。
 
-```text
+```c++
 method getOrderTotal(order) is
     total = 0
     foreach item in order.lineItems
@@ -53,7 +53,7 @@ method getOrderTotal(order) is
 You can extract the tax calculation logic into a separate method, hiding it from the original method.   
 译: 你可以将计算税率的逻辑抽取到一个单独的方法中，并对原来的方法隐藏该逻辑。
 
-```text
+```c++
 method getOrderTotal(order) is
     total = 0
     foreach item in order.lineItems

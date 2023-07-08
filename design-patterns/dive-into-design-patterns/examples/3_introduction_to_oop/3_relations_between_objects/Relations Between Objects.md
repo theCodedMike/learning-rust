@@ -37,7 +37,7 @@ interface perspective, it can just indicate the presence of a method that will r
 你根据接口来创建类，它也可以表示为一个返回订单的顾客的方法。
 
 补充: 为了巩固你对关联和依赖之间区别的理解，下面让我们来看一个二者结合的示例。假设我们有一个名为教授(Professor)的类:
-```text
+```c++
 class Professor is
     field Student student
     // ...

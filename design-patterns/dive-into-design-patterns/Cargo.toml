@@ -8,8 +8,18 @@ edition = "2021"
 [dependencies]
 
 [[example]]
-name = "6_1_1_gui"
+name = "factory-method-render-dialog"
 path = "examples/6_catalog_of_design_patterns/1_creational_design_patterns/1_factory_method/code/dialog_rendering/main.rs"
 [[example]]
-name = "6_1_1_game"
+name = "factory-method-maze-game"
 path = "examples/6_catalog_of_design_patterns/1_creational_design_patterns/1_factory_method/code/maze_game/main.rs"
+[[example]]
+name = "abstract-factory-app"
+path = "examples/6_catalog_of_design_patterns/1_creational_design_patterns/2_abstract_factory/code/app/main.rs"
+[[example]]
+name = "abstract-factory-app-dyn"
+path = "examples/6_catalog_of_design_patterns/1_creational_design_patterns/2_abstract_factory/code/app_dyn/main.rs"
+
+
+
+

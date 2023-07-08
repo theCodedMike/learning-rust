@@ -1,7 +1,9 @@
-![FACTORY METHOD](../../../../assets/digram_Factory_Method.png)
+![FACTORY METHOD](../../../../assets/diagram_Factory_Method.png)
 
-## FACTORY METHOD(Also known as: Virtual Constructor) 
+## FACTORY METHOD 
+**Also known as:** Virtual Constructor
 
+### :snowflake: Intent
 **Factory Method** is a creational design pattern that provides an interface for creating objects in a superclass, but 
 allows subclasses to alter the type of objects that will be created.   
 译: 
@@ -17,7 +19,7 @@ to incorporate sea logistics into the app.
 
 ![](../../../../assets/adding_a_new_class_to_program.png)
 
-Great news, right? But how about the code? At present, most of your code is coupled to the Truck class. Adding Ships 
+Great news, right? But how about the code? At present, most of your code is coupled to the `Truck` class. Adding `Ships` 
 into the app would require making changes to the entire codebase. Moreover, if later you decide to add another type of 
 transportation to the app, you will probably need to make all of these changes again.  
 译: 
@@ -29,7 +31,7 @@ on the class of transportation objects.
 ### :smile: Solution
 The Factory Method pattern suggests that you replace direct object construction calls (using the `new` operator) with 
 calls to a special *factory* method. Don't worry: the objects are still created via the `new` operator, but it's being 
-called from within the factory method. Objects returned by a factory method are often referred to as "products."   
+called from within the factory method. Objects returned by a factory method are often referred to as *products*.   
 译: 
 
 ![](../../../../assets/uml_Logistics.png)
@@ -47,19 +49,17 @@ interface.
 ![](../../../../assets/uml_Transport_interface.png)
 
 For example, both `Truck` and `Ship` classes should implement the `Transport` interface, which declares a method called 
-`deliver` . Each class implements this method differently: trucks deliver cargo by land, ships deliver cargo by sea.
+`deliver`. Each class implements this method differently: trucks deliver cargo by land, ships deliver cargo by sea.
 The factory method in the `RoadLogistics` class returns truck objects, whereas the factory method in the `SeaLogistics`
 class returns ships.  
-译: 
+译:
+
+![](../../../../assets/diagram_LogisticsApp.png)
 
 The code that uses the factory method (often called the *client* code) doesn't see a difference between the actual 
-products returned by various subclasses. The client treats all the products as abstract `Transport`.   
-译: 
-
-![](../../../../assets/digram_LogisticsApp.png)
-
-The client knows that all transport objects are supposed to have the `deliver` method, but exactly how it works isn't
-important to the client.  
+products returned by various subclasses. The client treats all the products as abstract `Transport`. The client knows 
+that all transport objects are supposed to have the `deliver` method, but exactly how it works isn't important to the 
+client.  
 译: 
 
 ### :lollipop: Structure
@@ -71,17 +71,17 @@ subclasses.
 2. **Concrete Products** are different implementations of the product interface.  
 译: 
 3. The **Creator** class declares the factory method that returns new product objects. It's important that the return 
-type of this method matches the product interface.  
+   type of this method matches the product interface.  
 译: 
 
-You can declare the factory method as abstract to force all subclasses to implement their own versions of the method. 
-As an alternative, the base factory method can return some default product type.  
+   You can declare the factory method as abstract to force all subclasses to implement their own versions of the method. 
+   As an alternative, the base factory method can return some default product type.  
 译: 
 
-Note, despite its name, product creation is **not** the primary responsibility of the creator. Usually, the creator 
-class already has some core business logic related to products. The factory method helps to decouple this logic from 
-the concrete product classes. Here is an analogy: a large software development company can have a training department 
-for programmers. However, the primary function of the company as a whole is still writing code, not producing programmers.  
+   Note, despite its name, product creation is **not** the primary responsibility of the creator. Usually, the creator 
+   class already has some core business logic related to products. The factory method helps to decouple this logic from 
+   the concrete product classes. Here is an analogy: a large software development company can have a training department 
+   for programmers. However, the primary function of the company as a whole is still writing code, not producing programmers.  
 译: 
 
 4. **Concrete Creators** override the base factory method so it returns a different type of product.  
@@ -96,25 +96,26 @@ This example illustrates how the **Factory Method** can be used for creating cro
 the client code to concrete UI classes.  
 译: 
 
-The base dialog class uses different UI elements to render its window. Under various operating systems, these elements 
-may look a little bit different, but they should still behave consistently.
-A button in Windows is still a button in Linux.  
-译: 
-
 ![](../../../../assets/uml_Dialog.png)
 
-When the factory method comes into play, you don't need to rewrite the logic of the dialog for each operating system. 
-If we declare a factory method that produces buttons inside the base dialog class, we can later create a dialog subclass 
-that returns Windows-styled buttons from the factory method. The subclass then inherits most of the dialog's code from 
-the base class, but, thanks to the factory method, can render Windows looking buttons on the screen.  
+The base `Dialog` class uses different UI elements to render its window. Under various operating systems, these elements 
+may look a little bit different, but they should still behave consistently. A button in Windows is still a button in 
+Linux.  
+译:
+
+When the factory method comes into play, you don't need to rewrite the logic of the `Dialog` for each operating system. 
+If we declare a factory method that produces buttons inside the base `Dialog` class, we can later create a dialog subclass 
+that returns Windows-styled buttons from the factory method. The subclass then inherits most of the code from the base 
+class, but, thanks to the factory method, can render Windows looking buttons on the screen.  
 译: 
 
-For this pattern to work, the base dialog class must work with abstract buttons: a base class or an interface that all 
-concrete buttons follow. This way the dialog's code remains functional, whichever type of buttons it works with.  
+For this pattern to work, the base `Dialog` class must work with abstract buttons: a base class or an interface that all 
+concrete buttons follow. This way the code within `Dialog` remains functional, whichever type of buttons it works with.  
 译: 
 
 Of course, you can apply this approach to other UI elements as well. However, with each new factory method you add to 
-the dialog, you get closer to the Abstract Factory pattern. Fear not, we'll talk about this pattern later.  
+the `Dialog`, you get closer to the [Abstract Factory][Abstract Factory] pattern. Fear not, we'll talk about this 
+pattern later.  
 译: 
 
 ```c++
@@ -144,11 +145,11 @@ the dialog, you get closer to the Abstract Factory pattern. Fear not, we'll talk
 24 // Concrete creators override the factory method to change the
 25 // resulting product's type.
 26 class WindowsDialog extends Dialog is
-27     method createButton() is
+27     method createButton():Button is
 28         return new WindowsButton()
 29
 30 class WebDialog extends Dialog is
-31     method createButton() is
+31     method createButton():Button is
 32         return new HTMLButton()
 33
 34
@@ -162,15 +163,15 @@ the dialog, you get closer to the Abstract Factory pattern. Fear not, we'll talk
 42 // product interface.
 43 class WindowsButton implements Button is
 44     method render(a, b) is
-45     // Render a button in Windows style.
+45         // Render a button in Windows style.
 46     method onClick(f) is
-47     // Bind a native OS click event.
+47         // Bind a native OS click event.
 48
 49 class HTMLButton implements Button is
 50     method render(a, b) is
-51     // Return an HTML representation of a button.
+51         // Return an HTML representation of a button.
 52     method onClick(f) is
-53     // Bind a web browser click event.
+53         // Bind a web browser click event.
 54
 55
 56 class Application is
@@ -254,7 +255,7 @@ code.
 译: 
 
 Probably the most obvious and convenient place where this code could be placed is the constructor of the class whose
-objects we're trying to reuse. However, a constructor must always return new objects by definition. It can't return 
+objects we're trying to reuse. However, a constructor must always return **new objects** by definition. It can't return 
 existing instances.  
 译: 
 
@@ -271,7 +272,7 @@ sounds very much like a factory method.
 
    You might need to add a temporary parameter to the factory method to control the type of returned product.
 
-   At this point, the code of the factory method may look pretty ugly. It may have a large switch operator that picks 
+   At this point, the code of the factory method may look pretty ugly. It may have a large `switch` statement that picks 
    which product class to instantiate. But don't worry, we'll fix it soon enough.
 
 4. Now, create a set of creator subclasses for each type of product listed in the factory method. Override the factory 
