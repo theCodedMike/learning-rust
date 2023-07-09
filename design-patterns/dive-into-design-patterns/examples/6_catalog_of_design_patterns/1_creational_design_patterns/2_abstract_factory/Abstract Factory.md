@@ -10,7 +10,7 @@ their concrete classes.
 
 
 ### :worried: Problem
-Imagine that you’re creating a furniture shop simulator. Your code consists of classes that represent:
+Imagine that you're creating a furniture shop simulator. Your code consists of classes that represent:
 1. A family of related products, say: `Chair` + `Sofa` + `CoffeeTable`.
 2. Several variants of this family. For example, products `Chair` + `Sofa` + `CoffeeTable` are available in these variants: 
    `Modern`, `Victorian`, `ArtDeco`.
@@ -25,8 +25,8 @@ quite mad when they receive non-matching furniture.
 
 ![](../../../../assets/victorian_style_chairs.png)
 
-Also, you don’t want to change existing code when adding new products or families of products to the program. Furniture 
-vendors update their catalogs very often, and you wouldn’t want to change the core code each time it happens.  
+Also, you don't want to change existing code when adding new products or families of products to the program. Furniture 
+vendors update their catalogs very often, and you wouldn't want to change the core code each time it happens.  
 译:
 
 
@@ -59,11 +59,11 @@ receives, without breaking the actual client code.
 
 ![](../../../../assets/the_client_should_not_care_concrete_class.png)
 
-Say the client wants a factory to produce a chair. The client doesn’t have to be aware of the factory’s class, nor does 
-it matter what kind of chair it gets. Whether it’s a Modern model or a Victorian-style chair, the client must treat all 
+Say the client wants a factory to produce a chair. The client doesn't have to be aware of the factory's class, nor does 
+it matter what kind of chair it gets. Whether it's a Modern model or a Victorian-style chair, the client must treat all 
 chairs in the same manner, using the abstract `Chair` interface. With this approach, the only thing that the client 
 knows about the chair is that it implements the `sitOn` method in some way. Also, whichever variant of the chair is 
-returned, it’ll always match the type of sofa or coffee table produced by the same factory object.  
+returned, it'll always match the type of sofa or coffee table produced by the same factory object.  
 译: 
 
 There's one more thing left to clarify: if the client is only exposed to the abstract interfaces, what creates the actual 
@@ -81,7 +81,7 @@ that, the app must select the factory type depending on the configuration or the
 4. **Concrete Factories** implement creation methods of the abstract factory. Each concrete factory corresponds to a 
    specific variant of products and creates only those product variants.
 5. Although concrete factories instantiate concrete products, signatures of their creation methods must return corresponding
-   *abstract* products. This way the client code that uses a factory doesn’t get coupled to the specific variant of the 
+   *abstract* products. This way the client code that uses a factory doesn't get coupled to the specific variant of the 
    product it gets from a factory. The **Client** can work with any concrete factory/product variant, as long as it 
    communicates with their objects via abstract interfaces.
 译:
@@ -96,8 +96,8 @@ system.
 ![](../../../../assets/uml_WinFactory.png)
 
 The same UI elements in a cross-platform application are expected to behave similarly, but look a little bit different 
-under different operating systems. Moreover, it’s your job to make sure that the UI elements match the style of the 
-current operating system. You wouldn’t want your program to render macOS controls when it’s executed in Windows.  
+under different operating systems. Moreover, it's your job to make sure that the UI elements match the style of the 
+current operating system. You wouldn't want your program to render macOS controls when it's executed in Windows.  
 译: 
 
 The Abstract Factory interface declares a set of creation methods that the client code can use to produce different 
@@ -110,13 +110,13 @@ information to create a factory object from a class that matches the operating s
 factory to create UI elements. This prevents the wrong elements from being created.  
 译: 
 
-With this approach, the client code doesn’t depend on concrete classes of factories and UI elements as long as it works 
+With this approach, the client code doesn't depend on concrete classes of factories and UI elements as long as it works 
 with these objects via their abstract interfaces. This also lets the client code support other factories or UI elements 
 that you might add in the future.  
 译: 
 
-As a result, you don’t need to modify the client code each time you add a new variation of UI elements to your app. You 
-just have to create a new factory class that produces these elements and slightly modify the app’s initialization code 
+As a result, you don't need to modify the client code each time you add a new variation of UI elements to your app. You 
+just have to create a new factory class that produces these elements and slightly modify the app's initialization code 
 so it selects that class when appropriate.  
 译: 
 
@@ -216,12 +216,12 @@ so it selects that class when appropriate.
 ```
 
 ### :apple: Applicability
-:bug: **Use the Abstract Factory when your code needs to work with various families of related products, but you don’t 
+:bug: **Use the Abstract Factory when your code needs to work with various families of related products, but you don't 
 want it to depend on the concrete classes of those products—they might be unknown beforehand or you simply want to allow
 for future extensibility.**
 :zap: The Abstract Factory provides you with an interface for creating objects from each class of the product family. 
-As long as your code creates objects via this interface, you don’t have to worry about creating the wrong variant of a 
-product which doesn’t match the products already created by your app.
+As long as your code creates objects via this interface, you don't have to worry about creating the wrong variant of a 
+product which doesn't match the products already created by your app.
 
 :bug: **Consider implementing the Abstract Factory when you have a class with a set of [Factory Methods][Factory Method] 
 that blur its primary responsibility.**
@@ -244,7 +244,7 @@ implementation.
 
 
 ### :notes: Pros and Cons
-:heavy_check_mark: You can be sure that the products you’re getting from a factory are compatible with each other.
+:heavy_check_mark: You can be sure that the products you're getting from a factory are compatible with each other.
 :heavy_check_mark: You avoid tight coupling between concrete products and client code.
 :heavy_check_mark: *Single Responsibility Principle*. You can extract the product creation code into one place, making 
 the code easier to support.

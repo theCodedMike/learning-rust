@@ -22,6 +22,7 @@ path = "examples/6_catalog_of_design_patterns/1_creational_design_patterns/2_abs
 [[example]]
 name = "builder"
 path = "examples/6_catalog_of_design_patterns/1_creational_design_patterns/3_builder/code/main.rs"
-
-
+[[example]]
+name = "prototype"
+path = "examples/6_catalog_of_design_patterns/1_creational_design_patterns/4_prototype/code/main.rs"
 

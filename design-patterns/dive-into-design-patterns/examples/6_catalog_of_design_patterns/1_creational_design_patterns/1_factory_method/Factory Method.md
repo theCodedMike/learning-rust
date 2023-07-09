@@ -1,4 +1,3 @@
-![FACTORY METHOD](../../../../assets/diagram_Factory_Method.png)
 
 ## FACTORY METHOD 
 **Also known as:** Virtual Constructor
@@ -7,6 +6,8 @@
 **Factory Method** is a creational design pattern that provides an interface for creating objects in a superclass, but 
 allows subclasses to alter the type of objects that will be created.   
 译: 
+
+![FACTORY METHOD](../../../../assets/diagram_Factory_Method.png)
 
 ### :worried: Problem
 Imagine that you're creating a logistics management application. The first version of your app can only handle 
@@ -204,7 +205,7 @@ code should work with.**
 译: 
 
 :zap: The Factory Method separates product construction code from the code that actually uses the product. Therefore 
-it's easier to extend the product construction code independently from the rest of the code.  
+it's easier to extend the product construction code independently of the rest of the code.  
 译: 
 
 For example, to add a new product type to the app, you'll only need to create a new creator subclass and override the 

@@ -18,17 +18,17 @@ all over the client code.
 
 ![](../../../../assets/HouseClass.png)
 
-For example, let’s think about how to create a `House` object. To build a simple house, you need to construct four walls 
+For example, let's think about how to create a `House` object. To build a simple house, you need to construct four walls 
 and a floor, install a door, fit a pair of windows, and build a roof. But what if you want a bigger, brighter house, 
 with a backyard and other goodies (like a heating system, plumbing, and electrical wiring)?  
 译:
 
 The simplest solution is to extend the base `House` class and create a set of subclasses to cover all combinations of 
-the parameters. But eventually you’ll end up with a considerable number of subclasses. Any new parameter, such as the 
+the parameters. But eventually you'll end up with a considerable number of subclasses. Any new parameter, such as the 
 porch style, will require growing this hierarchy even more.  
 译:
 
-There’s another approach that doesn’t involve breeding subclasses. You can create a giant constructor right in the base 
+There's another approach that doesn't involve breeding subclasses. You can create a giant constructor right in the base 
 `House` class with all possible parameters that control the house object. While this approach indeed eliminates the need 
 for subclasses, it creates another problem.  
 译:
@@ -49,7 +49,7 @@ objects called *builders*.
 ![](../../../../assets/uml_HouseBuilder.png)
 
 The pattern organizes object construction into a set of steps (`buildWalls`, `buildDoor`, etc.). To create an object, 
-you execute a series of these steps on a builder object. The important part is that you don’t need to call all the 
+you execute a series of these steps on a builder object. The important part is that you don't need to call all the 
 steps. You can call only those steps that are necessary for producing a particular configuration of an object.  
 译:
 
@@ -78,7 +78,7 @@ provides the implementation for those steps.
 
 ![](../../../../assets/the_director_knows_which_building_steps_to_execute.png)
 
-Having a director class in your program isn’t strictly necessary. You can always call the building steps in a specific 
+Having a director class in your program isn't strictly necessary. You can always call the building steps in a specific 
 order directly from the client code. However, the director class might be a good place to put various construction 
 routines so you can reuse them across your program.  
 译:
@@ -94,14 +94,14 @@ the builder.
 
 1. The **Builder** interface declares product construction steps that are common to all types of builders.
 2. **Concrete Builders** provide different implementations of the construction steps. Concrete builders may produce 
-   products that don’t follow the common interface.
-3. **Products** are resulting objects. Products constructed by different builders don’t have to belong to the same class 
+   products that don't follow the common interface.
+3. **Products** are resulting objects. Products constructed by different builders don't have to belong to the same class 
    hierarchy or interface.
 4. The **Director** class defines the order in which to call construction steps, so you can create and reuse specific 
    configurations of products.
-5. The **Client** must associate one of the builder objects with the director. Usually, it’s done just once, via 
-   parameters of the director’s constructor. Then the director uses that builder object for all further construction. 
-   However, there’s an alternative approach for when the client passes the builder object to the production method of 
+5. The **Client** must associate one of the builder objects with the director. Usually, it's done just once, via 
+   parameters of the director's constructor. Then the director uses that builder object for all further construction. 
+   However, there's an alternative approach for when the client passes the builder object to the production method of 
    the director. In this case, you can use a different builder each time you produce something with the director.
 
 译:
@@ -125,15 +125,15 @@ several of the most popular models of cars.
 译:
 
 You might be shocked, but every car needs a manual (seriously, who reads them?). The manual describes every feature of 
-the car, so the details in the manuals vary across the different models. That’s why it makes sense to reuse an existing 
-construction process for both real cars and their respective manuals. Of course, building a manual isn’t the same as 
-building a car, and that’s why we must provide another builder class that specializes in composing manuals. This class 
+the car, so the details in the manuals vary across the different models. That's why it makes sense to reuse an existing 
+construction process for both real cars and their respective manuals. Of course, building a manual isn't the same as 
+building a car, and that's why we must provide another builder class that specializes in composing manuals. This class 
 implements the same building methods as its car-building sibling, but instead of crafting car parts, it describes them. 
 By passing these builders to the same director object, we can construct either a car or a manual.  
 译:
 
 The final part is fetching the resulting object. A metal car and a paper manual, although related, are still very 
-different things. We can’t place a method for fetching results in the director without coupling the director to concrete 
+different things. We can't place a method for fetching results in the director without coupling the director to concrete 
 product classes. Hence, we obtain the result of the construction from the builder which performed the job.  
 译:
 
@@ -282,7 +282,7 @@ product classes. Hence, we obtain the result of the construction from the builde
 ```
 
 ### :apple: Applicability
-:bug: **Use the Builder pattern to get rid of a “telescoping constructor”.**
+:bug: **Use the Builder pattern to get rid of a "telescoping constructor".**
 
 :zap: Say you have a constructor with ten optional parameters. Calling such a beast is very inconvenient; therefore, 
 you overload the constructor and create several shorter versions with fewer parameters. These constructors still refer 
@@ -299,7 +299,7 @@ Creating such a monster is only possible in languages that support method overlo
 译:
 
 The Builder pattern lets you build objects step by step, using only those steps that you really need. After implementing 
-the pattern, you don’t have to cram dozens of parameters into your constructors anymore.  
+the pattern, you don't have to cram dozens of parameters into your constructors anymore.  
 译:
 
 
@@ -319,27 +319,27 @@ construct particular representations of the product. Meanwhile, the director cla
 breaking the final product. You can even call steps recursively, which comes in handy when you need to build an object 
 tree.
 
-A builder doesn’t expose the unfinished product while running construction steps. This prevents the client code from 
+A builder doesn't expose the unfinished product while running construction steps. This prevents the client code from 
 fetching an incomplete result.  
 译:
 
 
 ### :book: How to Implement
 1. Make sure that you can clearly define the common construction steps for building all available product representations. 
-   Otherwise, you won’t be able to proceed with implementing the pattern.
+   Otherwise, you won't be able to proceed with implementing the pattern.
 2. Declare these steps in the base builder interface.
 3. Create a concrete builder class for each of the product representations and implement their construction steps.
 
-   Don’t forget about implementing a method for fetching the result of the construction. The reason why this method 
-   can’t be declared inside the builder interface is that various builders may construct products that don’t have a 
-   common interface. Therefore, you don’t know what would be the return type for such a method. However, if you’re 
+   Don't forget about implementing a method for fetching the result of the construction. The reason why this method 
+   can't be declared inside the builder interface is that various builders may construct products that don't have a 
+   common interface. Therefore, you don't know what would be the return type for such a method. However, if you're 
    dealing with products from a single hierarchy, the fetching method can be safely added to the base interface.
 
 4. Think about creating a director class. It may encapsulate various ways to construct a product using the same builder 
    object.
 5. The client code creates both the builder and the director objects. Before construction starts, the client must pass 
-   a builder object to the director. Usually, the client does this only once, via parameters of the director’s class 
-   constructor. The director uses the builder object in all further construction. There’s an alternative approach, where 
+   a builder object to the director. Usually, the client does this only once, via parameters of the director's class 
+   constructor. The director uses the builder object in all further construction. There's an alternative approach, where 
    the builder is passed to a specific product construction method of the director.
 6. The construction result can be obtained directly from the director only if all products follow the same interface. 
    Otherwise, the client should fetch the result from the builder.
