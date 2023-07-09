@@ -19,7 +19,9 @@ path = "examples/6_catalog_of_design_patterns/1_creational_design_patterns/2_abs
 [[example]]
 name = "abstract-factory-app-dyn"
 path = "examples/6_catalog_of_design_patterns/1_creational_design_patterns/2_abstract_factory/code/app_dyn/main.rs"
-
+[[example]]
+name = "builder"
+path = "examples/6_catalog_of_design_patterns/1_creational_design_patterns/3_builder/code/main.rs"
 
 
 
