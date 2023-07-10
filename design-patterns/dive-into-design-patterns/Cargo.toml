@@ -6,6 +6,7 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+lazy_static = "1.4.0"
 
 [[example]]
 name = "factory-method-render-dialog"
@@ -25,4 +26,15 @@ path = "examples/6_catalog_of_design_patterns/1_creational_design_patterns/3_bui
 [[example]]
 name = "prototype"
 path = "examples/6_catalog_of_design_patterns/1_creational_design_patterns/4_prototype/code/main.rs"
-
+[[example]]
+name = "singleton-safe"
+path = "examples/6_catalog_of_design_patterns/1_creational_design_patterns/5_singleton/code/safe.rs"
+[[example]]
+name = "singleton-lazy"
+path = "examples/6_catalog_of_design_patterns/1_creational_design_patterns/5_singleton/code/lazy.rs"
+[[example]]
+name = "singleton-mutex"
+path = "examples/6_catalog_of_design_patterns/1_creational_design_patterns/5_singleton/code/mutex.rs"
+[[example]]
+name = "singleton-once-lock"
+path = "examples/6_catalog_of_design_patterns/1_creational_design_patterns/5_singleton/code/once_lock.rs"

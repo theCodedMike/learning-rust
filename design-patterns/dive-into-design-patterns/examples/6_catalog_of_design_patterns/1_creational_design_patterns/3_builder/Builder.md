@@ -347,9 +347,12 @@ fetching an incomplete result.
 
 ### :notes: Pros and Cons
 :heavy_check_mark: You can construct objects step-by-step, defer construction steps or run steps recursively.
+
 :heavy_check_mark: You can reuse the same construction code when building various representations of products.
+
 :heavy_check_mark: *Single Responsibility Principle*. You can isolate complex construction code from the business logic 
 of the product.
+
 :x: The overall complexity of the code increases since the pattern requires creating multiple new classes.
 
 

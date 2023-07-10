@@ -1,30 +1,34 @@
 # Builder
 
-_**Builder** is a creational design pattern, which allows constructing of complex
-objects step by step._
+**Builder** is a creational design pattern, which allows constructing of complex objects step by step.
 
-In this example, [`trait Builder`](builders/mod.rs) defines how to assemble
-a car. However, depending on the builder implementation, a constructed object
-can be either a car, or a car manual.
+Unlike other creational patterns, Builder doesn't require products to have a common interface. That makes it possible 
+to produce different products using the same construction process.
 
-💡 The **Builder** design pattern is not the same as a **Fluent Interface** idiom,
+
+## Car & car manual builders
+This slightly synthetic example illustrates how you can use the Builder pattern to construct totally different products 
+using the same building process. For example, the trait `Builder` declares steps for assembling a car. However, 
+depending on the builder implementation, a constructed object can be something different, for example, a car manual. 
+The resulting manual will contain instructions from each building step, making it accurate and up-to-date.
+
+The **Builder** design pattern is not the same as the **Fluent Interface** idiom (that relies on *method chaining*), 
 although Rust developers sometimes use those terms interchangeably.
 
-1. **Fluent Interface** idiom is a way to chain methods for constructing or
-   modifying an object using the following approach:
+1. **Fluent Interface** is a way to chain methods for constructing or modifying an object using the following approach:
    `let car = Car::default().places(5).gas(30)`.
-   It's pretty useful for constructing an object. Still, it's not the Builder.
-2. **Builder** is a pattern with a common building trait but with different
-   building implementations. At the same time, Fluent Interface can be used
-   together with the Builder pattern for a better code design.
+   It's pretty elegant way to construct an object. Still, such a code may not be an instance of the Builder pattern.
+2. While the **Builder** pattern also suggests constructing object step by step, it also lets you build different types 
+   of products using the same construction process.
 
-## How to Run
+
+### How to Run
 
 ```bash
 cargo run --example builder
 ```
 
-## Output
+### Output
 
 ```
 Car built: SportsCar
@@ -39,4 +43,4 @@ GPS Navigator: Functional
 
 ## Reference
 
-This example is reproducing the [Builder Example in Java](https://refactoring.guru/design-patterns/builder/java/example).
+[Builder in Rust](https://refactoring.guru/design-patterns/builder/rust/example)

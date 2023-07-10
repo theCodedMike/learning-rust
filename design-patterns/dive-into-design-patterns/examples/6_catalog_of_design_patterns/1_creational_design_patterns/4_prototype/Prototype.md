@@ -237,9 +237,13 @@ clone it.
 
 ### :notes: Pros and Cons
 :heavy_check_mark: You can clone objects without coupling to their concrete classes.
+
 :heavy_check_mark: You can get rid of repeated initialization code in favor of cloning pre-built prototypes.
+
 :heavy_check_mark: You can produce complex objects more conveniently.
+
 :heavy_check_mark: You get an alternative to inheritance when dealing with configuration presets for complex objects.
+
 :x: Cloning complex objects that have circular references might be very tricky.
 
 
