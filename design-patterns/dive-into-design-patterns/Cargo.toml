@@ -38,3 +38,6 @@ path = "examples/6_catalog_of_design_patterns/1_creational_design_patterns/5_sin
 [[example]]
 name = "singleton-once-lock"
 path = "examples/6_catalog_of_design_patterns/1_creational_design_patterns/5_singleton/code/once_lock.rs"
+[[example]]
+name = "adapter"
+path = "examples/6_catalog_of_design_patterns/2_structural_design_patterns/1_adapter/code/main.rs"
