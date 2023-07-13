@@ -44,4 +44,7 @@ path = "examples/6_catalog_of_design_patterns/2_structural_design_patterns/1_ada
 [[example]]
 name = "bridge"
 path = "examples/6_catalog_of_design_patterns/2_structural_design_patterns/2_bridge/code/main.rs"
+[[example]]
+name = "composite"
+path = "examples/6_catalog_of_design_patterns/2_structural_design_patterns/3_composite/code/main.rs"
 

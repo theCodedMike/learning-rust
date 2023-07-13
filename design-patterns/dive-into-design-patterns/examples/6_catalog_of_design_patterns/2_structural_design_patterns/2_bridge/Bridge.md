@@ -202,10 +202,10 @@ The client code links the desired type of remote control with a specific device 
 
 
 ### :apple: Applicability
->:bug: **Use the Bridge pattern when you want to divide and organize a monolithic class that has several variants of
+> :bug: **Use the Bridge pattern when you want to divide and organize a monolithic class that has several variants of
 some functionality (for example, if the class can work with various database servers).**
 >
->:zap: The bigger a class becomes, the harder it is to figure out how it works, and the longer it takes to make a change.
+> :zap: The bigger a class becomes, the harder it is to figure out how it works, and the longer it takes to make a change.
 The changes made to one of the variations of functionality may require making changes across the whole class, which
 often results in making errors or not addressing some critical side effects.
 > 
@@ -214,15 +214,15 @@ classes in each hierarchy independently of the classes in the others. This appro
 minimizes the risk of breaking existing code.
 
 
->:bug: **Use the pattern when you need to extend a class in several orthogonal (independent) dimensions.**
+> :bug: **Use the pattern when you need to extend a class in several orthogonal (independent) dimensions.**
 > 
->:zap: The Bridge suggests that you extract a separate class hierarchy for each of the dimensions. The original class
+> :zap: The Bridge suggests that you extract a separate class hierarchy for each of the dimensions. The original class
 delegates the related work to the objects belonging to those hierarchies instead of doing everything on its own.
 
 
->:bug: **Use the Bridge if you need to be able to switch implementations at runtime.**
+> :bug: **Use the Bridge if you need to be able to switch implementations at runtime.**
 > 
->:zap: Although it's optional, the Bridge pattern lets you replace the implementation object inside the abstraction. 
+> :zap: Although it's optional, the Bridge pattern lets you replace the implementation object inside the abstraction. 
 It's as easy as assigning a new value to a field.  
 >
 > By the way, this last item is the main reason why so many people confuse the Bridge with the [**Strategy**][Strategy] 

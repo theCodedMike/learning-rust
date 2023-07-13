@@ -4,6 +4,7 @@ mod remotes;
 use device::{Device, Radio, Tv};
 use remotes::{AdvancedRemove, BasicRemote, HasMutableDevice, Remote};
 
+/// cargo r --example bridge
 fn main() {
     test_device(Tv::default());
     test_device(Radio::default());
