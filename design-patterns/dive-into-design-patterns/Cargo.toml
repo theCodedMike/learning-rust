@@ -50,4 +50,6 @@ path = "examples/6_catalog_of_design_patterns/2_structural_design_patterns/3_com
 [[example]]
 name = "decorator"
 path = "examples/6_catalog_of_design_patterns/2_structural_design_patterns/4_decorator/code/main.rs"
-
+[[example]]
+name = "facade"
+path = "examples/6_catalog_of_design_patterns/2_structural_design_patterns/5_facade/code/main.rs"

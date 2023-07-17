@@ -15,5 +15,5 @@ fn main() {
         print!("{}", char::from(byte));
     }
 
-    println!();
+    println!(); // Read from a buffered reader: Input data
 }
