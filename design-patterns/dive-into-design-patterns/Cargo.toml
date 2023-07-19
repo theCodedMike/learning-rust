@@ -59,4 +59,7 @@ path = "examples/6_catalog_of_design_patterns/2_structural_design_patterns/5_fac
 [[example]]
 name = "flyweight"
 path = "examples/6_catalog_of_design_patterns/2_structural_design_patterns/6_flyweight/code/main.rs"
+[[example]]
+name = "proxy"
+path = "examples/6_catalog_of_design_patterns/2_structural_design_patterns/7_proxy/code/main.rs"
 

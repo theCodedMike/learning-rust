@@ -59,4 +59,13 @@ fn main() {
         (TREES_TO_DRAW * 16 + TREE_TYPES * 30) / 1024,
         ((TREES_TO_DRAW * 46) / 1024)
     );
+    // 100000 trees drawn
+    // Cache length: 2 tree kinds
+    // -------------------------------
+    // Memory usage:
+    // Tree size (16 bytes) * 100000
+    // + TreeKind size (~30 bytes) * 2
+    // -------------------------------
+    // Total: 3052KB (estimated 1562KB),
+    //        instead of 4492KB
 }
