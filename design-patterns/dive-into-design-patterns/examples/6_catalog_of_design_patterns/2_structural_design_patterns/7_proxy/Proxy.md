@@ -226,10 +226,15 @@ keeps track of the downloaded files and returns the cached result when the app r
 
 ### :notes: Pros and Cons
 :heavy_check_mark: You can control the service object without clients knowing about it.
+
 :heavy_check_mark: You can manage the lifecycle of the service object when clients don't care about it.
+
 :heavy_check_mark: The proxy works even if the service object isn't ready or is not available.
+
 :heavy_check_mark: *Open/Closed Principle*. You can introduce new proxies without changing the service or clients.
+
 :x: The code may become more complicated since you need to introduce a lot of new classes.
+
 :x: The response from the service might get delayed.
 
 

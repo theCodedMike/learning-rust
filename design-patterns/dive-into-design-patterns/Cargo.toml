@@ -62,4 +62,8 @@ path = "examples/6_catalog_of_design_patterns/2_structural_design_patterns/6_fly
 [[example]]
 name = "proxy"
 path = "examples/6_catalog_of_design_patterns/2_structural_design_patterns/7_proxy/code/main.rs"
+[[example]]
+name = "cor"
+path = "examples/6_catalog_of_design_patterns/3_behavioral_design_patterns/1_chain_of_responsibility/code/main.rs"
+
 

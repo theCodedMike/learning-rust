@@ -119,7 +119,7 @@ don't need it.
 
 
 ### :lollipop: Structure
-![](../../../../assets/uml_BaseDecorator.png)
+![](../../../../assets/uml_ConcreteDecorators.png)
 
 1. The **Component** declares the common interface for both wrappers and wrapped objects.
 2. **Concrete Component** is a class of objects being wrapped. It defines the basic behavior, which can be altered by 
