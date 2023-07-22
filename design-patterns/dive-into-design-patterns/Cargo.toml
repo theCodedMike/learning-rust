@@ -69,5 +69,8 @@ path = "examples/6_catalog_of_design_patterns/3_behavioral_design_patterns/1_cha
 [[example]]
 name = "command"
 path = "examples/6_catalog_of_design_patterns/3_behavioral_design_patterns/2_command/code/main.rs"
+[[example]]
+name = "iterator"
+path = "examples/6_catalog_of_design_patterns/3_behavioral_design_patterns/3_iterator/code/main.rs"
 
 
