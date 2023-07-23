@@ -72,5 +72,11 @@ path = "examples/6_catalog_of_design_patterns/3_behavioral_design_patterns/2_com
 [[example]]
 name = "iterator"
 path = "examples/6_catalog_of_design_patterns/3_behavioral_design_patterns/3_iterator/code/main.rs"
+[[example]]
+name = "mediator-rc-refcell"
+path = "examples/6_catalog_of_design_patterns/3_behavioral_design_patterns/4_mediator/code/mediator-rc-refcell/main.rs"
+[[example]]
+name = "mediator-top-down"
+path = "examples/6_catalog_of_design_patterns/3_behavioral_design_patterns/4_mediator/code/mediator-top-down/main.rs"
 
 
