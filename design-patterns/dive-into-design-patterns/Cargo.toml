@@ -11,6 +11,9 @@ draw = "0.3"
 memory-stats = "1"
 rand = "0.8"
 cursive = {version = "0.20.0", default-features = false, features = ["crossterm-backend"]}
+serde = { version = "1.0.160", features = ["derive"] }
+serde_json = "1.0.96"
+
 
 [[example]]
 name = "factory-method-render-dialog"
@@ -78,5 +81,10 @@ path = "examples/6_catalog_of_design_patterns/3_behavioral_design_patterns/4_med
 [[example]]
 name = "mediator-top-down"
 path = "examples/6_catalog_of_design_patterns/3_behavioral_design_patterns/4_mediator/code/mediator-top-down/main.rs"
-
+[[example]]
+name = "memento"
+path = "examples/6_catalog_of_design_patterns/3_behavioral_design_patterns/5_memento/code/conceptual.rs"
+[[example]]
+name = "memento-serde"
+path = "examples/6_catalog_of_design_patterns/3_behavioral_design_patterns/5_memento/code/serde.rs"
 

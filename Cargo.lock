@@ -591,6 +591,8 @@ dependencies = [
  "lazy_static 1.4.0",
  "memory-stats",
  "rand 0.8.5",
+ "serde",
+ "serde_json",
 ]
 
 [[package]]
