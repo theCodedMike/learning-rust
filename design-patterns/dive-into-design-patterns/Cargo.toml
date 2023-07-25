@@ -87,4 +87,8 @@ path = "examples/6_catalog_of_design_patterns/3_behavioral_design_patterns/5_mem
 [[example]]
 name = "memento-serde"
 path = "examples/6_catalog_of_design_patterns/3_behavioral_design_patterns/5_memento/code/serde.rs"
+[[example]]
+name = "observer"
+path = "examples/6_catalog_of_design_patterns/3_behavioral_design_patterns/6_observer/code/main.rs"
+
 
