@@ -7,6 +7,7 @@ default-run = "root"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+num = "0.4.0"
 rand = "0.8.5"
 ansi_term = "0.12.1"
 serde = { version = "1.0.157", features = ["derive"] }

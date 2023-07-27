@@ -36,9 +36,10 @@ fn main() {
     // 从不返回的 never type
     fn bar() -> ! {
         // 发散函数
-        // 以下这3种方式的返回值都是!
-        //todo!();
-        //panic!("panic");
+        // 以下这4种方式的返回值都是!
+        // todo!();
+        // unimplemented!();
+        // panic!("panic");
         loop {}
     }
 

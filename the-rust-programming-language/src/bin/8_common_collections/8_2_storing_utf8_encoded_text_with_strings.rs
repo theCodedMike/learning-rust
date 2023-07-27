@@ -104,4 +104,13 @@ fn main() {
     char is т
     char is е
     */
+
+    let chars = b"hello";
+    println!("{:?}", chars); // [104, 101, 108, 108, 111]
+    let row_chars = r"hello\nworld";
+    println!("{}", row_chars); // hello\nworld  这里并没有换行，因为r表示原始的，\n就是普通的2个字符
+    let chars = "hello\nworld";
+    println!("{}", chars);
+    // hello  这里有换行
+    // world
 }
