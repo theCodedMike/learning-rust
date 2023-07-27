@@ -93,5 +93,12 @@ path = "examples/6_catalog_of_design_patterns/3_behavioral_design_patterns/6_obs
 [[example]]
 name = "state"
 path = "examples/6_catalog_of_design_patterns/3_behavioral_design_patterns/7_state/code/main.rs"
+[[example]]
+name = "strategy"
+path = "examples/6_catalog_of_design_patterns/3_behavioral_design_patterns/8_strategy/code/conceptual.rs"
+[[example]]
+name = "strategy-func"
+path = "examples/6_catalog_of_design_patterns/3_behavioral_design_patterns/8_strategy/code/functional.rs"
+
 
 
