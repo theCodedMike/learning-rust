@@ -285,3 +285,4 @@ strategy objects, but without bloating your code with extra classes and interfac
 [Strategy]:../8_strategy/
 
 [Template Method]:../9_template_method/
+

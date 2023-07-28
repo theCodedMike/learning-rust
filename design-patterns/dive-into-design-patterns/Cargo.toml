@@ -99,6 +99,7 @@ path = "examples/6_catalog_of_design_patterns/3_behavioral_design_patterns/8_str
 [[example]]
 name = "strategy-func"
 path = "examples/6_catalog_of_design_patterns/3_behavioral_design_patterns/8_strategy/code/functional.rs"
-
-
+[[example]]
+name = "template-method"
+path = "examples/6_catalog_of_design_patterns/3_behavioral_design_patterns/9_template_method/code/main.rs"
 
