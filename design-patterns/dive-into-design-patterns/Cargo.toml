@@ -102,4 +102,6 @@ path = "examples/6_catalog_of_design_patterns/3_behavioral_design_patterns/8_str
 [[example]]
 name = "template-method"
 path = "examples/6_catalog_of_design_patterns/3_behavioral_design_patterns/9_template_method/code/main.rs"
-
+[[example]]
+name = "visitor"
+path = "examples/6_catalog_of_design_patterns/3_behavioral_design_patterns/10_visitor/code/main.rs"

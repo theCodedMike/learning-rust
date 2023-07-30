@@ -9,7 +9,7 @@ edition = "2021"
 getset = "0.1"
 libc = "0.2"
 log = "0.4"
-lens-rs = "0.3.2"
+
 
 [[example]]
 name = "2_1"
