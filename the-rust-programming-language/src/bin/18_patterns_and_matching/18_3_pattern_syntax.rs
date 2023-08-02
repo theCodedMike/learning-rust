@@ -1,32 +1,40 @@
 #![allow(dead_code)]
 #![allow(unused_variables)]
+#![allow(irrefutable_let_patterns)]
 
 /// 18.3 模式语法
 ///
-/// cargo r --bin 18_3
+/// cargo r --bin pattern
 ///
 /// ## 目录:
 /// ### 匹配字面量
+///
 /// ### 匹配命名变量
+///
 /// ### 多个模式
+///
 /// ### 通过 ..= 匹配值的范围
+///
 /// ### 解构并分解值
 /// #### 解构结构体
 /// #### 解构枚举
 /// #### 解构嵌套的结构体和枚举
 /// #### 解构结构体和元组
+///
 /// ### 忽略模式中的值
 /// #### 使用 _ 忽略整个值
 /// #### 使用嵌套的 _ 忽略部分值
 /// #### 通过在名字前以一个下划线开头来忽略未使用的变量
 /// #### 用 .. 忽略剩余值
+///
 /// ### 匹配守卫提供的额外条件
 /// - 匹配守卫（match guard）: 是一个指定于 match 分支模式之后的额外 if 条件
+///
 /// ### @ 绑定
 /// - at 运算符（@）允许我们在创建一个存放值的变量的同时测试其值是否匹配模式
 ///
 fn main() {
-    // 匹配字面量
+    /* 匹配字面量 */
     let x = 1;
     match x {
         1 => println!("one"),
@@ -34,8 +42,9 @@ fn main() {
         3 => println!("three"),
         _ => println!("anything"),
     }
+    println!();
 
-    // 匹配命名变量
+    /* 匹配命名变量 */
     let x = Some(5);
     let y = 10;
     match x {
@@ -44,16 +53,18 @@ fn main() {
         _ => println!("Default case, x = {:?}", x),
     }
     println!("at the end: x = {:?}, y = {:?}", x, y);
+    println!();
 
-    // 多个模式
+    /* 多个模式 */
     let x = 1;
     match x {
         1 | 2 => println!("one or two"), // one or two
         3 => println!("three"),
         _ => println!("anything"),
     }
+    println!();
 
-    // 通过 ..= 匹配值的范围
+    /* 通过 ..= 匹配值的范围 */
     let x = 5;
     match x {
         1..=5 => println!("one through five"), // one through five
@@ -65,8 +76,9 @@ fn main() {
         'k'..='z' => println!("late ASCII letter"),
         _ => println!("something else"),
     }
+    println!();
 
-    // 解构并分解值
+    /* 解构并分解值 */
     // 解构结构体
     let p = Point { x: 0, y: 7 };
     let Point { x: a, y: b } = p;
@@ -85,6 +97,7 @@ fn main() {
         Point { x, y } => println!("On neither axis: ({}, {})", x, y),
     }
     println!("{:?}", p); // Point { x: 0, y: 10 }
+    println!();
 
     // 解构枚举
     let msg = Message::ChangeColor(0, 160, 255);
@@ -101,6 +114,7 @@ fn main() {
             // red 0, green 160, and blue 255
         }
     }
+    println!();
 
     // 解构嵌套的结构体和枚举
     let msg = Message2::ChangeColor(Color::Hsv(0, 160, 255));
@@ -116,12 +130,14 @@ fn main() {
         }
         _ => (),
     }
+    println!();
 
     // 解构结构体和元组
     let ((feet, inches), Point { x, y }) = ((3, 10), Point { x: 3, y: -10 });
     println!("feet: {}, inches: {}, x: {}, y: {}", feet, inches, x, y); // feet: 3, inches: 10, x: 3, y: -10
+    println!();
 
-    // 忽略模式中的值
+    /* 忽略模式中的值 */
     // 使用 _ 忽略整个值
     foo(3, 4);
 
@@ -144,6 +160,7 @@ fn main() {
             println!("Some numbers: {}, {}, {}", first, third, fifth); // 2 8 32
         }
     }
+    println!();
 
     // 通过在名字前以一个下划线开头来忽略未使用的变量
     let _x = 5;
@@ -167,6 +184,7 @@ fn main() {
             println!("Some numbers: {}", second); // 4
         },
     }*/
+    println!();
 
     // 匹配守卫提供的额外条件
     let num = Some(4);
@@ -191,6 +209,7 @@ fn main() {
         4 | 5 | 6 if y => println!("yes"),
         _ => println!("no"), // √
     }
+    println!();
 
     // @ 绑定
     let msg = Message3::Hello { id: 5 };
@@ -207,36 +226,59 @@ fn main() {
             println!("Found some other id: {}", id);
         }
     }
+    //@前绑定后解构(Rust 1.56 新增)
+    let p_2 @ Point { x: px, y: py } = Point { x: 10, y: 23 }; //绑定新变量'p_2'，同时对'Point2'进行解构
+    println!("px: {}, py: {}", px, py);
+    println!("p_2: {:?}", p_2);
+    let point = Point { x: 10, y: 5 };
+    if let p @ Point { x, y } = point {
+        println!("at then deconstruct: x is {} and y is {} in {:?}", x, y, p);
+    }
+    //@新特性(Rust 1.53 新增)
+    match 1 {
+        num @ (1 | 2) => {
+            //注意这里需要加()
+            println!("new feature: {}", num);
+        }
+        _ => {}
+    }
 }
+
 #[derive(Debug)]
 struct Point {
     x: i32,
     y: i32,
 }
+
 struct Point3 {
     x: i32,
     y: i32,
     z: i32,
 }
+
 enum Message {
     Quit,
     Move { x: i32, y: i32 },
     Write(String),
     ChangeColor(i32, i32, i32),
 }
+
 enum Color {
     Rgb(i32, i32, i32),
     Hsv(i32, i32, i32),
 }
+
 enum Message2 {
     Quit,
     Move { x: i32, y: i32 },
     Write(String),
     ChangeColor(Color),
 }
+
 fn foo(_: i32, y: i32) {
     println!("This code only uses the y parameter: {}", y);
 }
+
 enum Message3 {
     Hello { id: i32 },
 }

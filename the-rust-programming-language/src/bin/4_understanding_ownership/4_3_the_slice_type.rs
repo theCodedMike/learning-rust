@@ -3,22 +3,21 @@
 
 /// 4.3 切片slice
 ///
-/// cargo r --bin 4_3
+/// cargo r --bin slice-type
 ///
 /// ## 目录
 /// slice允许引用集合中一段连续的元素序列，而不用引用整个集合
 ///
-/// ## 字符串 slice
+/// ### 字符串 slice
 /// slice 的数据结构存储了 slice 的开始位置和长度
-/// ### 字符串字面量就是 slice
-/// ### 字符串 slice 作为参数
+/// #### 字符串字面量就是 slice
+/// #### 字符串 slice 作为参数
 ///
 ///   str(无法直接声明并使用)   String
 ///   &str                   &String
 ///   &mut str               &mut String
 ///
-///
-/// ## 其他类型的 slice (即数组 slice)
+/// ### 其他类型的 slice (即数组 slice)
 ///   [T]
 ///   &[T]
 ///   &mut [T]

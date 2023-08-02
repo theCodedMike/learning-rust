@@ -2,7 +2,7 @@ use std::ops::{Deref, DerefMut};
 
 /// 15.2 通过 Deref trait 将智能指针当作常规引用处理
 ///
-/// cargo r --bin 15_2
+/// cargo r --bin deref
 ///
 /// ## 目录:
 /// ### 通过解引用运算符追踪指针的值

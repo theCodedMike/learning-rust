@@ -1,6 +1,6 @@
 /// 13.3 改进之前的IO项目
 ///
-/// cargo r --bin 13_3
+/// cargo r --bin io-project
 ///
 /// ## 目录:
 /// ### 使用迭代器并去掉 clone

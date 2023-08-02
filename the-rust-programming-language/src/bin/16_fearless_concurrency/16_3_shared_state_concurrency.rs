@@ -6,7 +6,7 @@ use std::thread;
 
 /// 16.3 共享状态并发
 ///
-/// cargo r --bin 16_3
+/// cargo r --bin concurrency
 ///
 /// ## 目录:
 /// - 共享内存类似于多所有权：多个线程可以同时访问相同的内存位置

@@ -5,7 +5,7 @@ use std::rc::Rc;
 
 /// 15.4 Rc<T> 引用计数智能指针
 ///
-/// cargo r --bin 15_4
+/// cargo r --bin rc
 ///
 /// ## 目录:
 /// - 引用计数（reference counting）: 意味着记录一个值引用的数量来知晓这个值是否仍在被使用

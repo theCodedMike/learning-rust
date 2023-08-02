@@ -6,7 +6,7 @@ use std::fmt::{Debug, Display};
 
 /// 10.2 trait: 定义共享的行为
 ///
-/// cargo r --bin 10_2
+/// cargo r --bin trait
 ///
 /// # 目录:
 /// #### 1、定义 trait

@@ -3,7 +3,7 @@
 
 /// 18.1 所有可能会用到模式的位置
 ///
-/// cargo r --bin 18_1
+/// cargo r --bin more-match
 ///
 /// ## 目录:
 /// ### match 分支
@@ -24,7 +24,7 @@
 /// ### 函数参数
 ///
 fn main() {
-    // match 分支
+    /* match 分支 */
     let value = Some(4);
     match value {
         None => {
@@ -34,8 +34,9 @@ fn main() {
             println!("value is {}", v);
         }
     }
+    println!();
 
-    // if let 条件表达式
+    /* if let 条件表达式 */
     let favorite_color: Option<&str> = None;
     let is_tuesday = false;
     let age: Result<u8, _> = "34".parse();
@@ -52,8 +53,9 @@ fn main() {
     } else {
         println!("Using blue as the background color");
     }
+    println!();
 
-    // while let 条件循环
+    /* while let 条件循环 */
     let mut stack = Vec::new();
     stack.push(1);
     stack.push(2);
@@ -61,19 +63,21 @@ fn main() {
     while let Some(top) = stack.pop() {
         println!("{}", top);
     }
+    println!();
 
-    // for 循环
+    /* for 循环 */
     let v = vec!['a', 'b', 'c'];
     for (index, value) in v.iter().enumerate() {
         println!("{} is at index {}", value, index);
     }
+    println!();
 
-    // let 语句
+    /* let 语句 */
     let x = 5;
     let (x, y, z) = (1, 2, 3);
     let (x, y, _) = (1, 2, 3);
 
-    // 函数参数
+    /* 函数参数 */
     fn foo(x: i32) {
         // 代码
     }

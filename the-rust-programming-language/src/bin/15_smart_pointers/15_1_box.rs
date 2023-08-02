@@ -5,7 +5,7 @@ use serde::Serialize;
 
 /// 15.1 使用Box<T>指向堆上的数据
 ///
-/// cargo r --bin 15_1
+/// cargo r --bin box
 ///
 /// ## 目录:
 /// - box 允许你将一个值放在堆上而不是栈上，在栈上留有指向堆数据的指针

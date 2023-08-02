@@ -7,7 +7,7 @@ use std::time::Duration;
 
 /// 16.2 使用消息传递在线程间通信
 ///
-/// cargo r --bin 16_2
+/// cargo r --bin message
 ///
 /// “Do not communicate by sharing memory; instead, share memory by communicating.”
 ///

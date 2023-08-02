@@ -1,10 +1,12 @@
 use ansi_term::Colour;
 use rand::Rng;
-/// 2.0 猜数字游戏
-/// cargo r --bin 2
 use std::cmp::Ordering;
 use std::io;
 
+/// 2.0 猜数字游戏
+///
+/// cargo r --bin guessing-game
+///
 fn main() {
     println!("Guess the number!");
 

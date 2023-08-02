@@ -5,7 +5,7 @@ use rand::Rng;
 
 /// 19.4 高级函数和闭包
 ///
-/// cargo r --bin 19_4
+/// cargo r --bin advanced-fn-and-closure
 ///
 /// ## 目录:
 /// ### 函数指针

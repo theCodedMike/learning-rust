@@ -1,6 +1,6 @@
 /// 15.3 使用 Drop Trait 运行清理代码
 ///
-/// cargo r --bin 15_3
+/// cargo r --bin drop
 ///
 /// ## 目录:
 /// - Drop trait允许在值要离开作用域时执行一些代码

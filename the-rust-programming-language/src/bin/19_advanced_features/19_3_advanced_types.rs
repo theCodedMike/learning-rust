@@ -5,7 +5,7 @@ type Thunk = Box<dyn Fn() + Send + 'static>;
 
 /// 19.3 高级类型
 ///
-/// cargo r --bin 19_3
+/// cargo r --bin advanced-types
 ///
 /// ## 目录:
 /// ### 为了类型安全和抽象而使用 newtype 模式

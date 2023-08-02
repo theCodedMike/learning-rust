@@ -5,7 +5,7 @@ use num::Complex;
 
 /// 3.2 数据类型
 ///
-/// cargo r --bin 3_2
+/// cargo r --bin data-types
 ///
 /// ## 目录
 /// ### 标量类型

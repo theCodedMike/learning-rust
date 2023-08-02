@@ -5,7 +5,7 @@ use ansi_term::Colour;
 
 /// 17.3 实现面向对象设计模式
 ///
-/// cargo r --bin 17_3
+/// cargo r --bin oo-design-pattern
 ///
 /// ## 目录:
 /// ### 定义 Post 并新建一个草案状态的实例

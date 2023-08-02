@@ -6,7 +6,7 @@ use std::fs::File;
 use std::io;
 use std::io::{Error, Write};
 
-/// cargo r --bin marco
+/// cargo r --bin x_macros
 ///
 fn main() {
     println!("\n\nhello, macro!\n\n");

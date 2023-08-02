@@ -6,7 +6,7 @@ use std::rc::{Rc, Weak};
 
 /// 15.6 引用循环与内存泄漏
 ///
-/// cargo r --bin 15_6
+/// cargo r --bin ref-cycle
 ///
 /// ## 目录:
 /// ### 制造引用循环

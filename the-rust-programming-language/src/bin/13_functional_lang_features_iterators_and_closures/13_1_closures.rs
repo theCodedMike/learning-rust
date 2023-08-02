@@ -6,7 +6,7 @@ use std::time::Duration;
 
 /// 13.1 闭包：可以捕获环境的匿名函数
 ///
-/// cargo r --bin 13_1
+/// cargo r --bin closure
 ///
 /// ## 目录:
 /// - 闭包（closures）是可以保存进变量或作为参数传递给其他函数的匿名函数

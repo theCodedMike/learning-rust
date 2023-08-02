@@ -6,7 +6,7 @@ use std::fmt::Display;
 
 /// 10.3 生命周期与引用有效性
 ///
-/// cargo r --bin 10_3
+/// cargo r --bin lifetime
 ///
 /// # 目录:
 /// ## 生命周期与引用有效性

@@ -3,7 +3,7 @@
 
 /// 19.5 宏
 ///
-/// cargo r --bin 19_5
+/// cargo r --bin macros
 ///
 /// ## 目录:
 /// - 声明（Declarative）宏： macro_rules!

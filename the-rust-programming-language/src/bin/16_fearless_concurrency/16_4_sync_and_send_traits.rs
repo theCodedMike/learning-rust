@@ -1,6 +1,6 @@
 /// 16.4 使用 Sync 和 Send 特征的可扩展并发
 ///
-/// cargo r --bin 16_4
+/// cargo r --bin sync-and-send
 ///
 /// ## 目录:
 /// ### 通过 Send 允许在线程间转移所有权

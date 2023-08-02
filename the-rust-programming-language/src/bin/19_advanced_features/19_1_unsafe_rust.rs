@@ -2,7 +2,7 @@ use std::slice;
 
 /// 19.1 不安全Rust
 ///
-/// cargo r --bin 19_1
+/// cargo r --bin unsafe
 ///
 /// ## 目录:
 /// ### 不安全的超能力

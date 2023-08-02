@@ -3,7 +3,7 @@ use std::ops::{Add, Deref};
 
 /// 19.2 高级特征
 ///
-/// cargo r --bin 19_2
+/// cargo r --bin advanced-traits
 ///
 /// ## 目录:
 /// ### 关联类型在 trait 定义中指定占位符类型

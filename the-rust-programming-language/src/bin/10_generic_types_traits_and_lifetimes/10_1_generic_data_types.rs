@@ -5,7 +5,7 @@ use std::fmt::Display;
 
 /// 10.1 泛型数据类型
 ///
-/// cargo r --bin 10_1
+/// cargo r --bin generic
 ///
 /// # 目录:
 /// ### 1、泛型数据类型

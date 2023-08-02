@@ -2,7 +2,7 @@ use std::fs;
 use std::io::{Read, Write};
 use std::net::{TcpListener, TcpStream};
 
-/// cargo r --bin 20_1
+/// cargo r --bin s-web-server
 ///
 /// ### 请求格式:
 ///```

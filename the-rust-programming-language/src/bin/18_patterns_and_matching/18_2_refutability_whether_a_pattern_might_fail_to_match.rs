@@ -1,6 +1,6 @@
 /// 18.2 模式是否会匹配失败
 ///
-/// cargo r --bin 18_2
+/// cargo r --bin fail-to-match
 ///
 /// ## 目录:
 /// - 模式有两种形式：refutable（可反驳的）和 irrefutable（不可反驳的）

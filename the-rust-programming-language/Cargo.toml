@@ -13,13 +13,14 @@ ansi_term = "0.12.1"
 serde = { version = "1.0.157", features = ["derive"] }
 serde_json = "1.0.94"
 cuckoofilter = "0.5.0"
+twox-hash = "1.6.3"
 
 [[bin]]
 name = "root"
 path = "src/main.rs"
 [[bin]]
 name = "guessing-game"
-path = "src/bin/2_guessing_game/project_guessing_game.rs"
+path = "src/bin/2_projects_guessing_game/guessing_game.rs"
 [[bin]]
 name = "var-and-mut"
 path = "src/bin/3_common_programming_concepts/3_1_variables_and_mutability.rs"
@@ -72,13 +73,13 @@ path = "src/bin/8_common_collections/8_2_storing_utf8_encoded_text_with_strings.
 name = "hashmap"
 path = "src/bin/8_common_collections/8_3_storing_keys_with_associated_values_in_hash_maps.rs"
 [[bin]]
-name = "error"
+name = "panic"
 path = "src/bin/9_error_handling/9_1_unrecoverable_errors_with_panic.rs"
 [[bin]]
 name = "result"
 path = "src/bin/9_error_handling/9_2_recoverable_errors_with_result.rs"
 [[bin]]
-name = "panic"
+name = "error"
 path = "src/bin/9_error_handling/9_3_to_panic_or_not_to_panic.rs"
 [[bin]]
 name = "generic"

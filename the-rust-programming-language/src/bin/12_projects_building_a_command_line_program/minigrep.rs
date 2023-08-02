@@ -4,7 +4,7 @@ use std::{env, process};
 
 /// 12 一个I/O项目: 构建命令行程序
 ///
-///   大小写敏感:  cargo r --bin 12  body  poem.txt
+///   大小写敏感:  cargo r --bin minigrep  body  poem.txt
 /// 大小写不敏感:  CASE_INSENSITIVE=1 cargo r --bin 12  body  poem.txt
 ///
 /// 本来这是一个独立的项目，为了代码集中在一起，就不单独搞了

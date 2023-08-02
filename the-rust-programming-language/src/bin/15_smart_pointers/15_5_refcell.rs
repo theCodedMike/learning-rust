@@ -6,7 +6,7 @@ use std::rc::Rc;
 
 /// 15.5 RefCell<T> 和内部可变性模式
 ///
-/// cargo r --bin 15_5
+/// cargo r --bin refcell
 ///
 /// ## 目录:
 /// - 内部可变性（Interior mutability）是 Rust 中的一个设计模式

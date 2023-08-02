@@ -3,7 +3,7 @@ use std::time::Duration;
 
 /// 16.1 在同一时间使用多线程
 ///
-/// cargo r --bin 16_1
+/// cargo r --bin thread
 ///
 /// ## 目录:
 /// - 竞争状态（Race conditions）: 多个线程以不一致的顺序访问数据或资源

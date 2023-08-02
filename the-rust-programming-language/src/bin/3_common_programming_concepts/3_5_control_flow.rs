@@ -3,7 +3,7 @@
 
 /// 3.5 控制流
 ///
-/// cargo r --bin 3_5
+/// cargo r --bin control-flow
 ///
 /// ## 目录
 ///
