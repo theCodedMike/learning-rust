@@ -1,25 +1,29 @@
 #![allow(dead_code)]
 #![allow(unused_variables)]
 
-/// 17.2 为使用不同类型地值而设计的特征对象
+/// 17.2 为使用不同类型的值而设计的特征对象
 ///
 /// cargo r --bin trait-object
 ///
-/// ## 目录:
+/// ## 目录
 /// ### 定义通用行为的 trait
+///
 /// ### 实现 trait
+///
 /// ### trait 对象执行动态分发
-/// - 静态分发（static dispatch）: 指编译器在编译时就知道该调用什么方法，一般发生在单态化时
-/// - 动态分发（dynamic dispatch）: 指编译器在编译时不知道调用什么方法，在运行时才确定调用什么方法
+/// - 静态分发(static dispatch): 指编译器在编译时就知道该调用什么方法，一般发生在单态化时
+/// - 动态分发(dynamic dispatch): 指编译器在编译时不知道调用什么方法，在运行时才确定调用什么方法
 /// - 当使用 trait object时，Rust 必须使用动态分发
-/// ### Trait 对象要求对象安全
+///
+/// ### Trait 对象需要类型安全
 /// 一个 trait 中所有的方法有如下属性时，则该 trait 是对象安全的：
 /// - 返回值类型不为 Self
 /// - 方法没有任何泛型类型参数
 ///
 fn main() {
-    // 定义通用行为的 trait
-    // 实现 trait
+    /* 定义通用行为的 trait */
+    // Draw
+    /* 实现 trait */
     let mut screen = Screen::new();
 
     let select_box = SelectBox {
@@ -39,10 +43,16 @@ fn main() {
     };
     screen.push(button);
 
+    /* trait 对象执行动态分发 */
     screen.run();
 
-    // trait 对象执行动态分发
-    // Trait 对象要求对象安全
+    /* Trait 对象要求对象安全 */
+    // 反例:
+    //
+    // pub trait Clone {
+    //     fn clone(&self) -> Self;
+    // }
+    //
 }
 pub trait Draw {
     fn draw(&self);
@@ -72,6 +82,7 @@ impl Draw for SelectBox {
 }
 
 pub struct Screen {
+    // Vec<&dyn Draw>
     components: Vec<Box<dyn Draw>>,
 }
 impl Screen {

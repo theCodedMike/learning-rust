@@ -12,7 +12,7 @@ use std::{env, process};
 /// 如果想单独搞，使用 cargo new minigrep 命令创建一个新的package
 ///
 /// crates.io里的ripgrep是一个更完善的版本，可以参考
-/// # 目录:
+/// ## 目录
 /// ## 12.1 接受命令行参数
 /// #### 读取参数值
 /// #### 将参数值保存进变量

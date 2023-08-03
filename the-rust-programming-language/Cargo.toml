@@ -37,6 +37,9 @@ path = "src/bin/3_common_programming_concepts/3_4_comments.rs"
 name = "control-flow"
 path = "src/bin/3_common_programming_concepts/3_5_control_flow.rs"
 [[bin]]
+name = "print"
+path = "src/bin/3_common_programming_concepts/print.rs"
+[[bin]]
 name = "ownership"
 path = "src/bin/4_understanding_ownership/4_1_what_is_ownership.rs"
 [[bin]]

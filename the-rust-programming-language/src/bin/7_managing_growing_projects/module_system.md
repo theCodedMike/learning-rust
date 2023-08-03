@@ -334,3 +334,77 @@ pub fn add_to_wait_list() {
     
 }
 ```
+
+### 补充
+```text
+    // 翻译
+    /*   Package: 项目
+     * WorkSpace: 工作空间
+     *     Crate: 包
+     *    Module: 模块
+     */
+
+    // 定义
+    //包(Crate)是一个独立的可编译单元，它编译后会生成一个可执行文件或者一个库
+
+    // 项目Package
+    /*
+     * Package就是一个项目，它包含有独立的Cargo.toml文件，以及因为功能性被组织在一起的一个或多个包
+     * 一个Package只能包含一个库(library)类型的包，但是可以包含多个二进制可执行类型的包
+     */
+     
+    //二进制Package
+    /* 创建一个二进制Package: $ cargo new my-project
+     *     |-- src
+     *     |   |-- main.rs
+     *     |-- Cargo.toml
+     * Cargo有一个惯例：src/main.rs 是二进制包的根文件，该二进制包的包名跟所属Package相同
+     */
+     
+    //库Package
+    /* 创建一个库类型的Package: $ cargo new --lib my-lib
+     *     |-- src
+     *     |   |-- lib.rs
+     *     |-- Cargo.toml
+     */
+     
+    //易混淆的Package和包
+    /* Package是一个项目工程，而包只是一个编译单元
+     * src/main.rs 和 src/lib.rs 都是编译单元，因此它们都是包
+     */
+     
+    // 避免同名引用
+    /* 解决方式1: 模块::函数
+     * use std::fmt;
+     * use std::io;
+     *
+     * fn function1() -> fmt::Result {
+     *     // --snip--
+     * }
+     *
+     * fn function2() -> io::Result<()> {
+     *     // --snip--
+     * }
+     */
+    /* 解决方式2: as别名引用
+     * use std::fmt::Result;
+     * use std::io::Result as IoResult;
+     *
+     * fn function1() -> Result {
+     *     // --snip--
+     * }
+     *
+     * fn function2() -> IoResult<()> {
+     *     // --snip--
+     * }
+     */ 
+     
+    // 限制可见性语法
+    /*
+     * pub 意味着可见性无任何限制
+     * pub(crate) 表示在当前包可见
+     * pub(self) 在当前模块可见
+     * pub(super) 在父模块可见
+     * pub(in <path>) 表示在某个路径代表的模块中可见，其中 path 必须是父模块或者祖先模块 eg: pub(in crate::x)
+     */
+```

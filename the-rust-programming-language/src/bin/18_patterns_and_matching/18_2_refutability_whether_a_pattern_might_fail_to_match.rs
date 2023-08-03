@@ -2,7 +2,7 @@
 ///
 /// cargo r --bin fail-to-match
 ///
-/// ## 目录:
+/// ## 目录
 /// - 模式有两种形式：refutable（可反驳的）和 irrefutable（不可反驳的）
 /// - 不可反驳的（irrefutable）: 能匹配任何传递的可能值的模式
 /// - 可反驳的（refutable）: 对某些可能的值进行匹配会失败的模式

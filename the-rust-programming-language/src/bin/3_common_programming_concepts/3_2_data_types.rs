@@ -112,6 +112,12 @@ fn main() {
         bool::default(),
         std::mem::size_of_val(&bool::default())
     ); // false is 1 bytes
+    println!("{}", true > false); // true
+    println!("{}", true > true); // false
+    println!("{}", false > true); // false
+    println!("{}", false > false); // false
+    println!("{}", true == true); // true
+    println!("{}", false == false); // true
     println!();
 
     /* 字符类型  4个字节 */
