@@ -2,6 +2,7 @@
 #![allow(unused_variables)]
 
 type Thunk = Box<dyn Fn() + Send + 'static>;
+type Result<T> = std::result::Result<T, std::io::Error>;
 
 /// 19.3 高级类型
 ///
@@ -10,31 +11,34 @@ type Thunk = Box<dyn Fn() + Send + 'static>;
 /// ## 目录
 /// ### 为了类型安全和抽象而使用 newtype 模式
 ///
-/// ### 类型别名用来创建类型同义词
+/// ### 类型别名(type alias)用来创建类型同义词
 /// - 类型别名的主要用途是减少重复
 ///
 /// ### 从不返回的 never type
 /// - !类型，被称为 empty type，因为它没有值。我们更倾向于称之为 never type
 /// - 在函数从不返回的时候充当返回值
-/// - 从不返回的函数被称为 发散函数（diverging functions）
+/// - 从不返回的函数被称为 发散函数(diverging functions)
 /// - never type 可以强转为任何其他类型
 ///
 /// ### 动态大小类型(dynamically sized types / unsized types)和 Sized trait
-/// - 动态大小类型（dynamically sized types）：有时被称为 "DST" 或 "unsized types"，这些类型允许我们处理只有在运行时才知道大小的类型
+/// - 动态大小类型(dynamically sized types): 有时被称为 "DST" 或 "unsized types"，这些类型允许我们处理只有在运行时才知道大小的类型
 /// - 为了处理 DST，Rust 提供了 Sized trait 来决定一个类型的大小是否在编译时可知
-/// - str   字符串切片    &str包含str的地址和长度
-/// - trait  特征也是动态大小类型     &dyn Trait  Box<dyn Trait>
-/// - [T]   数组切片
+/// - 对于DST，使用智能指针(例如Box)将它转换为指针即可
+/// - ?Sized 表示编译时大小不确定
+///
+///   str              字符串切片    &str包含str的地址和长度
+///   trait object     特征对象      &dyn Trait / Box<dyn Trait>
+///   [T]              数组切片      &[T]
+///   递归类型                       Box
 ///
 fn main() {
     /* 为了类型安全和抽象而使用 newtype 模式 */
 
     /* 类型别名用来创建类型同义词 */
-    type Kilometers = i32;
+    type Kilometers = i32; // Kilometers 是 i32 的 同义词(synonym)
     let x: i32 = 5;
     let y: Kilometers = 5;
-    println!("x + y = {}", x + y);
-
+    println!("x + y = {}", x + y); // 10
     let f = returns_long_type();
     takes_long_type(f);
 
@@ -73,7 +77,7 @@ fn generic<T: Sized>(t: T) {
     // --snip--
 }
 
-/// T: ?Sized 表示T可能是也可能不是 Sized
+/// T: ?Sized 表示T可能是也可能不是 Sized，即编译时大小不确定也可
 ///
 /// ?Trait 语法只能用于Sized ，而不能用于任何其他trait
 ///

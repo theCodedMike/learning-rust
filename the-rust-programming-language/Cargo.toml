@@ -149,7 +149,7 @@ name = "sync-and-send"
 path = "src/bin/16_fearless_concurrency/16_4_sync_and_send_traits.rs"
 [[bin]]
 name = "ool"
-path = "src/bin/17_oop_features_of_rust/17_1_characteristics_of_Ool.rs"
+path = "src/bin/17_oop_features_of_rust/17_1_characteristics_of_ool.rs"
 [[bin]]
 name = "trait-object"
 path = "src/bin/17_oop_features_of_rust/17_2_trait_object.rs"
@@ -181,11 +181,11 @@ path = "src/bin/19_advanced_features/19_4_advanced_functions_and_closures.rs"
 name = "macros"
 path = "src/bin/19_advanced_features/19_5_macros.rs"
 [[bin]]
+name = "x_macros"
+path = "src/bin/19_advanced_features/macros.rs"
+[[bin]]
 name = "s-web-server"
 path = "src/bin/20_projects_building_a_multithread_web_server/20_1_single_thread_web_server.rs"
 [[bin]]
 name = "m-web-server"
 path = "src/bin/20_projects_building_a_multithread_web_server/20_2_multi_threads_web_server.rs"
-[[bin]]
-name = "x_macros"
-path = "src/bin/x_macros/macros.rs"

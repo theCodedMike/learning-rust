@@ -6,6 +6,9 @@ use std::fs::File;
 use std::io;
 use std::io::{Error, Write};
 
+///
+/// 以下内容均为补充
+///
 /// cargo r --bin x_macros
 ///
 fn main() {
@@ -128,8 +131,8 @@ fn matches() {
 enum MyError {
     FileWriteError,
 }
-impl From<io::Error> for MyError {
-    fn from(_e: io::Error) -> MyError {
+impl From<Error> for MyError {
+    fn from(_e: Error) -> MyError {
         MyError::FileWriteError
     }
 }

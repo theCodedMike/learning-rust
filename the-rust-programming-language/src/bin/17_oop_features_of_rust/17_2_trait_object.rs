@@ -13,16 +13,18 @@
 /// ### trait 对象执行动态分发
 /// - 静态分发(static dispatch): 指编译器在编译时就知道该调用什么方法，一般发生在单态化时
 /// - 动态分发(dynamic dispatch): 指编译器在编译时不知道调用什么方法，在运行时才确定调用什么方法
-/// - 当使用 trait object时，Rust 必须使用动态分发
+/// - 当使用 trait object 时，Rust必须使用动态分发
 ///
 /// ### Trait 对象需要类型安全
+/// 只有对象安全（object-safe）的 trait 可以实现为特征对象。
 /// 一个 trait 中所有的方法有如下属性时，则该 trait 是对象安全的：
 /// - 返回值类型不为 Self
-/// - 方法没有任何泛型类型参数
+/// - 方法中没有任何泛型类型参数
 ///
 fn main() {
     /* 定义通用行为的 trait */
     // Draw
+
     /* 实现 trait */
     let mut screen = Screen::new();
 
@@ -46,7 +48,7 @@ fn main() {
     /* trait 对象执行动态分发 */
     screen.run();
 
-    /* Trait 对象要求对象安全 */
+    /* trait object 要求对象安全 */
     // 反例:
     //
     // pub trait Clone {
@@ -82,16 +84,18 @@ impl Draw for SelectBox {
 }
 
 pub struct Screen {
-    // Vec<&dyn Draw>
+    // components: Vec<&dyn Draw>
     components: Vec<Box<dyn Draw>>,
 }
 impl Screen {
     pub fn new() -> Self {
         Screen { components: vec![] }
     }
+
     pub fn push(&mut self, component: impl Draw + 'static) {
         self.components.push(Box::new(component));
     }
+
     pub fn run(&self) {
         for component in self.components.iter() {
             component.draw();

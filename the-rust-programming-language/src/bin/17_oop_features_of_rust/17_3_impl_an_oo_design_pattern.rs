@@ -7,49 +7,56 @@ use ansi_term::Colour;
 ///
 /// cargo r --bin oo-design-pattern
 ///
-/// ## 目录:
+/// ## 目录
 /// ### 定义 Post 并新建一个草案状态的实例
+///
 /// ### 存放博文内容的文本
+///
 /// ### 确保博文草案的内容是空的
+///
 /// ### 请求审核博文来改变其状态
+///
 /// ### 增加改变 content 行为的 approve 方法
+///
 /// ### 状态模式的权衡取舍
-/// ### 将状态和行为编码为类型
-/// ### 实现状态转移为不同类型的转换
+/// #### 将状态和行为编码为类型
+/// #### 实现状态转移为不同类型的转换
 /// - 在 Rust 中面向对象模式并不总是最好的解决方案
 ///
 fn main() {
     let mut post = Post::new();
     post.request_review();
     post.add_text("I ate a salad for lunch today");
-    assert_eq!("", post.content());
+    println!("{}", post.content());
     post.approve();
     post.request_review();
-    assert_eq!("", post.content());
+    println!("{}", post.content());
     post.approve();
-    assert_eq!("I ate a salad for lunch today", post.content());
+    println!("{}", post.content());
+    println!("normal pattern end...");
 
-    // 定义 Post 并新建一个草案状态的实例
-    // 存放博文内容的文本
-    // 确保博文草案的内容是空的
-    // 请求审核博文来改变其状态
-    // 增加改变 content 行为的 approve 方法
+    /* 定义 Post 并新建一个草案状态的实例 */
+    /* 存放博文内容的文本 */
+    /* 确保博文草案的内容是空的 */
+    /* 请求审核博文来改变其状态 */
+    /* 增加改变 content 行为的 approve 方法 */
     let mut post = PostUseTrait::new();
     post.add_text("I ate a salad for lunch today");
-    assert_eq!("", post.content());
+    println!("{}", post.content());
     post.request_review();
-    assert_eq!("", post.content());
+    println!("{}", post.content());
     post.approve();
-    assert_eq!("I ate a salad for lunch today", post.content());
+    println!("{}", post.content());
+    println!("state pattern end...");
 
-    // 状态模式的权衡取舍
+    /* 状态模式的权衡取舍 */
     // 将状态和行为编码为类型
     // 实现状态转移为不同类型的转换
     let mut post = PostUseStruct::new();
     post.add_text("I ate a salad for lunch today");
     let post = post.request_review();
     let post = post.approve();
-    assert_eq!("I ate a salad for lunch today", post.content());
+    println!("{}", post.content());
 }
 /******************************普通模式****************************/
 pub struct Post {

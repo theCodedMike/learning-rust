@@ -5,7 +5,7 @@
 ///
 /// cargo r --bin more-match
 ///
-/// ## 目录:
+/// ## 目录
 /// ### match 分支
 /// ```
 /// match VALUE {
@@ -15,8 +15,11 @@
 /// }
 /// ```
 /// ### if let 条件表达式
+///
 /// ### while let 条件循环
+///
 /// ### for 循环
+///
 /// ### let 语句
 /// ```
 /// let PATTERN = EXPRESSION;
@@ -84,6 +87,7 @@ fn main() {
     let point = (3, 5);
     print_coordinates(&point);
 }
+
 fn print_coordinates(&(x, y): &(i32, i32)) {
     println!("Current location: ({}, {})", x, y);
 }
