@@ -7,6 +7,9 @@ default-run = "root"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+hello_macro = { path = "../procedural_macro/hello_macro" }
+hello_macro_derive = { path = "../procedural_macro/hello_macro/hello_macro_derive" }
+
 num = "0.4.0"
 rand = "0.8.5"
 ansi_term = "0.12.1"
@@ -17,6 +20,8 @@ twox-hash = "1.6.3"
 ouroboros = "0.15.6"
 thread_local = "1.1.7"
 tokio = { version = "1.28.0", features = ["rt", "rt-multi-thread", "macros"] }
+
+
 
 [[bin]]
 name = "root"

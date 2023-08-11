@@ -1,6 +1,9 @@
 #![allow(dead_code)]
 #![allow(unused_variables)]
 
+use hello_macro::HelloMacro;
+use hello_macro_derive::HelloMacro;
+
 /// 19.5 宏
 ///
 /// cargo r --bin macros
@@ -8,7 +11,7 @@
 /// ## 目录
 /// - 声明宏(declarative macros): macro_rules!
 /// - 过程宏(procedural macros):
-///   1. 自定义派生宏: #[derive] 宏在结构体和枚举上指定通过 derive 属性添加的代码
+///   1. 自定义派生宏: #[derive()] 宏在结构体和枚举上指定通过 derive 属性添加的代码
 ///   2. 类属性宏: (Attribute-like)宏定义可用于任意项的自定义属性
 ///   3. 类函数宏: 宏看起来像函数不过作用于作为参数传递的 token
 /// ### 宏和函数的区别
@@ -24,8 +27,10 @@
 /// ### 用于从属性生成代码的过程宏
 ///
 /// ### 如何编写自定义 derive 宏(custom derive macro)
+/// - derive过程宏只能用在struct/enum/union上，多数用在结构体上
 ///
 /// ### 类属性宏(attribute-like macros)
+/// - 类属性宏除了可以用于struct/enum/union外，还可以用于其它项，例如函数
 ///
 /// ### 类函数宏(function-like macros)
 ///
@@ -50,13 +55,20 @@ fn main() {
     /* 用于从属性生成代码的过程宏 */
 
     /* 如何编写自定义 derive 宏 */
+    // 见项目 procedural_macro/hello_macro
+    Pancakes::hello_macro(); // Hello, Macro! My name is Pancakes!
+    User::hello_macro(); // Hello, Macro! My name is User!
 
     /* 类属性宏 */
     // #[route(GET, "/")]
     // fn index() {}
     //
     // #[proc_macro_attribute]
-    // pub fn route(attr: TokenStream, item: TokenStream) -> TokenStream {}
+    // pub fn route(attr: TokenStream, item: TokenStream) -> TokenStream {
+    //     // 第一个参数是说明属性包含的内容: Get, "/" 部分
+    //     // 第二个是属性所标注的类型项，在这里是 fn index() {...}，注意，函数体也被包含其中
+    // }
+    //
 
     /* 类函数宏 */
     // 这个宏会解析其中的 SQL 语句并检查其是否正确
@@ -65,4 +77,12 @@ fn main() {
     // sql!的定义如下:
     // #[proc_macro]
     // pub fn sql(input: TokenStream) -> TokenStream {}
+}
+
+#[derive(HelloMacro)]
+struct Pancakes;
+#[derive(HelloMacro)]
+struct User {
+    name: String,
+    age: u16,
 }

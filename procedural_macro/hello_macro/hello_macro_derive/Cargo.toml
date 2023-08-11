@@ -1,0 +1,13 @@
+[package]
+name = "hello_macro_derive"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+proc-macro = true
+
+[dependencies]
+syn = "2.0.15"     # 将字符串中的Rust代码解析成为一个可以操作的数据结构
+quote = "1.0.26"   # 将syn解析后的数据结构转换回Rust代码
