@@ -1,3 +1,4 @@
+use std::arch::asm;
 use std::slice;
 
 static TITLE: &str = "Hello, world!";
@@ -98,6 +99,117 @@ fn main() {
     let u = IntOrFloat { f: 1.0 };
     println!("now i is {}", unsafe { u.i }); // 1065353216
     println!("now f is {}", unsafe { u.f }); // 1
+
+    /* 补充 */
+    /* 内联汇编 */
+    // asm!宏，可以在Rust代码中嵌入汇编代码
+    // 支持以下架构:
+    // - x86 和 x86-64
+    // - ARM
+    // - AArch64
+    // - RISC-V
+
+    // 基本用法
+    unsafe {
+        asm!("nop"); //插入一个NOP指令(空操作) 到编译器生成的汇编代码中
+    }
+
+    // 输入和输出
+    let x: u64;
+    unsafe {
+        asm!("mov {}, 5", out(reg) x);
+    }
+    assert_eq!(x, 5);
+    //
+    // 首先，需要说明目标变量是作为内联汇编的输入还是输出，在本例中，是一个输出 out
+    // 最后，要指定变量将要使用的寄存器，本例中使用通用寄存器 reg，编译器会自动选择合适的寄存器
+    //
+    let i: u64 = 3;
+    let o: u64;
+    unsafe {
+        asm!("mov {0}, {1}", "add {0}, 5", out(reg) o, in(reg) i);
+    } //先把i的值复制到o，然后对o加5
+    assert_eq!(o, 8);
+
+    let mut x: u64 = 3;
+    unsafe {
+        asm!("add {0}, 5", inout(reg) x); // x既是输入也是输出
+    }
+    assert_eq!(x, 8);
+
+    let x: u64 = 3;
+    let y: u64;
+    unsafe {
+        asm!("add {0}, 5", inout(reg) x => y); // 指定不同的输入和输出
+    }
+    assert_eq!(y, 8);
+
+    // 延迟输出操作数
+    let mut a: u64 = 4;
+    let b: u64 = 4;
+    let c: u64 = 4;
+    unsafe {
+        asm!(
+        "add {0}, {1}",
+        "add {0}, {2}",
+        inlateout(reg) a,
+        in(reg) b,
+        in(reg) c,
+        );
+    }
+    assert_eq!(a, 12);
+
+    // 显式指定寄存器
+    /*let cmd = 0xd1;
+    unsafe { //reg是通用寄存器，而eax是x86下的寄存器
+        asm!("out 0x64, eax", in("reg") cmd);
+    }*/
+    println!("mul: 5 x 6 = {}", mul(5, 6));
+
+    // Clobbered寄存器  无需作为输出的状态都会被内联汇编修改，这个状态被称之为 "clobbered"
+    // three entries of four bytes each
+    let mut name_buf = [0_u8; 12];
+    // String is stored as ascii in ebx, edx, ecx in order
+    // Because ebx is reserved, the asm needs to preserve the value of it.
+    // So we push and pop it around the main asm.
+    // (in 64 bit mode for 64 bit processors, 32 bit processors would use ebx)
+    unsafe {
+        asm!(
+        "push rbx",
+        "cpuid",
+        "mov [rdi], ebx",
+        "mov [rdi + 4], edx",
+        "mov [rdi + 8], ecx",
+        "pop rbx",
+        // We use a pointer to an array for storing the values to simplify
+        // the Rust code at the cost of a couple more asm instructions
+        // This is more explicit with how the asm works however, as opposed
+        // to explicit register outputs such as `out("ecx") val`
+        // The *pointer itself* is only an input even though it's written behind
+        in("rdi") name_buf.as_mut_ptr(),
+        // select cpuid 0, also specify eax as clobbered
+        inout("eax") 0 => _,
+        // cpuid clobbers these registers too
+        out("ecx") _,
+        out("edx") _,
+        );
+    }
+    let name = core::str::from_utf8(&name_buf).unwrap();
+    println!("CPU Manufacturer ID: {}", name); // CPU Manufacturer ID: GenuineIntel
+
+    // Multiply x by 6 using shifts and adds
+    let mut x: u64 = 4;
+    unsafe {
+        asm!(
+        "mov {tmp}, {x}",
+        "shl {tmp}, 1",
+        "shl {x}, 2",
+        "add {x}, {tmp}",
+        x = inout(reg) x,
+        tmp = out(reg) _,
+        );
+    }
+    assert_eq!(x, 4 * 6);
 }
 
 unsafe fn dangerous() {
@@ -169,4 +281,22 @@ impl MyStruct {
 union IntOrFloat {
     i: u32,
     f: f32,
+}
+
+fn mul(a: u64, b: u64) -> u128 {
+    let lo: u64;
+    let hi: u64;
+
+    unsafe {
+        asm!(
+        // The x86 mul instruction takes rax as an implicit input and writes
+        // the 128-bit result of the multiplication to rax:rdx.
+        "mul {}",
+        in(reg) a,
+        inlateout("rax") b => lo,
+        lateout("rdx") hi
+        );
+    }
+
+    ((hi as u128) << 64) + lo as u128
 }

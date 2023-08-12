@@ -20,7 +20,8 @@ twox-hash = "1.6.3"
 ouroboros = "0.15.6"
 thread_local = "1.1.7"
 tokio = { version = "1.28.0", features = ["rt", "rt-multi-thread", "macros"] }
-
+thiserror = "1.0.40"
+anyhow = "1.0.70"
 
 
 [[bin]]
@@ -92,6 +93,9 @@ path = "src/bin/9_error_handling/9_2_recoverable_errors_with_result.rs"
 [[bin]]
 name = "error"
 path = "src/bin/9_error_handling/9_3_to_panic_or_not_to_panic.rs"
+[[bin]]
+name = "none_or_err"
+path = "src/bin/9_error_handling/none_or_err.rs"
 [[bin]]
 name = "generic"
 path = "src/bin/10_generic_types_traits_and_lifetimes/10_1_generic_data_types.rs"

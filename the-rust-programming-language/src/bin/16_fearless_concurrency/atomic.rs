@@ -22,7 +22,7 @@ fn main() {
        2: 编译器优化导致在编译阶段发生改变(内存重排序 reordering)
        3: 运行阶段因 CPU 的缓存机制导致顺序被打乱
     */
-    memory_barrier();
+    memory_ordering();
 }
 
 ///
@@ -86,17 +86,17 @@ fn producer() -> JoinHandle<()> {
         unsafe {
             DATA = 100; // A
         }
-        READY.store(true, Ordering::Release); // B: 内存屏障
+        READY.store(true, Ordering::Release); // B: 内存顺序
     })
 }
 fn consumer() -> JoinHandle<()> {
     std::thread::spawn(|| {
-        while !READY.load(Ordering::Acquire) { // C: 内存屏障
+        while !READY.load(Ordering::Acquire) { // C: 内存顺序
         }
         assert_eq!(100, unsafe { DATA }); // D
     })
 }
-fn memory_barrier() {
+fn memory_ordering() {
     reset();
     let t_prod = producer();
     let t_cons = consumer();

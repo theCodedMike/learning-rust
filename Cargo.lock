@@ -2270,6 +2270,7 @@ name = "the-rust-programming-language"
 version = "0.1.0"
 dependencies = [
  "ansi_term",
+ "anyhow",
  "cuckoofilter",
  "hello_macro",
  "hello_macro_derive",
@@ -2278,6 +2279,7 @@ dependencies = [
  "rand 0.8.5",
  "serde",
  "serde_json",
+ "thiserror",
  "thread_local 1.1.7",
  "tokio",
  "twox-hash",

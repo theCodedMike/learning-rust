@@ -9,10 +9,12 @@
 /// ### 枚举值
 ///
 /// ### Option 枚举和其相对于空值的优势
+/// ```rust
 /// pub enum Option<T> {
-///     None, /// No value
-///     Some(T), /// Some value of type `T`
+///     None,    // No value
+///     Some(T), // Some value of type `T`
 /// }
+/// ```
 ///
 fn main() {
     /* 枚举值 */
@@ -52,6 +54,18 @@ fn main() {
     let new = plus_one(have);
     let none_plus_val = plus_one(none);
     println!("{:?}, {:?}", new, none_plus_val); // Some(6), None
+
+    /* 补充 */
+    // 枚举 -> 整数
+    let i = SecurityLevel::First as i32;
+    println!("{}", i); // -1
+    println!("{}", SecurityLevel::Fifth == SecurityLevel::Fifth);
+    //println!("{}", -1 == SecurityLevel::First); // can't compare `{integer}` with `SecurityLevel`
+
+    // 整数 -> 枚举
+    //1.手动实现 From/TryFrom Trait
+    println!("{:?}", Week::from(3)); // Wednesday
+                                     //2.使用三方包  num-derive、num_enum
 }
 enum IpAddrKind {
     V4, // 成员(variant)
@@ -91,5 +105,40 @@ fn plus_one(x: Option<i32>) -> Option<i32> {
     match x {
         None => None,
         Some(i) => Some(i + 1),
+    }
+}
+
+#[derive(PartialEq)]
+enum SecurityLevel {
+    First = -1, // 第一个枚举如果不指定具体的值(这里为-1)，则默认从0开始，依次往下累加
+    Second,     // 自动推导为0
+    Third = 10,
+    Fourth, // 自动推导为11
+    Fifth,  // 自动推导为12
+    Six = 100,
+}
+
+#[derive(Debug)]
+enum Week {
+    Monday = 1,
+    Tuesday,
+    Wednesday,
+    Thursday,
+    Friday,
+    Saturday,
+    Sunday,
+}
+impl From<i32> for Week {
+    fn from(value: i32) -> Self {
+        match value {
+            1 => Week::Monday,
+            2 => Week::Tuesday,
+            3 => Week::Wednesday,
+            4 => Week::Tuesday,
+            5 => Week::Friday,
+            6 => Week::Saturday,
+            7 => Week::Sunday,
+            _ => panic!("Failed to convert i32 to Week: {}", value),
+        }
     }
 }

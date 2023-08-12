@@ -115,7 +115,8 @@ fn main() {
     // world
     println!();
 
-    /* 字符串操作 补充 */
+    /* 补充 */
+    /* 字符串操作 */
     // 操作字符串-插入 只适用于String
     let mut s = String::from("Hello rust!");
     s.insert(5, ',');
