@@ -7,8 +7,8 @@ default-run = "root"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-hello_macro = { path = "../procedural_macro/hello_macro" }
-hello_macro_derive = { path = "../procedural_macro/hello_macro/hello_macro_derive" }
+hello_macro = { path = "../rust_macro/hello_macro" }
+hello_macro_derive = { path = "../rust_macro/hello_macro/hello_macro_derive" }
 
 num = "0.4.0"
 rand = "0.8.5"
@@ -190,7 +190,7 @@ path = "src/bin/19_advanced_features/19_4_advanced_functions_and_closures.rs"
 name = "macros"
 path = "src/bin/19_advanced_features/19_5_macros.rs"
 [[bin]]
-name = "x_macros"
+name = "std_macros"
 path = "src/bin/19_advanced_features/macros.rs"
 [[bin]]
 name = "s-web-server"

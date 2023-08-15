@@ -55,7 +55,14 @@ fn main() {
     /* 用于从属性生成代码的过程宏 */
 
     /* 如何编写自定义 derive 宏 */
-    // 见项目 procedural_macro/hello_macro
+    // 见项目 rust_macro/hello_macro
+    // std提供的可派生的Trait:
+    // 1、用于程序员输出的 Debug
+    // 2、等值比较的 PartialEq 和 Eq
+    // 3、次序比较的 PartialOrd 和 Ord
+    // 4、复制值的 Clone 和 Copy
+    // 5、固定大小的值到值映射的 Hash
+    // 6、默认值的 Default
     Pancakes::hello_macro(); // Hello, Macro! My name is Pancakes!
     User::hello_macro(); // Hello, Macro! My name is User!
 

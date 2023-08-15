@@ -9,7 +9,7 @@ use std::io::{Error, Write};
 ///
 /// 以下内容均为补充
 ///
-/// cargo r --bin x_macros
+/// cargo r --bin std_macros
 ///
 fn main() {
     println!("\n\nhello, macro!\n\n");
@@ -29,8 +29,6 @@ fn main() {
     //todo();
     //format_args();
     //format();
-    //const_format_args();
-    //format_args_nl();
     //env();
     //option_env();
     //concat_idents();
@@ -52,7 +50,9 @@ fn main() {
     //println();
     //eprint();
     //eprintln();
-    dbg();
+    //dbg();
+    //thread_local();
+    //is_x86_feature_detected();
 }
 
 fn panic() {
@@ -218,6 +218,16 @@ fn todo() {
 /// Causes compilation to fail with the given error message when encountered.
 fn compile_error() {
     // 在自定义声明式宏时使用
+    macro_rules! give_me_foo_or_bar {
+        (foo) => {};
+        (bar) => {};
+        ($x:ident) => {
+            compile_error!("This macro only accepts `foo` or `bar`");
+        };
+    }
+
+    give_me_foo_or_bar!(foo); // no problem
+                              //give_me_foo_or_bar!(neither); // ^ will fail at compile time with message "This macro only accepts `foo` or `bar`"
 }
 
 /// Constructs parameters for the other string-formatting macros.
@@ -240,16 +250,6 @@ fn format() {
     println!("{}", string); // hello rust
 }
 
-/// Same as format_args, but can be used in some const contexts.
-fn const_format_args() {
-    // 无法在代码中使用
-}
-
-/// Same as format_args, but adds a newline in the end.
-fn format_args_nl() {
-    // 无法在代码中使用
-}
-
 /// Inspects an environment variable at compile time.
 fn env() {
     let path: &'static str = env!("PATH");
@@ -268,11 +268,12 @@ fn option_env() {
 /// Concatenates identifiers into one identifier.
 fn concat_idents() {
     // unstable
-    /*
-    fn foobar() -> u32 { 23 }
+
+    /*fn foobar() -> u32 {
+        23
+    }
     let f = concat_idents!(foo, bar);
-    println!("{}", f());
-    */
+    println!("{}", f());*/
 }
 
 /// Concatenates literals into a byte slice.
@@ -347,7 +348,7 @@ fn include() {
 /// Expands to a string that represents the current module path.
 fn module_path() {
     let module_path = module_path!();
-    println!("{}", module_path); // x_macros
+    println!("{}", module_path); // std_macros
 }
 
 /// Evaluates boolean combinations of configuration flags at compile-time.
@@ -418,4 +419,17 @@ fn dbg() {
     println!("{}", b);
     // [src/bin/x_macros/macros.rs:410] a * 2 = 4
     // 5
+}
+
+/// A thread local storage key which owns its contents.
+fn thread_local() {
+    thread_local! {
+        // 定义线程本地变量，类似于Java中的ThreadLocal
+    }
+}
+
+/// A macro to test at runtime whether a CPU feature is available on x86/x86-64 platforms.
+fn is_x86_feature_detected() {
+    let is_support = is_x86_feature_detected!("aes");
+    println!("{}", is_support);
 }

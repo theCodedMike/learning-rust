@@ -4,6 +4,6 @@ members = [
     "design-patterns/dive-into-design-patterns",
     "design-patterns/rust-design-patterns",
     "third-party-crates",
-    "procedural_macro/hello_macro",
+    "rust_macro/hello_macro",
 ]
 resolver = "2"
