@@ -250,6 +250,21 @@ fn main() {
     let unit = implicitly_ret_unit();
     println!("{:?}", unit); // ()
     assert_eq!(unit, ());
+
+    /* 运算符对应的trait */
+    //     <、<=、>、>=    std::cmp::PartialOrd
+    //     ==、!=         std::cmp::PartialEq
+    //     +              std::ops::Add
+    //     -              std::ops::Sub
+    //     *              std::ops::Mul
+    //     /              std::ops::Div
+    //     %(取模)         std::ops::Rem
+    //     -(取负)         std::ops::Neg
+    //     +=             std::ops::AddAssign
+    //     -=             std::ops::SubAssign
+    //     *=             std::ops::MulAssign
+    //     /=             std::ops::DivAssign
+    //     %=             std::ops::RemAssign
 }
 
 /// 隐式地返回单元类型
